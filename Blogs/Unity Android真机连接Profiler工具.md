@@ -28,7 +28,9 @@ apk安装到手机后，使用命令把手机app连接到Unity的指定端口上
 
 ![](https://raw.githubusercontent.com/iningwei/SelfPictureHost/master/Blog/20201022161821.png)
 
-Unity自己会自动搜索到之前配置的端口，并完成连接
+Unity自己会自动搜索到之前配置的端口，并完成连接。
+
+Unity的日志会输出``Attempting to connect to player IP: 127.0.0.1, ports 55000-55511, 4600``。这也表明端口限定为4600和[55000,55511]
 
 
 ## 注意事项
