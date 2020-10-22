@@ -8,7 +8,7 @@ android手机连接Profiler，一般有两种方式Wifi和USB，笔者使用的�
 ### 手机
 手机需要开启USB调试，且能用USB线和PC相连。是否连接完毕，可以使用``adb devices``命令查看
 ### Unity打包
-需要勾选``Development Build`` ``Autoconnect Profiler`` ``Deep Profiling Support`` ``Script Debugging``几项
+需要勾选``Development Build`` ``Autoconnect Profiler`` ``Deep Profiling Support`` ``Script Debugging``几项。勾选了这几项后打包会很慢。
 ![](https://raw.githubusercontent.com/iningwei/SelfPictureHost/master/Blog/20201022161050.png)
 
 （有些博文说Deep Profiling不支持IL2CPP，目前我这边测试的Unity版本是已经支持了的）
