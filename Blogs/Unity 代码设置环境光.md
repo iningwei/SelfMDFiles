@@ -7,7 +7,9 @@ Window->Rendering->Lighting Settings可以打开场景环境光的设置界面�
 - Gradient对应的代码为：``RenderSettings.ambientMode = AmbientMode.Trilight;``
 
 设置界面中选中Gradient后会出现三种颜色设置选项：
+
 ![](https://raw.githubusercontent.com/iningwei/SelfPictureHost/master/Blog/20201119191423.png)
+
 对应的代码为：
 ```csharp
 RenderSettings.ambientSkyColor = new Color(,,);
