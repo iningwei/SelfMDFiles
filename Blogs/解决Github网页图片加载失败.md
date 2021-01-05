@@ -30,6 +30,19 @@ Mac: command+shift+g打开``前往``输入``/etc/hosts``
 猜测是域名解析错误（DNS污染、hosts设置错误、DNS缓存未更新等）。因此使用hosts配置，域名解析直接指向IP地址来绕过DNS的解析
 
 ## 更进一步
+- 
 由于IP地址经常变动，因此上述提供的IP地址不一定能用，可以在[ipaddress](https://www.ipaddress.com/)输入域名后来获得最新的IP，比如输入：avatars0.githubusercontent.com，获得的IP为199.232.96.133：
 
 ![](https://raw.githubusercontent.com/iningwei/SelfPictureHost/master/Blog/20210105183345.png)
+
+- 
+另外若hosts配置已经是最新的，仍然遇到部分图片加载失败，可以F12后在控制台找到报错的域名，同样通过ipaddress获得IP，然后对应的IP和域名加入到hosts中
+
+- 
+如果遇到DNS缓存问题，可以执行cmd命令，重建本地dns缓存，命令为``ipconfig/flushdns``
+
+补充命令：
+```
+ipconfig/displaydns  # 显示dns缓存 
+ipconfig/renew  # 重请从DHCP服务器获得IP 
+```
