@@ -9,7 +9,7 @@ Player Setting中``Scripting Backend使用默认的Mono``、 ``Api Compatibility
 ### 谈谈空包中的资源
 有哪些资源被默认打入了包中，是一个值得分析的问题，因为资源一方面会影响包体大小、另一方面会影响软件的启动速度
 
-资源文件主要是位于assets/bin/Data目录下的``unity default resources``和``data.unity3d``
+资源文件主要是位于assets/bin/Data目录下的``unity default resources``和``data.unity3d``，占用空间约4MB
 
 笔者使用[assetstudio](https://github.com/Perfare/AssetStudio)可以很方便分析出这两个资源文件都包含哪些东西
 
