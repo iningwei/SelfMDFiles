@@ -20,6 +20,6 @@ CFBundleDisplayName~ipad="要显示的名字2";
 增加Application has localized display name项，并设置值为YES
 
 ## 异常处理
-上述设置完毕后，出的包并没有显示中文，原因是在InfoPlist.strings中Target Membership选项下没有勾选上本项目
+上述设置完毕后，出的包并没有显示中文， 原因是在InfoPlist.strings中Target Membership选项下没有勾选上本项目
 
 ![](https://raw.githubusercontent.com/iningwei/SelfPictureHost/master/Blog/20210208172013.png)
