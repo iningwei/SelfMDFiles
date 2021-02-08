@@ -1,6 +1,8 @@
 ## Unity先导出XCode工程
+
 ## 增加本地化语言选项
 ![](https://raw.githubusercontent.com/iningwei/SelfPictureHost/master/Blog/20210208171121.png)
+
 ## 设置本地化语言
 ![](https://raw.githubusercontent.com/iningwei/SelfPictureHost/master/Blog/20210208171229.png)
 
@@ -11,6 +13,7 @@
 CFBundleDisplayName~iphone="要显示的名字1";
 CFBundleDisplayName~ipad="要显示的名字2";
 ```
+
 ## Info.plist设置对本地化display name的支持
 ![](https://raw.githubusercontent.com/iningwei/SelfPictureHost/master/Blog/20210208171425.png)
 
