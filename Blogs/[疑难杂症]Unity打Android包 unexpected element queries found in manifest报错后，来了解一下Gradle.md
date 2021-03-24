@@ -68,3 +68,12 @@ a: 下载可以考虑使用android studio来下载：File->ProjectStructure->Pro
 b: 官方下载地址：https://services.gradle.org/distributions/gradle-6.1.1-all.zip
 ### 待续
 上述操作过后依旧报错``Lint infrastructure error``。无奈升级到Unity2020.1.17f1。顺利出包。费解的是2020.1.17f1对应的Gradle版本是5.6.4，也不满足要求啊。。。
+
+
+
+### 补充，后续
+后面又遇到这个报错，使用的unity版本是2019.4.0f1, 通过修改安装目录下baseProjectTemplate.gradle中gradle版本解决。
+
+默认值是：``classpath 'com.android.tools.build:gradle:3.4.0'``
+
+改为：``classpath 'com.android.tools.build:gradle:3.4.3'``
