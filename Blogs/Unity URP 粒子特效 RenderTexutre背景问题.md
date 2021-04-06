@@ -1,5 +1,5 @@
 ## 说明
-项目使用了URP，计划使用RT的方式播放特效。
+项目使用了URP，使用RT的方式播放特效。播放RT的材质球的Shader使用了Universal Render Pipeline/Lit, Workflow Mode为Specular、Surface Type为Transparent
 
 某特效是由普通Mesh和Unity粒子特效构成。
 
