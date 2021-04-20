@@ -12,3 +12,7 @@
 
 ## 参考文档
 [Render Texture Transparency not working anymore in URP](https://forum.unity.com/threads/render-texture-transparency-not-working-anymore-in-urp-coming-from-lwrp.749441/)
+
+
+
+
