@@ -1,0 +1,3 @@
+相机Clear Flags设置为 SolidColor；Background设置为白色，Alpha为0
+
+显示RT物体的材质球使用Transparent Shader
