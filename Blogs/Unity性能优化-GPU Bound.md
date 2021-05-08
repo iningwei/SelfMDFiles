@@ -67,7 +67,7 @@ Unity中GPU瓶颈通常受填充率（特别是手机设备）、内存带宽、
 - 优化定制的shader
 2. Overdraw
 同一个像素被多次绘制
-3. Image Effects
+3. 批处理Image Effects
 
 ### 内存带宽(Memory Bandwidth)
 内存带宽是指GPU读写专用内存的速度。如果我们的游戏受到内存带宽的限制，这通常意味着我们使用的纹理太大，GPU无法快速处理。

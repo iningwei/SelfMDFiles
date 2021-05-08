@@ -1,0 +1,1 @@
+安卓平台下,在Player->Resolution and Presentation->Resolution Scaling下有Blit Type设置选项，默认是Always，还可以设置Never或者Auto
