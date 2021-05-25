@@ -44,19 +44,3 @@ shader A和shader B结合使用的效果可以用下图来说明：
 [原文：Using the Stencil Buffer in Unity Free](https://alastaira.wordpress.com/2014/12/27/using-the-stencil-buffer-in-unity-free/?utm_source=tuicool&utm_medium=referral)
 
 [官方文档：ShaderLab: Stencil](https://docs.unity3d.com/Manual/SL-Stencil.html)
-
-
-## 更多补充说明
-### 
-
-
-
-开发工具相关
-Android
-iOS
-C#
-Js&Ts&Nodejs
-Unity
-Shader
-Python
-SDK
