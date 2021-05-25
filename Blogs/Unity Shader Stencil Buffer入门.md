@@ -107,6 +107,42 @@ shader A和shader B结合使用的效果可以用下图来说明：
 - 角色使用了shader B,它进行了模板缓冲测试，只有模板缓冲值为1的区域可以被渲染
 
 
+## 补充
+UGUI中的默认的UI-Default.shader默认集成了模板缓存来支持裁剪，其Stencil Comparison和Stencil Operation使用float类型来表示;ColorMask也使用float类型表示，下述内容为相关映射：
+
+- Comparison Functions
+
+0 - Always (?)
+1 - Never
+2 - Less
+3 - Equal
+4 - LEqual
+5 - Greater
+6 - NotEqual
+7 - GEqual
+8 - Always (? This is the default for the UI shaders so I suspect this one is technically the 'correct' Always, but any value beyond it will also count as Always)
+
+- Stencil Operations (these seem to line up with the order they're shown in the docs):
+
+0 - Keep (?)
+1 - Zero
+2 - Replace
+3 - IncrSat
+4 - DecrSat
+5 - Invert
+6 - IncrWrap
+7 - DecrWrap
+
+- ColorMask
+0-1 A
+2-3 B
+4-5 G
+6-7 BG
+8-9 A
+10-11 RB
+12-13 RG
+14-15 RBG
+
 ## 其它
 [原文：Using the Stencil Buffer in Unity Free](https://alastaira.wordpress.com/2014/12/27/using-the-stencil-buffer-in-unity-free/?utm_source=tuicool&utm_medium=referral)
 
