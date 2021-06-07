@@ -63,6 +63,8 @@ pow(x, y): x的y次方；
 
 smoothstep与lerp类似，返回 0 和 1 之间平滑的 Hermite 插值
 
+abs(x)
+
 
 参考文档：
 [微软DX HLSL内置函数文档](https://docs.microsoft.com/zh-cn/windows/win32/direct3dhlsl/dx-graphics-hlsl-intrinsic-functions)
