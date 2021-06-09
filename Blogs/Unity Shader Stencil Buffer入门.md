@@ -7,25 +7,32 @@ Unity Stencil Buffer入门
 
 模板缓冲的允许你为屏幕上的每个像素额外存储一个无符号的8位整数（0-255）。这些值可以被后来的shader进行查询和比较，用来决定最终像素的显示情况。
 
+## 图形渲染管线中，基于单个像素的测试操作的顺序
+![](https://raw.githubusercontent.com/iningwei/SelfPictureHost/master/Blog/20210607164049.png)
+
 ## 模板测试
 - 如果模板测试不通过，该像素会被丢弃
 - 模板缓冲区中每个像素对应存放一个8位整数(0-255)
 - 模板测试也是一个比较值的过程，将参考值和模板缓冲中的值进行比较
 - 即使模板测试不通过，依然可以修改模板缓冲中的值。这一点和深度测试不一样。
 
+
 ### 语法
 - Ref referenceValue
 
 设置参考值，referenceValue(范围0-255)
+
 - ReadMask readMask
 
 参考值和模板缓冲的值，会和readMask进行按位与(&)操作，readMask(范围0-255)，默认值为255，即对读取值不作修改
+
 - WriteMask writeMask
 
 当将值写入模板缓冲时，值会和writeMask进行按位与(&)操作，writeMask(范围0-255)，默认值为255，即对写入值不作修改
+
 - Comp comparisonFunction
 
-参考值和缓冲值要怎样比较，默认值为always，comparisonFunction可以取的值如下：
+参考值和缓冲值要怎样比较，默认值为Always，comparisonFunction可以取的值如下：
 
 |  值   | 说明  |
 |  ----  | ----  |
@@ -40,7 +47,7 @@ Unity Stencil Buffer入门
 
 - Pass stencilOperation
 
-当模板测试和深度测试都通过时，模板缓冲的值要怎么处理，默认值为keep，stencilOperation可以取的值如下：
+当模板测试和深度测试都通过时，模板缓冲的值要怎么处理，默认值为 Keep ，stencilOperation可以取的值如下：
 
 |  值   | 说明  |
 |  ----  | ----  |
@@ -55,11 +62,11 @@ Unity Stencil Buffer入门
 
 - Fail stencilOperation
 
-当模板测试不通过时，模板缓冲的值要怎么处理，默认值为keep
+当模板测试不通过时，模板缓冲的值要怎么处理，默认值为 Keep
 
 - ZFail stencilOperation
 
-当模板测试通过，深度测试不通过时，模板缓冲的值要怎么处理，默认值为keep
+当模板测试通过，深度测试不通过时，模板缓冲的值要怎么处理，默认值为 Keep
 
 
 ### 判断依据
@@ -68,6 +75,7 @@ if (参考值 & readMask comparisonFunction 缓冲值 & readMask) 像素通过
 
 else 像素舍弃
 ```
+将stencil buffer的值与ReadMask与运算，然后与Ref值进行Comp比较，结果为true时进行Pass操作，否则进行Fail操作，操作值写入stencil buffer前先与WriteMask与运算。
 
 因为readMask默认值为255，所以这时可以简化为：``if (参考值 comparisonFunction 缓冲值)``
 
@@ -107,41 +115,8 @@ shader A和shader B结合使用的效果可以用下图来说明：
 - 角色使用了shader B,它进行了模板缓冲测试，只有模板缓冲值为1的区域可以被渲染
 
 
-## 补充
-UGUI中的默认的UI-Default.shader默认集成了模板缓存来支持裁剪，其Stencil Comparison和Stencil Operation使用float类型来表示;ColorMask也使用float类型表示，下述内容为相关映射：
-
-- Comparison Functions
-
-0 - Always (?)
-1 - Never
-2 - Less
-3 - Equal
-4 - LEqual
-5 - Greater
-6 - NotEqual
-7 - GEqual
-8 - Always (? This is the default for the UI shaders so I suspect this one is technically the 'correct' Always, but any value beyond it will also count as Always)
-
-- Stencil Operations (these seem to line up with the order they're shown in the docs):
-
-0 - Keep (?)
-1 - Zero
-2 - Replace
-3 - IncrSat
-4 - DecrSat
-5 - Invert
-6 - IncrWrap
-7 - DecrWrap
-
-- ColorMask
-0-1 A
-2-3 B
-4-5 G
-6-7 BG
-8-9 A
-10-11 RB
-12-13 RG
-14-15 RBG
+## 本质
+从本质上来讲，stencil buffer是为了实现多个“绘画者”之间互相通信而存在的。由于gpu是流水线作业，它们之间无法直接通信，所以通过这种共享数据区的方式来传递消息，从而达到一些“不可告人”的目的。
 
 ## 其它
 [原文：Using the Stencil Buffer in Unity Free](https://alastaira.wordpress.com/2014/12/27/using-the-stencil-buffer-in-unity-free/?utm_source=tuicool&utm_medium=referral)
