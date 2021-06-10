@@ -316,3 +316,41 @@ Shader "UI/Default"
 }
 
 ```
+该较新版本提供了_UIMaskSoftnessX、_UIMaskSoftnessY参数，主要是对RectMask2D组件的Softness进行支持。
+另外该版本已不再使用UnityGet2DClipping函数进行clip计算，计算移到vert和frag中进行，且计算原理也有调整。
+
+若基于老版本，依旧使用UnityGet2DClipping函数的原理，其实可以略微调整，即可实现新版本对RectMask2D组件Softness支持的效果。核心代码如下：
+```csharp
+inline float SoftUnityGet2DClipping (in float2 position, in float4 clipRect)
+{
+    float2 xy = (position.xy-clipRect.xy)/float2(_UIMaskSoftnessX,_UIMaskSoftnessY)*step(clipRect.xy, position.xy);
+    float2 zw = (clipRect.zw-position.xy)/float2(_UIMaskSoftnessX,_UIMaskSoftnessY)*step(position.xy,clipRect.zw);
+    float2 factor = clamp(0, zw, xy);
+    return saturate(min(factor.x,factor.y));
+}
+			
+fixed4 frag(v2f IN) : SV_Target
+{
+    half4 color = (tex2D(_MainTex, IN.texcoord) + _TextureSampleAdd) * IN.color;
+
+    #ifdef UNITY_UI_CLIP_RECT
+    color.a *= SoftUnityGet2DClipping(IN.worldPosition.xy, _ClipRect);
+    #endif
+
+    #ifdef UNITY_UI_ALPHACLIP
+    clip (color.a - 0.001);
+    #endif
+
+    return color;
+}
+```
+通过上述代码也可以很快改造Shader实现对软裁切的支持。
+
+另外，上述代码软裁切还是有点生硬，还可以通过增加二阶函数，柔和软化效果：
+```csharp
+#ifdef UNITY_UI_CLIP_RECT
+float soft= SoftUnityGet2DClipping(IN.worldPosition.xy, _ClipRect);
+soft=2*soft*(1-soft)*_SoftPower+soft*soft;
+color.a *=soft;
+#endif
+```
