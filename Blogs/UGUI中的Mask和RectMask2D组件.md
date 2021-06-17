@@ -6,7 +6,7 @@ Mask使用Stencil的方式进行裁切，其依赖一个Image组件，裁剪区�
 
 - 性质
 1，单个Mask会多出两个dc，一个是Mask组件自身的dc(一般称之为首)，一个是Mask遍历完子节点后生成的dc（一般称之为尾）。
-2，多个Mask若满足合批条件（同Render Depth、同Material、同Atlas），则多个Mask的首和首， 尾和尾是可以合批的。但是首和尾是肯定不能合批的。
+2，多个Mask若满足合批条件（``同Render Depth、同Material、同Atlas``），则多个Mask的首和首， 尾和尾是可以合批的。但是首和尾是肯定不能合批的。
 3，Mask内的UI和外部UI不可合批，多个Mask内的UI若满足合批条件则可合批。
 4，Mask嵌套不能超过9层
 

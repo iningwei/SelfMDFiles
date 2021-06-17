@@ -316,10 +316,10 @@ Shader "UI/Default"
 }
 
 ```
-该较新版本提供了_UIMaskSoftnessX、_UIMaskSoftnessY参数，主要是对RectMask2D组件的Softness进行支持。
+该较新版本提供了_UIMaskSoftnessX、_UIMaskSoftnessY参数，主要是对RectMask2D组件的Softness进行支持，即实现对UI``软裁剪``的支持。
 另外该版本已不再使用UnityGet2DClipping函数进行clip计算，计算移到vert和frag中进行，且计算原理也有调整。
 
-若基于老版本，依旧使用UnityGet2DClipping函数的原理，其实可以略微调整，即可实现新版本对RectMask2D组件Softness支持的效果。核心代码如下：
+若基于老版本，依旧使用UnityGet2DClipping函数的原理，其实可以略微调整，亦可实现新版本对RectMask2D组件Softness支持的效果。核心代码如下：
 ```csharp
 inline float SoftUnityGet2DClipping (in float2 position, in float4 clipRect)
 {
@@ -344,7 +344,6 @@ fixed4 frag(v2f IN) : SV_Target
     return color;
 }
 ```
-通过上述代码也可以很快改造Shader实现对软裁切的支持。
 
 另外，上述代码软裁切还是有点生硬，还可以通过增加二阶函数，柔和软化效果：
 ```csharp
@@ -354,3 +353,6 @@ soft=2*soft*(1-soft)*_SoftPower+soft*soft;
 color.a *=soft;
 #endif
 ```
+
+## 参考文档：
+[Unity3D研究院之UGUI软裁切](https://www.xuanyusong.com/archives/4650)
