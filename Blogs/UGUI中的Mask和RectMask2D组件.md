@@ -31,3 +31,6 @@ RectMask2D下的所有子节点都无法与外界UI节点和批，且多个RectM
 
 ## 其它
 默认情况下Mask是硬裁切，RectMask2D支持软裁切
+
+## 参考
+[Unity 3D - Mask和RectMask2D区别](https://www.pianshen.com/article/21261176829/)
