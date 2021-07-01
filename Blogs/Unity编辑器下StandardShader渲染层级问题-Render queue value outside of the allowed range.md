@@ -24,4 +24,3 @@ if (shaderName == "My/Standard" || shaderName == "My/Standard (Specular setup)")
     }
 }
 ```
-https://blog.csdn.net/ldy597321444/article/details/75257110
