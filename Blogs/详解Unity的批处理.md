@@ -35,7 +35,7 @@ Demo中两个相同的Cube，被不同的光源影响。导致动态批处理失
 Demo中两个Cube，虽然Mesh网格一致，但是使用了不同的材质球，导致动态批处理失败。提示信息均为：Objects have different matierials
 
 - Different Reflection Probes 
-Demo中两个相同Cube，分别在它们的尺寸范围内设置了反射探针。动态批处理失败。
+Demo中两个相同Cube，两个反射探针分别罩着它们。动态批处理失败。
 两个版本Unity提示信息均为：Objects are affected by different reflection probes.
 经扩展测试，GPU Instancing这种情况下也会失败。
 
@@ -56,21 +56,49 @@ Demo场景中三个相同Cube，其中两个设置了``Batching Static``,运行�
 
 
 - Dynamic Batching Disabled to Avoid Z-Fighting 
-Demo场景中两个相同Cube，shader使用的是Unlit/Color。两个版本中的合批提示都是：
+Demo场景中两个相同Cube，shader使用的是Unlit/Color,相机的渲染路径选择了Deferred。两个版本中的合批提示都是：
 Dynamic Batching is turned off in the Player Settings or is disabled temporarily in the current context to avoid z-fighting.
-至于为什么Unlit/Color会导致Z-Fighting,目前笔者不得而知，希望知道的大佬不吝赐教。
+若渲染路径改成Forward,shader使用Unlit/Color，那么动态合批成功。
+若渲染路径使用Deferred,shader使用standard，那么动态合批成功。
+至于为什么Deferred渲染路径和Unlit/Color会导致Z-Fighting,目前笔者不得而知，希望知道的大佬不吝赐教。
 
 - Instancing Different Geometries
+Demo场景中两个Cube,两个Sphere，使用同一个材质球，开启了GPU instancing。两个Cube之间合批成功，两个Sphere之间合批成功。它们彼此无法合批，因为Mesh不一致。提示信息为：Rendering different meshes or submeshes with GPU instancing.
+
 
 - Lightmapped Objects
+场景中有三个Cube, 其中两个缩放一致，另一个比较高,其它设置一样。场景中的灯光使用的是Baked模式。
+在Unity5.6.7f1中三个Cube都勾选了Lightmap Static。
+在Unity2020.3.2f1中三个Cube勾选的是Contribute GI 和Reflection Probe Static。（这里不确定低版本往高版本转换后的设置对否）
+由于光照贴图不兼容，因此在新版本Unity中，Lighting->Baked Lightmaps面板中重新生成了光照贴图。
+三个Cube无法动态合批，提示信息为：Objects are lightmapped。
+扩展测试，开启GPU Instancing也无法合批
+
+
 - Lightprobe Affected Objects
+这个案例没看懂#！
+
 - Mixed Sided Mode Shadow Casters 
+Demo场景中两个Quad，其中一个Cast Shadows设置为On，另一个设置为Two Sided。两个模型的渲染动态合批。但是阴影的渲染无法合批，提示信息为：Objects have different "Cast Shadows" settings.
+
+
 - Multipass
+Demo场景中两个相同Cube，使用自定义Shader，shader由3个pass组成。无法动态合批，提示信息：An object is using a multi-pass shader.
+
 - Multiple Forward Lights
+Demo场景中有一个Cube使用的是Standard shader，三个灯光，其中一个平行光，两个Spot光；相机Rendering Path为Forward。因此三个灯光都会运算一次，使得一个Cube被绘制3次。提示信息为：An object is affected by multiple forward lights.
+扩展测试，开启GPU Instancing依旧会被绘制3次。
+
+
 - Non-instanceable Property Set 
+
+
 - Odd Negative Scaling 
 - Shader Disables Batching
 - Too Many Indices in Dynamic Batch
 - Too Many Indices in Static Batch
 - Too Many Vertex Attributes for Dynamic Batching
 - Too Many Vertices for Dynamic Batching
+
+## 补充
+- Objects are rendered using different rendering functions
