@@ -85,7 +85,7 @@ Fallback "Legacy Shaders/Transparent/Cutout/VertexLit"
 1，#pragma增加了``vertex:vert``，告诉Unity我们要使用自己的顶点函数vert
 2，Input结构增加了``fixed4 my_vertColor``变量，方便后续surf函数进行访问。变量类型为fixed4，则支持rgba
 3，实现vert函数，把模型的顶点色存到上述变量my_vertColor中
-需要注意的是vert函数内增加了``UNITY_INITIALIZE_OUTPUT(Input,o);``该内置宏用于把变量初始化为0。不增加改宏的话，在编辑器环境下 HLSL编译器编译时 会报错：Shader error in 'My/Vert Color/Legacy Shaders/Transparent/Cutout/Diffuse': 'vert': output parameter 'o' not completely initialized at line 24 (on d3d11)
+需要注意的是vert函数内增加了``UNITY_INITIALIZE_OUTPUT(Input,o);``该内置宏用于把变量初始化为0。不增加该宏的话，在编辑器环境下 HLSL编译器编译时 会报错：Shader error in 'My/Vert Color/Legacy Shaders/Transparent/Cutout/Diffuse': 'vert': output parameter 'o' not completely initialized at line 24 (on d3d11)
 在HLSLSupport.cginc文件中对该宏有定义：
 ```c
 // Initialize arbitrary structure with zero values.

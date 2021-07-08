@@ -14,3 +14,12 @@ render.SetPropertyBlock(properties);
 ```
 
 需要注意的是该方式并不支持UGUI，在UGUI中只有通过多个材质球来实现属性的修改。（比如为UGUI元素添加了mask组件后，其实内部也是生成了一个依然使用UI-Default.shader的新材质球，该材质球有新的属性设置）
+
+## 补充
+经过笔者测试，对sampler2D类型的属性设置为null，运行时会报错，代码如下：
+```csharp
+MaterialPropertyBlock properties = new MaterialPropertyBlock();
+properties.SetTexture("_MainTex", null); 
+renderer.SetPropertyBlock(properties);
+```
+https://forum.unity.com/threads/materialpropertyblock-can-not-set-texture-null.1137178/
