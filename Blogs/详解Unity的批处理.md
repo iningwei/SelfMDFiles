@@ -1,4 +1,19 @@
-动态批处理要求300 vertices
+## 渲染流水线
+简言之渲染流水线的任务就是把三维场景渲染为二维图像。这个过程通常由CPU和GPU共同完成。
+在渲染物体之前，CPU需要为渲染物体做很多准备工作，主要包括如下三个步骤：
+- Data Transfer(数据加载到显存中)
+程序开始之前，所有的数据都是在磁盘(HDD)中的。程序运行后，为了CPU能够快速访问数据，需要先把数据载入到内存(RAM)。GPU也有自己的可以快速访问的类内存结构，叫显存（VRAM），当需要渲染物体时，网格和纹理等数据又会被加载到显存中。
+- Set Render States(设置渲染状态)
+渲染状态(Render State)定义了场景中的网格应该如何被渲染。包括使用哪个shader、光源、材质、纹理等。在调用图形渲染API进行绘制前需要设置好这些状态值，它们能够指导GPU如何渲染我们传递到显存的数据。
+- Draw Call(调用图形渲染API)
+在模型和纹理等数据传输到显存，并设置了正确的渲染状态后，CPU调用渲染API函数通知GPU进行绘制，这个步骤叫做“Draw Call”。
+CPU和GPU是并行工作的，它们之间通过命令缓冲区(Command Buffer)这个队列进行沟通，大概如下：
+![](https://raw.githubusercontent.com/iningwei/SelfPictureHost/master/Blog/20210712192947.png)
+
+还有一个概念:批次(Batch)，也很重要。调用一次渲染API的绘制接口向GPU提交使用相同渲染状态来渲染物体的行为称为渲染批次。从渲染API的调用角度看，Batch和Draw Call是一样的。但是在游戏引擎中它们的实际意义是不一样的。Batch一般是指经过打包之后的Draw Call。如下两种缓冲区命令可以看出它们的区别：
+``渲染状态A --> 渲染A -->渲染状态B --> 渲染B --> 渲染状态C --> 渲染C`` Draw Call：3 Batch：3
+
+``渲染状态A --> 渲染A --> 渲染B --> 渲染C`` Draw Call: 3 Batch：1
 
 ## 合批失败原因汇总
 Unity官方使用Unity5.6.0b6制作了一个集合了各种合批失败原因的工程：[BatchBreakingCause](https://github.com/Unity-Technologies/BatchBreakingCause)。笔者使用Unity5.6.7f1和Unity2020.3.2f1两个版本进行了对比测试。
