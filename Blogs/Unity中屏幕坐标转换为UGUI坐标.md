@@ -1,0 +1,19 @@
+推荐使用API：RectTransformUtility.ScreenPointToLocalPointInRectangle
+该函数有四个参数：
+- RectTransform
+目标Rect
+- ScreenPoint
+屏幕坐标
+- Camera
+渲染相机，如果Canvas渲染模式是Overlay，则传null;否则需要传入正确的相机，才能得到正确结果
+- out Position
+out参数，可以获得屏幕坐标在相对于Rect的坐标，该坐标受目标Rect的Anchor影响，即该坐标的原点和Rect的Anchor一致
+
+另外该函数返回值为bool类型，但是该bool指明的并不是屏幕坐标是否在目标Rect内，而是表明该点是否在Rect所在平面。如果返回false，那么说明该函数无法把相机空间的电转换到Rect空间；这个时候就要检查参数是否有问题了。因此建议使用out参数的时候要先判断函数返回值是否为true。
+更多参考这里：[Unity RectTransformUtility.ScreenPointToLocalPointInRectangle](https://gamedev.stackexchange.com/questions/157325/unity-recttransformutility-screenpointtolocalpointinrectangle)
+
+
+## 扩展
+RectTransformUtility封装了一些常用的针对RectTransform的方法，比如:
+- RectangleContainsScreenPoint
+检测屏幕坐标是否位于某Rect上
