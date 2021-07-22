@@ -108,6 +108,15 @@ Shader "SimplestInstancedShader"
 VF Shader添加INSTANCED属性要复杂一些。
 首先要引入``#pragma multi_compile_instancing``，告诉Unity生成instancing变体(但是Surface Shader并不需要引入)。这样的话在Inspector面板才有Enable Instancing选项。
 
+还需要了解下面几个关键宏：
+UNITY_TRANSFER_INSTANCE_ID(v, o)：当需要在在片段着色器中访问每个 Instance 独有的属性时，用于在顶点着色器中将 Instance ID 从输入结构拷贝至输出结构中
+UNITY_SETUP_INSTANCE_ID(v)：目的是让 Instance ID 在 Shader 函数里也能够被访问到，并且重载正确的矩阵数据（通过内部的 UnitySetupCompoundMatrices() 方法），需要在着色器的最前面调用
+UNITY_INSTANCING_BUFFER_START(name) / UNITY_INSTANCING_BUFFER_END(name)：用于定义 Constant Buffer，每个 Instance 独有的属性必须定义在一个遵循特殊命名规则的 Constant Buffer 中
+UNITY_DEFINE_INSTANCED_PROP(type, name)：第一个参数为属性类型，第二个参数为属性名字，该宏会定义一个 Uniform 数组
+
+UNITY_ACCESS_INSTANCED_PROP(bufferName, name)：第一个参数为属性所在缓冲区名字，第二个参数为属性名字，该宏会使用 Instance ID 作为索引到 Uniform 数组中去取当前Instance 对应的数据
+ 
+
 ## GPU Instancing的限制
 1，同mesh，同material,同shader是GPU Instancing的基础条件
 2，不直接支持图片类型
@@ -115,6 +124,8 @@ VF Shader添加INSTANCED属性要复杂一些。
 若尝试修改Shader为其增加对目标贴图属性进行支持后，该shader也会报错。
 一般来说只支持数值类型的属性。
 解决方法参见：https://answer.uwa4d.com/question/5b1e22f454646026e9ddd77d
+3，GPU Instancing一次合批受限于GPU内存缓冲区的容量限制。一般而言台式机缓冲区大小为64KB，大多数移动设备最大容量为16KB。
+因此对于很多相同的物体，比如几千上万个cube，GPU Instancing也无法在一个批次中完成渲染。
 
 ## 支持平台
 - DirectX 11 and DirectX 12 on Windows
