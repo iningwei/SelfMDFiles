@@ -96,4 +96,6 @@ Fallback "Legacy Shaders/Transparent/Cutout/VertexLit"
 #define UNITY_INITIALIZE_OUTPUT(type,name)
 #endif
 ```
+主要就是因为编辑器选择了使用DX11渲染，需要使用该宏对数据进行初始化
+
 4，最后在surf函数中颜色输出时关联上顶点色即可

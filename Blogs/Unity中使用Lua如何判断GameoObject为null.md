@@ -9,3 +9,6 @@ public static class UnityEngineObjectExt
     }
 }
 ```
+
+## 补充说明
+事实上在Unity中当一个物体被Destroy或者未初始化的情况下，该对象在C#侧也不等于null。之所以等于null，是因为UnityEngine.Object重载了==操作符。可以通过System.Object.ReferenceEquals(null,obj)进行验证。
