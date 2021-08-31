@@ -75,7 +75,7 @@ Unity中全局keyword上限限制为384个（其中有大约60个是unity预留�
 
 ## shader变体剥离
 对于确定不需要的shader变体是不必要打入包体的，剥离不必要的变体同样可以降低打包时间和包体大小。通过对以下回调监听，可以自主控制shader变体打包：
-- [IPreprocessShaders.OnProcessShader](https://docs.unity3d.com/ScriptReference/Build.IPreprocessShaders.OnProcessShader.html):在Unity编译普通Shader前会收到该回调
+- [IPreprocessShaders.OnProcessShader](https://docs.unity3d.com/ScriptReference/Build.IPreprocessShaders.OnProcessShader.html) :在Unity编译普通Shader前会收到该回调
 - IPreprocessComputeShaders.OnProcessComputeShader:在Unity编译Compute Shader前会收到该回调
 
 更多参考：[Stripping scriptable shader variants](https://blog.unity.com/technology/stripping-scriptable-shader-variants)
