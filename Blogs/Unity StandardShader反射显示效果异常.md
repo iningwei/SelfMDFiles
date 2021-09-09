@@ -15,9 +15,27 @@
         RenderSettings.skybox = mat; 
         DynamicGI.UpdateEnvironment();//must call this fuction,or skybox will not work corecctly
 ```
+![](https://raw.githubusercontent.com/iningwei/SelfPictureHost/master/Blog/20210907154426.png)
+
 
 ## 如何解决
-最终发现还是Skybox导致的。笔者开发环境下Lighting->Environment->Skybox Material默认是没有设置天空盒的，虽然在运行过程中通过代码进行了加载，但是不知道为什么并没有对StandardShader的反射效果生效，目前还没有查到原因。
-也因此在打包后真机上出现同样的问题。
-在编辑器下通过设置一个默认的天空盒即可暂时规避该问题。
-![](https://raw.githubusercontent.com/iningwei/SelfPictureHost/master/Blog/20210907154426.png)
+最终发现其实是自己对PBR的反射没有理解到位，工作流中缺少了一个关键步骤导致的-->需要反射探针（Reflection Probe）组件的配合才可以生效。
+笔者使用实时渲染，但是又不想每帧都生成反射贴图，因此对探针选择的刷新方式为：Via scripting。通过调用组件的RenderProbe()方法即可完成渲染。需要注意的是渲染需要一定时间（根据硬件不同而不同），因此会出现模型视觉效果突变的情况，这个就需要用户结合使用IsFinishedRendering()方法自己在逻辑上处理了。伪代码可如下：
+```csharp
+ var renderId = probe.RenderProbe();
+        TimerTween.Repeat(0.03f, () =>
+        {
+            if (probe != null && probe.IsFinishedRendering(renderId))
+            {
+				//TODO:
+            }
+
+           
+        });
+```
+
+## 补充：使用Reflection Probe后在极少部分安卓机型上变黑的问题
+笔者在13年机型三星note3中遇到。[reflection-probe-on-android-generates-black-images](https://forum.unity.com/threads/reflection-probe-on-android-generates-black-images.418445/) 这里有外国友人在Huawei MediaPad3 lite 上遇到过。
+
+关闭Reflection Probe的HDR属性即可。
+至于变黑的具体原因未知。
