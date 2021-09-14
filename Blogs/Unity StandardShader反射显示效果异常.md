@@ -37,5 +37,4 @@
 ## 补充：使用Reflection Probe后在极少部分安卓机型上变黑的问题
 笔者在13年机型三星note3中遇到。[reflection-probe-on-android-generates-black-images](https://forum.unity.com/threads/reflection-probe-on-android-generates-black-images.418445/) 这里有外国友人在Huawei MediaPad3 lite 上遇到过。
 
-关闭Reflection Probe的HDR属性即可。
-至于变黑的具体原因未知。
+关闭Reflection Probe的HDR属性即可。部分移动设备不支持HDR。
