@@ -19,7 +19,7 @@ Google Play Store
 ![](https://raw.githubusercontent.com/iningwei/SelfPictureHost/master/Blog/20210810122620.png)
 上图为依次下载的软件。
 
-如果您手机CPU架构也是armeabi-v7a，安卓版本和我的差异不大，那么可以直接下砸：[redme 9a gp-software](https://download.csdn.net/download/iningwei/23357287)
+如果您手机CPU架构也是armeabi-v7a，安卓版本和我的差异不大，那么可以直接下载：[redme 9a gp-software](https://download.csdn.net/download/iningwei/23357287)
 
 ## 其它
 把上述软件依次安装到手机，安装后在设置中修改各软件为自启动。
