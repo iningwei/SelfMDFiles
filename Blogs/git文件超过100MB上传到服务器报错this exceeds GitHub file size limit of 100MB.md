@@ -19,5 +19,5 @@ github向服务器commit时，若有大于100MB的文件会commit失败，同时
 3，再通过git add把大文件加入到add列表，然后通过commit,push即可顺利完成大文件的提交
 
 ## 疑难处理
-1，在push大文件的时候还是有可能遇到报错，诸如：``Remote "origin" does not support the LFS locking API.Consider disabling it with:git config lfs.XXXX.locksverify false``
+1，在安装了lfs，并正确添加track后。push大文件的时候还是有可能遇到报错，诸如：``Remote "origin" does not support the LFS locking API.Consider disabling it with:git config lfs.XXXX.locksverify false``
 可以直接按照提示输入git命令，然后就可以push成功了。
