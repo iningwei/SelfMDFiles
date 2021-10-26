@@ -48,11 +48,12 @@ string value1=curIntent.Call<string>("getStringExtra","key1")
 
 3，用Firebase FCM后台进行推送测试成功率太低了，也看不到服务端是否发送成功。建议使用服务端集成或者PostMan的方式。
 
-4，国内安装了谷歌服务的手机能否在杀掉进程的情况下收到推送消息，还没有测试确定。。。
+4，国内安装了谷歌服务的手机能否在杀掉进程的情况下收到推送消息?
+笔者通过对数量不多的国内和国外手机进行测试，发现：国内手机收不到（搜集了一些资料，获得的信息是大部分收不到）；海外Pixel手机顺利收到。
 
 
 
 
-
+## 补充
 有个unity fcm的小demo：https://github.com/firebase/quickstart-unity/tree/master/messaging/testapp
 
