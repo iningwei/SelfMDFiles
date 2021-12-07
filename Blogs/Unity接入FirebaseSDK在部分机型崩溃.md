@@ -41,20 +41,10 @@ backtrace:
 根据报错日志关键词，在Firebase的github上也有很多相关雷同的bug讨论，但是都没有给出妥帖的解决方法，最后都是因为问题超时被管理员关闭。
 
 ## 分析
-笔者手上有3款测试机，都是国产机器，情况如下：
-机器1，CPU架构armeabi-v7a，  安装了GP服务，    开梯子，    不崩溃且能获得FCM Token
-机器2，CPU架构armeabi-v7a，  未安装GP服务，    不开梯子，  不崩溃
-机器3，CPU架构arm64-v8a，    未安装GP服务，    不开字体，  崩溃报错如上所示
-因此初步分析在arm64架构上有问题。
-
-## 解决办法
-笔者一时半会儿找不到解决方向，于是新建了个空工程，导入分析和云推送这两个SDK。同样使用继承了MessagingUnityPlayerActivity的Activity作为启动Activity（项目中是这样使用的）。竟然在机器3上没有崩溃，但是会报错，错误信息为（假设该错误信息为X）：``Failed to read Firebase options from the app's resources. Either make sure google-services.json is included in your build or specify options explicitly.``。尝试在机器1上运行，报一样的错，且无法获得FCM Token。
-
-于是对两个工程进行比较，发现项目工程的Plugins/Android目录下有个``FirebaseApp.androidlib``目录，里面有AndroidManifest.xml文件、google-services.xml等文件。对项目工程手动删除该目录后打包，发现在机器3上APP已经不崩溃了，但是会报错，错误信息X。但是在机器1上也会报错信息X，且无法获得FCM Token，因此可以知道FirebaseApp.androidlib是必须的目录。
+经过多次测试是App首次运行FCM在尝试主动获取Token时因为网络原因（无网络、或者因为墙无法连通Google）导致的崩溃，[笔者在在官方GitHub上提了Issues，在一些朋友的帮助下也得到了解决](https://github.com/firebase/firebase-unity-sdk/issues/73)
 
 ### 注意事项
-笔者发现在删除FirebaseApp.androidlib目录后，后续打包的时候有概率会自动生成该目录，当打包完成后工程中生成了该目录，那么这个包就会在机器3上崩溃，需要删除该目录再打包。
-
+FirebaseApp.androidlib目录是打包过程中自动生成的必需目录。
 
 
  
