@@ -25,8 +25,9 @@
 ### 1.3 设置系统屏幕亮度
 系统亮度值的设置需要``WRITE_SETTINGS``权限，在6.0版本上还需要动态申请权限。
 6.0后除了常见[9大危险权限](https://www.jianshu.com/p/2fe4fb3e8ce0)外，对于设置悬浮窗(SYSTEM_ALERT_WINDOW)和修改系统设置(WRITE_SETTINGS)这两个权限还需要特殊设置。
+对于非系统签名应用是无法直接修改Settings界面中的信息的，必须授权。
 首先在AndroidManifest.xml中添加权限声明：``<uses-permission android:name="android.permission.WRITE_SETTINGS"/>``
-然后通过startActivityForResult来启动系统设置的授权界面，让用户动态授权：
+然后通过startActivityForResult来启动系统设置的授权界面，引导用户动态授权：
 ```java
 /**
      * 申请权限
@@ -60,6 +61,7 @@
 ```
 权限申请成功后，就可以对系统亮度值进行设置了。在设置亮度值之前，需要先设置亮度模式，该模式包括以下两种：
 - SCREEN_BRIGHTNESS_MODE_AUTOMATIC=1 为自动调节屏幕亮度
+自动亮度调节模式下可以根据光传感器传输的光照信息动态修改系统屏幕亮度。
 - SCREEN_BRIGHTNESS_MODE_MANUAL=0 为手动调节屏幕亮度
 只有设置为手动调节模式时，才可以动态设置系统的亮度值，因此系统屏幕亮度的设置分为两步：
 - 判断是否为手动模式，如不是设置为手动模式
@@ -147,3 +149,166 @@ getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         MyApplication.mContext.getContentResolver().notifyChange(uri, null);
 ```
 需要注意的是该方式设置的 不是对于当前界面的息屏时间，而是设置系统的息屏时间，因此如独立使用时仍然需要添加和申请系统权限(WRITE_SETTINGS)。
+
+
+
+``原文：https://blog.csdn.net/xk7298/article/details/93300488``
+
+
+## 补充
+补充一个设置系统屏幕亮度的全代码(基本原理同上文，部分地方实现逻辑有细微差别)
+```java
+package com.example.test;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.ContentResolver;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
+import android.provider.Settings;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Toast;
+
+public class MainActivity extends Activity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		//获取屏幕亮度
+		getScreenBrightness(this);
+		Toast.makeText(this, "系统屏幕亮度值" + getScreenBrightness(this),
+				Toast.LENGTH_SHORT).show();
+		// 设置APP 屏幕亮度后，系统Setting亮度将对此app 不生效
+		setAppScreenBrightness(100);
+		allowModifySettings();
+		setContentView(R.layout.activity_main);
+
+	}
+
+	/**
+	 * 1.获取系统默认屏幕亮度值 屏幕亮度值范围（0-255）
+	 * **/
+	private int getScreenBrightness(Context context) {
+		ContentResolver contentResolver = context.getContentResolver();
+		int defVal = 125;
+		return Settings.System.getInt(contentResolver,
+				Settings.System.SCREEN_BRIGHTNESS, defVal);
+	}
+
+	/**
+	 * 2.设置 APP界面屏幕亮度值方法
+	 * **/
+	private void setAppScreenBrightness(int birghtessValue) {
+		Window window = getWindow();
+		WindowManager.LayoutParams lp = window.getAttributes();
+		lp.screenBrightness = birghtessValue / 255.0f;
+		window.setAttributes(lp);
+	}
+
+	/**
+	 * 3.关闭光感，设置手动调节背光模式
+	 * 
+	 * SCREEN_BRIGHTNESS_MODE_AUTOMATIC 自动调节屏幕亮度模式值为1
+	 * 
+	 * SCREEN_BRIGHTNESS_MODE_MANUAL 手动调节屏幕亮度模式值为0
+	 * **/
+	public void setScreenManualMode(Context context) {
+		ContentResolver contentResolver = context.getContentResolver();
+		try {
+			int mode = Settings.System.getInt(contentResolver,
+					Settings.System.SCREEN_BRIGHTNESS_MODE);
+			if (mode == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC) {
+				Settings.System.putInt(contentResolver,
+						Settings.System.SCREEN_BRIGHTNESS_MODE,
+						Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
+			}
+		} catch (Settings.SettingNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * 4.非系统签名应用，引导用户手动授权修改Settings 权限
+	 * **/
+	private static final int REQUEST_CODE_WRITE_SETTINGS = 1000;
+
+	private void allowModifySettings() {
+		// Settings.System.canWrite(MainActivity.this)
+		// 检测是否拥有写入系统 Settings 的权限
+		if (!Settings.System.canWrite(MainActivity.this)) {
+			AlertDialog.Builder builder = new AlertDialog.Builder(this,
+					android.R.style.Theme_Material_Light_Dialog_Alert);
+			builder.setTitle("请开启修改屏幕亮度权限");
+			builder.setMessage("请点击允许开启");
+			// 拒绝, 无法修改
+			builder.setNegativeButton("拒绝",
+					new DialogInterface.OnClickListener() {
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							Toast.makeText(MainActivity.this,
+									"您已拒绝修系统Setting的屏幕亮度权限", Toast.LENGTH_SHORT)
+									.show();
+						}
+					});
+			builder.setPositiveButton("去开启",
+					new DialogInterface.OnClickListener() {
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							// 打开允许修改Setting 权限的界面
+							Intent intent = new Intent(
+									Settings.ACTION_MANAGE_WRITE_SETTINGS, Uri
+											.parse("package:"
+													+ getPackageName()));
+							startActivityForResult(intent,
+									REQUEST_CODE_WRITE_SETTINGS);
+						}
+					});
+			builder.setCancelable(false);
+			builder.show();
+		}
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		super.onActivityResult(requestCode, resultCode, data);
+		if (requestCode == REQUEST_CODE_WRITE_SETTINGS) {
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+				// Settings.System.canWrite方法检测授权结果
+				if (Settings.System.canWrite(getApplicationContext())) {
+					// 5.调用修改Settings屏幕亮度的方法 屏幕亮度值 200
+					ModifySettingsScreenBrightness(MainActivity.this, 200);
+					Toast.makeText(this, "系统屏幕亮度值" + getScreenBrightness(this),
+							Toast.LENGTH_SHORT).show();
+				} else {
+					Toast.makeText(MainActivity.this, "您已拒绝修系统Setting的屏幕亮度权限",
+							Toast.LENGTH_SHORT).show();
+				}
+			}
+		}
+	}
+
+	/**
+	 * 5.修改Setting 中屏幕亮度值
+	 * 
+	 * 修改Setting的值需要动态申请权限 <uses-permission
+	 * android:name="android.permission.WRITE_SETTINGS"/>
+	 * **/
+	private void ModifySettingsScreenBrightness(Context context,
+			int birghtessValue) {
+		// 首先需要设置为手动调节屏幕亮度模式
+		setScreenManualMode(context);
+
+		ContentResolver contentResolver = context.getContentResolver();
+		Settings.System.putInt(contentResolver,
+				Settings.System.SCREEN_BRIGHTNESS, birghtessValue);
+	}
+}
+
+
+```
