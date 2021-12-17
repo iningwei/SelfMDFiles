@@ -152,7 +152,7 @@ getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
 
 
-``原文：https://blog.csdn.net/xk7298/article/details/93300488``
+``参考：https://blog.csdn.net/xk7298/article/details/93300488``
 
 
 ## 补充
