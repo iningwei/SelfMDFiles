@@ -3,7 +3,7 @@
 
 笔者只以客户端流程和开发者后台内部测试下的注意事项进行说明，网络游戏中需要服务端和谷歌后台校验的也有一堆设置，具体请自己查询相关文档。
 ## 谷歌开发者后台准备工作
-1，注册谷歌开发者账户（需要交纳25美金，一次性的）
+1，注册[谷歌开发者](https://play.google.com/console/developers)账户（需要交纳25美金，一次性的）
 2，开发者后台创建项目
 3，选择一种测试模式并上传aab应用文件
 目前谷歌已经不支持apk格式包的上传，需要打包为aab格式并上传。
@@ -25,7 +25,7 @@
 Window->General->Services打开服务界面，启用Analytics并配置In-App Purchasing的Options项下的Key。
 配置后有可能会提示错误，可以通过点击左上角的Dashboard打开Unity Dashboard后台网页后刷新一下即不再提示错误。
 - 配置Receipt Validation Obfuscator
-Window->Unity IAP->Receipt Validation Obfuscator,打开界面后，按照提示，在谷歌开发者后台的Monetize->Monetization setup界面中的Licensing中找到Key，并拷贝到界面中(需要注意的是上面提到的Services界面中In-App Purchasing选项的Options中配置的也是这个Key)。然后点击Obfuscate Google Play License Key按钮，会在项目工程中自动生成需要的GooglePlayTangle.cs文件（同时也会生成AppStore支付需要的AppleTangle.cs文件）
+Window->Unity IAP->Receipt Validation Obfuscator,打开界面后，按照提示，在谷歌开发者后台的 创收（Monetize）->创收设置（Monetization setup） 界面中的Licensing中找到Key，并拷贝到界面中(需要注意的是上面提到的Services界面中In-App Purchasing选项的Options中配置的也是这个Key)。然后点击Obfuscate Google Play License Key按钮，会在项目工程中自动生成需要的GooglePlayTangle.cs文件（同时也会生成AppStore支付需要的AppleTangle.cs文件）
 - 后续就是支付代码集成相关工作了
 ## 测试
 对于内部测试模式下的应用，提交到后台后状态变为``已面向内部测试人员发布``即可进行测试，并不需要审核完毕。且应用包也不需要是从商店下载的，本地打的包亦可（需要注意的是包签名，包名必须和后台一样，笔者通过测试发现包版本号和后台的不一致亦可支付成功）。
@@ -33,7 +33,7 @@ Window->Unity IAP->Receipt Validation Obfuscator,打开界面后，按照提示�
 官方文档[测试您的 Google Play 结算库集成](https://developer.android.google.cn/google/play/billing/test#test-purchases-sandbox)提供了覆盖测试的注意事项，测试人员需要多加研读。
 
 ### 沙盒测试
-在开发者后台的Setup->License testing （许可测试）界面中可以配置支付测试的测试人员邮箱。这些人员在支付时就可以不用真实扣费了，且没有绑卡的需求。
+在开发者后台的：所有应用->设置（Setup）->许可测试（License testing）界面中可以配置支付测试的测试人员邮箱。这些人员在支付时就可以不用真实扣费了，且没有绑卡的需求。
 
 ### 正式环境支付
 正式版本下的支付，需要用户绑定支持国际支付的信用卡或者银联卡。
