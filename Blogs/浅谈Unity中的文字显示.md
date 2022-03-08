@@ -6,7 +6,7 @@
 DroidSansFallback字体是Android设备初期时默认的中文字体，由谷歌委托台湾华康科技设计的，是可以免费商用的字体。这个字体的观感和微软的雅黑类似，看起来非常的舒适，支持东亚的各国的文字（繁体中文、简体中文、韩文、日文）。但是由于Android系统的可定制，太过自由，不排除有些厂商会修改默认字体，因此在安卓机器中若默认字体不是DroidSansFallback，即使机器中有该字体，Unity程序在遇到Arial字库中没有的字符时，也无法查找到，造成显示上的问题。
 基于上述原因，不建议使用默认字体Arial，除非你的游戏是纯英文的，不考虑本地化和特殊字符。
 
-``PS:笔者测试DroidSansFallback字体样式和Arial很详尽，肉眼几乎不可区分``
+``PS:笔者测试DroidSansFallback字体样式和Arial很详尽，肉眼几乎不可区分``，可以点击[这里](https://download.csdn.net/download/iningwei/83914827)下载该字体。
 
 ## 动态字体
 上述提到不建议使用内置Arial字体，因此玩家可以根据需要把.ttf字体拖到Untiy内，比如，我把C:\Windows\Fonts目录下``幼圆 常规``拖到Unity内为：
