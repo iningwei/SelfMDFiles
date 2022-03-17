@@ -21,9 +21,9 @@ push整个推送环节中，push通道是决定整个发送率和到达率的关
 更多内容请参考：[海外产品push搭建全流程](https://zhuanlan.zhihu.com/p/315501207)
 ## 接入流程
 
-官方文档：[使用 Untiy 设置 Firebase Cloud Messaging 客户端应用](https://firebase.google.com/docs/cloud-messaging/unity/client?authuser=0)已经有了很详尽的客户端接入流程，包括Android和iOS。
+官方文档： [使用 Untiy 设置 Firebase Cloud Messaging 客户端应用](https://firebase.google.com/docs/cloud-messaging/unity/client?authuser=0) 已经有了很详尽的客户端接入流程，包括Android和iOS。
 
-## 一些注意项
+## 接入一些注意项
 
 笔者在接入Android过程中遇到以下一些问题需要特别拎出来说明以下：
 
@@ -36,15 +36,30 @@ push整个推送环节中，push通道是决定整个发送率和到达率的关
 
 另外笔者有看到过一个外国友人，通过在Unity的OnApplicationPause(bool appPaused)系统函数，当appPaused为false的时候来获得FCM透传的参数信息（猜测主要用于处理App进程杀了的情况下收到push，点击通知栏的跳转处理），相关代码如下：
 
-```c#
+```csharp
 AndroidJavaClass unityPlayer=new AndroidJavaClass("com.unity3d.player.UnityPlayer");
 AndroidJavaObject curActivity=unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
 AndroidJavaObject curIntent=curActivity.Call<AndroidJavaObject>("getIntent");
 string value1=curIntent.Call<string>("getStringExtra","key1")
 ```
 
+- 安卓FCM后面遇到了启动崩溃现象，具体情况可以参考这里的讨论：[I bought a google pixel3, app crash also:Cause: null pointer dereference](https://github.com/firebase/firebase-unity-sdk/issues/73)
+
+## iOS接入注意事项
+- iOS中FCM推送是利用[Apple推送通知服务（APN）](https://developer.apple.com/notifications/) 来进行消息的发送和接收，因此还需要在iOS开发者后台及Firebase后台进行一些设置
+1.创建Identifiers时一定要启用Push Notifications
+2.创建APNs身份验证密钥
+在Certificates,identifiers&Profiles界面下的Keys选项中创建一个APNs密钥
+![](https://raw.githubusercontent.com/iningwei/SelfPictureHost/master/Blog/20220317195207.png)
+需要输入key名称，并确保启用 Apple Push Notifications service(APNs)
+下载该密钥，确保密钥保存好，该密钥是一次性下载
+3.上述操作好后，在Firebase后台打开``项目设置->云消息传递``，在iOS应用配置中的``APNs 身份验证密钥``下上传APNs Authentication Key, 这个文件就是上面提到的要你保存好的文件。
 
 
+- XCode中要在Signing & Capabilities中添加 Push Notifications和Background Modes两项，同时Background Modes要开启Background fetch和Remote notifications。这里和官方文档不一样，官方文档应该还是针对老版本XCode进行的说明。
+- 若不需要自动初始化，则需要在Info.plist中增加KV键值对：FirebaseMessagingAutoInitEnabled:false
+
+参考文件：[使用Firebase Cloud Messaging将推送通知发送到您的iOS应用](https://blog.csdn.net/cunjie3951/article/details/106905662)
 ## 如何测试
 
 可以通过Firebase的后台提供的可视化界面进行测试。包括对所有目标包名的应用推送和对指定token的用户推送。
