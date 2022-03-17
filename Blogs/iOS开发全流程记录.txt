@@ -1,0 +1,4 @@
+1,申请苹果开发者帐号
+2，开发者后台创建Identifiers
+主要是设置Bundle ID和权限
+3，Apple Store Connect创建APP

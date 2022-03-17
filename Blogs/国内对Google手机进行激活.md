@@ -34,3 +34,9 @@
 
 备注：Speedify是付费软件，但是有2G免费流量，对激活手机来说够用了。
 
+
+
+### 参考文档
+[利用 WIFI 热点分享 VPN 连接](https://www.10101.io/2018/12/16/share-vpn-connection-over-wifi)
+[Netch + Connectify 实现代理转全局并共享给其他设备，例如Kindle](https://blog.csdn.net/qq_54020083/article/details/113948224)
+
