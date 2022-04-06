@@ -15,3 +15,8 @@ Firebase Unity SDK 8.3.0
 
 自定义指标区域接受的参数类型为整数和浮点型，且后台统计界面对该参数的展示方式为线性方式，若用户对某个数值类型参数不希望通过线性方式统计，而是具体值进行统计，那么就需要通过自定义纬度的方式设置该参数，并传参的时候使用string类型。
 自定义指标的创建界面和自定义纬度类似，只是多了个衡量单位供用户选择。
+
+## 补充
+1，Firebase内置了一些自定义事件，详细内容可以参考其文档:[[GA4] 自动收集的事件](https://support.google.com/firebase/answer/9234069?hl=zh-Hans)
+
+2，Firebase后台统计图表中的收益这一项，对于安卓应用，需要设置Firebase后台关联GP后台：[将 Google Play 关联到 Firebase](https://support.google.com/firebase/answer/6392038)，其数据实质上是从GP后台获得的。

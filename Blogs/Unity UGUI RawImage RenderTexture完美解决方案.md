@@ -4,7 +4,9 @@ UGUI中使用RawImage加载RenderTexture是一种很常用的3D转2D的方案，
 一般而言会有一个专门的相机对目标物体进行渲染，并把结果存储到RT(RenderTexture)中，然后在最终的RawImage中显示RT。
 因此流程可以划分为两个阶段：
 - Model $\rightarrow$ RT
+这阶段Model使用的Shader是不固定的，千奇百怪。
 - RT $\rightarrow$ RawImage
+这阶段默认情况下RawImage使用的是``UI/Default``，由于这里只能给RawImage设置材质球，因此这里的Shader可控，可以自定义拓展。
 
 通常会希望RT的背景是透明的，这也是符合大众审美的。因此渲染RT的相机通常会设置ClearFlags为SolidColor，且设置Background为(0,0,0,0)
 ## 遇到的问题
@@ -13,7 +15,7 @@ UGUI中使用RawImage加载RenderTexture是一种很常用的3D转2D的方案，
 
 ## 解决方案
 笔者目前针对这种情况总结出了两种解决方案：
-1，使用两个相机，两个RT来渲染Model，通过这种方式可以算出目标Model的Alpha值，RT $\rightarrow$ RawImage的时候使用这个Alpha值来渲染。
+1，使用两个相机，两个RT来渲染Model，通过这种方式可以算出目标Model的Alpha值，RT $\rightarrow$ RawImage的时候使用一个自定义的Shader，并用这个Alpha值来渲染。
 
 2，在AnyPortrait 2D动画插件的官方文档[Rendering to Render Texture](https://rainyrizzle.github.io/en/AdvancedManual/AD_RenderTexture.html)中也提到了我上述提到的问题，其已经提供解决方案，通过扒代码，发现其是在Surface Shader中的#pragma中加入了keepalpha关键词。
 
