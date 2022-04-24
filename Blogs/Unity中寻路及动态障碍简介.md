@@ -33,3 +33,7 @@ RVO2的Unity实现:https://github.com/warmtrue/RVO2-Unity
 ORCA的Unity实现:https://github.com/wangjiong/ORCA
 ORCA介绍比较好的文章：[RTS游戏中的避障算法](https://zhuanlan.zhihu.com/p/109556568)
 [RVO和ORCA它们是如何工作的？](https://www.bilibili.com/read/cv7242625)
+
+
+## 补充
+一个使用unity burst compiled jobs 实现的A\*寻路系统（依旧使用Navmesh烘焙，然后提取数据）:[UnityAStarNavigation](https://github.com/jeffvella/UnityAStarNavigation)
