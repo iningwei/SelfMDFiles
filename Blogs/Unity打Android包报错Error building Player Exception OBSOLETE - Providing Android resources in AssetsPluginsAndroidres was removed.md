@@ -21,6 +21,6 @@ Unity no longer copies Gradle
 ```
 另外还有两个目录结构形如：Plugins/Android/XXX/res的，分别是``Plugins/Android/FirebaseApp.androidlib/res``和``Plugins/Android/FirebaseCrashlytics.androidlib/res``
 ### Step2
-经笔者测试，我们工程中只需要对第一种情况进行处理即可，解决方式就是把Plugins/Android/res下的资源打成aar，再把aar拖拽到Plugins/Android目录下即可。
+经笔者测试，我们工程中只需要对Plugins/Android/res进行处理即可，解决方式就是把Plugins/Android/res下的资源打成aar，再把aar拖拽到Plugins/Android目录下即可。
 
  
