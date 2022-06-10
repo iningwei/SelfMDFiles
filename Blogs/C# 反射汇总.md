@@ -1,8 +1,14 @@
-- 根据名字获得类的Type
+- 根据类名字获得类的Type
 
 ```csharp
 string className;
 Type t=Type.GetType(className);
+```
+
+- 根据类ABCD获得类的Type
+```csharp
+public class ABCD{}
+Type t=typeof(ABCD)
 ```
 
 - 获得类的构造函数，并调用
