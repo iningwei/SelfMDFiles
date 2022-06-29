@@ -1,5 +1,5 @@
 ## break
-break是lua语言的关键字，用于循环体中（如while，for等循环体）跳出该循环体，并继续执行紧接着的语句。若是循环嵌套，则break语句会停止最内层循环的执行，并开始执行外层循环语句。这一点和我们平常使用的其它语言是一致的。示例如下：
+break是lua语言的关键字，用于循环体中（如while，for，repeat等循环体）跳出该循环体，并继续执行紧接着的语句。若是循环嵌套，则break语句会停止最内层循环的执行，并开始执行外层循环语句。这一点和我们平常使用的其它语言是一致的。示例如下：
 ```c
     for i = 1, 2 do
         for j = 1, 5 do
@@ -27,7 +27,8 @@ break是lua语言的关键字，用于循环体中（如while，for等循环体�
 上例中，当a的值等于4时，会跳出while循环
 
 ## continue
-lua中并没有该关键字，可以借助while循环来实现该需求。如下例：
+lua中并没有该关键字，可以有以下几种方法来实现
+1，借助while循环来实现该需求。如下例：
 ```c
     for i = 1, 5 do
         while true do
@@ -44,3 +45,27 @@ lua中并没有该关键字，可以借助while循环来实现该需求。如下
 上例当i==3时会跳过输出，只会输出1，2，4，5
 
 特别注意while循环里面else内部也要使用break跳出循环，否则会导致死循环
+
+2，使用repeat循环体
+```lua
+for i = 1, 10 do
+    repeat
+        if i%2 == 0 then
+            break
+        end
+        print(i)
+        break
+    until true 
+end
+```
+
+3，lua5.2版本之后，可以使用goto语句模拟
+```c
+for i = 1, 10 do
+    if i%2 == 0 then
+        goto continue
+    end
+    print(i)
+    ::continue::
+end
+```
