@@ -1,5 +1,5 @@
 ## 前言
-在Unity Shader中通过控制关键字的开关可以实现让Shader对相同代码的进行复用。Unity编译后，会为不同的关键字组合生成不同的独立的Shader代码，即Shader变体。
+在Unity Shader中通过控制关键字（宏）的开关可以实现让Shader对相同代码的进行复用。Unity编译后，会为不同的关键字组合生成不同的独立的Shader代码，即Shader变体。
 Shader变体可以使得工作流更加简单和高效，比如你通过关键字的指定，从而实现为不同功能的材质球指定相同的Shader；通过使用更少的Shader资源来对工程进行管理；同时可以在运行时支持对关键字的开关和设置，从而实现对Shader行为的设置。
 
 ## Shader变体创建
@@ -27,7 +27,7 @@ Shader变体可以使得工作流更加简单和高效，比如你通过关键�
 ```csharp
 #pragma multi_compile FANCY_STUFF_OFF FANCY_STUFF_ON
 ```
-上述代码创建了两个shader变体，即FANCY_STUFF_OFF和FANCY_STUFF_ON，在运行的时候Unity会根据Material或者Global shader keyword来对其进行设置。如果代码中未指定，那么Unity会默认使用第一个（上述代码中即FANCY_STUFF_OFF）
+上述代码创建了两个变体，即FANCY_STUFF_OFF和FANCY_STUFF_ON，在运行的时候Unity会根据Material或者Global shader keyword来对其进行设置。如果代码中未指定，那么Unity会默认使用第一个（上述代码中即FANCY_STUFF_OFF）(该条规则也使用于用shader_feature定义的keyword)
 
 你也可以使用一条multi_compile指令创建超过两个keyword,如：
 ```csharp
@@ -44,7 +44,10 @@ Shader变体可以使得工作流更加简单和高效，比如你通过关键�
 由shader_feature定义的keyword，若没有在Material中被引用，那么最终打包是不会被编译到包体的。
 由multi_compile定义的keyword，无论引用与否，在没有外力干预的情况下（下文会提到变体剥离相关内容）都会被编译打包到最终包体。
 
-因此shader_feature指令支持一个keyword，如：``#pragma shader_feature FANCY_STUFF``，其实它是`` #pragma shader_feature _ FANCY_STUFF``指令的缩写形式。
+因此shader_feature指令支持一个keyword，如：``#pragma shader_feature FANCY_STUFF``，其实它是`` #pragma shader_feature _ FANCY_STUFF``指令的缩写形式。因此这种情况下Unity默认使用的关键字（宏）是no keywords。
+
+## 材质球中的Shader Keywords
+选择材质球，设置Debug模式可以查看其Shader Keywords属性，表示其当前使用的shader中已经启用的keyword
 
 ## keyword限制
 Unity中全局keyword上限限制为384个（其中有大约60个是unity预留供内部使用的）；某个shader的本地keyword上限为64个
@@ -78,7 +81,7 @@ Unity中全局keyword上限限制为384个（其中有大约60个是unity预留�
 - [IPreprocessShaders.OnProcessShader](https://docs.unity3d.com/ScriptReference/Build.IPreprocessShaders.OnProcessShader.html) :在Unity编译普通Shader前会收到该回调
 - IPreprocessComputeShaders.OnProcessComputeShader:在Unity编译Compute Shader前会收到该回调
 
-更多参考：[Stripping scriptable shader variants](https://blog.unity.com/technology/stripping-scriptable-shader-variants)
+更多参考：[Stripping scriptable shader variants](https://blog.unity.com/technology/stripping-scriptable-shader-variants)（这是一篇很好的文章，对变体有全面的介绍）
 
 ## 参考文档
 [Shader variants and keywords](https://docs.unity3d.com/Manual/SL-MultipleProgramVariants.html)
