@@ -17,3 +17,6 @@
     var request = UnityWebRequest.Delete(API + aCommand);
     request.certificateHandler = new CertificateWhore();
 ```
+
+## 补充
+笔者遇到的情况是服务端使用了https自签名证书，后面服务端人员处理了一下自签名证书，这个报错也不见了，无需客户端额外处理。
