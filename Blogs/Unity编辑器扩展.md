@@ -1,4 +1,4 @@
-@TOC
+[TOC]
 
 ## 窗口扩展基础：MenuItem,ScriptableWizard,EditorWindow
 
@@ -621,19 +621,14 @@ public class Test : MonoBehaviour
 	{
 	}
 ```
+## 其它重要委托
+- 编辑器Update委托 EditorApplication.update+=
 
 ## EditorGUILayout和GUILayout
 ### 空行
 - EditorGUILayout.Separator() 一个比较大的空行
-
 - EditorGUILayout.Space() 一个比较小的空行
-
 - GUILayout.Space(10f) 可控具体空多少行
-
-## 其它重要委托
-- 编辑器Update委托 EditorApplication.update+=
-
-
 
 ### 布局
 #### 水平，垂直布局
