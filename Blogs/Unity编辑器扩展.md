@@ -50,6 +50,42 @@ private static void NewMenuOption2()
 }
 ```
 
+#### 勾选
+下述代码实现Test1和Test2两项，互斥选择，且默认情况下选择Test1
+```csharp
+[InitializeOnLoad]
+public class TestMenuItem  
+{
+    static string menuPath1 = "Custom/Test1";
+    static string menuPath2 = "Custom/Test2";
+    static TestMenuItem()
+    {
+        //默认选择Test1
+        if (Menu.GetChecked(menuPath1) == false && Menu.GetChecked(menuPath2) == false)
+        {
+            Menu.SetChecked(menuPath1, true);
+        }
+    }
+    [MenuItem("Custom/Test1", false, 1)]
+    static void Test1()
+    {
+        if (Menu.GetChecked(menuPath1)==false)
+        {
+            Menu.SetChecked(menuPath1, true);
+            Menu.SetChecked(menuPath2, false);
+        }
+    }
+    [MenuItem("Custom/Test2", false, 2)]
+    static void Test2()
+    {
+        if (Menu.GetChecked(menuPath2)==false)
+        {
+            Menu.SetChecked(menuPath1, false);
+            Menu.SetChecked(menuPath2, true);
+        }
+    }
+}
+```
 
 #### 一些特定目录结构
 上述提到通过MenuItem标识可以为Unity创建新的目录，不仅如此还可以为已有的菜单增加内容。
@@ -340,7 +376,7 @@ public class PlayerEditor : Editor
 - DrawDefaultInspector() 绘制默认的对应脚本中的Inspector，常用于扩展一个已经存在的组件：比如想在Camera组件上添加个按钮，实现特殊功能，则可以写个类用[CustomEditor(typeof(Camera))]和Camera建立关系，然后在OnInspector()中先调用DrawDefaultInspector(),然后再添加需要的按钮之类的。
 
 ## Scene界面扩展
-扩展编辑器的SceneView界面，包括事件（鼠标、键盘）扩展
+扩展编辑器的SceneView界面
 ### 右键菜单
 ```csharp
 public class SceneInterative
@@ -361,9 +397,9 @@ public class SceneInterative
         {
             //设置右键菜单内容，点击事件，数据
             GenericMenu menu = new GenericMenu();
-            menu.AddItem(new GUIContent("菜单项1"), false, OnMenuClick, "menu_1");
-            menu.AddItem(new GUIContent("菜单项2"), false, OnMenuClick, "menu_2");
-            menu.AddItem(new GUIContent("菜单项3"), false, OnMenuClick, "menu_3");
+            menu.AddItem(new GUIContent("Home"), false, OnMenuClick, "menu_1");
+            menu.AddItem(new GUIContent("Skill/Skill1"), false, OnMenuClick, "menu_2");
+            menu.AddItem(new GUIContent("Skill/Skill2"), false, OnMenuClick, "menu_3");
             menu.ShowAsContext();
 
             //必须调用Use()方法，完成这次事件的使用，否则会误伤到Unity编辑器Scene视图内自带的右键事件
@@ -374,7 +410,7 @@ public class SceneInterative
 
     static void OnMenuClick(object userData)
     {
-        EditorUtility.DisplayDialog("Tip", "OnMenuClick" + userData.ToString(), "Ok");
+        EditorUtility.DisplayDialog("Tip", "OnMenuClick:" + userData.ToString(), "Ok");
     }
 }
 ```
@@ -385,6 +421,48 @@ public class SceneInterative
 - SceneView.RepaintAll();可以用来刷新Scene窗口
 - Scene界面内获得当前鼠标所在位置发射的射线：``Ray ray=HandleUtility.GUIPointToWorldRay(e.mousePosition);``
 - Scene内世界坐标转换为屏幕GUI坐标:``HandleUtility.WorldToGUIPoint(worldPos);``
+
+#### 一种自定义菜单的方式
+上述使用GenericMenu来创建菜单并添加菜单项，下面展示通过EditorUtility.DisplayCustomMenu()展示自定义菜单方式。
+```csharp
+            Vector2 mousePosition = e.mousePosition;
+            //设置菜单项
+            var options = new GUIContent[]{
+                    new GUIContent("Test1"),
+                    new GUIContent("Test2"),
+                    new GUIContent(""),
+                    new GUIContent("Test/Test3"),
+                    new GUIContent("Test/Test4"),
+                };
+            //设置菜单显示区域
+            var selected = -1;
+            var userData = Selection.activeGameObject;
+            var width = 100;
+            var height = 100;
+            var position = new Rect(mousePosition.x, mousePosition.y - height, width, height);
+            //显示菜单
+            EditorUtility.DisplayCustomMenu(position, options, selected, delegate (object data, string[] opt, int select)
+            {
+                Debug.Log(opt[select]+",name:"+userData.name);
+            }, userData);
+```
+### Scene视图中禁用选择对象
+```csharp
+        Event e = Event.current;
+        if (e != null)
+        {
+            int controlID = GUIUtility.GetControlID(FocusType.Passive);
+            if (e.type == EventType.Layout)
+            {
+                HandleUtility.AddDefaultControl(controlID);
+            }
+        }
+```
+上述代码放到SceneView.duringSceneGui回调中。可以实现Scene视图无法选择对象，只能通过Hierarchy视图选择对象。通常用于复杂界面编辑，避免Scene视图误操作别的对象。
+- FocusType.Passive 禁止控件接收鼠标、键盘焦点
+- GUIUtility.GetControlID 获取控件ID
+- EventType.Layout 布局事件
+- HandleUtility.AddDefaultControl 添加默认控件ID
 
 ### OnSceneGUI
 OnSceneGUI()可以丰富Scene界面交互，一般用于继承自Editor类重写Inspector界面的类中，选中目标物体，才可触发OnSceneGUI()方法。（该方法实际上是和上面提到的Custom Editor配套的）。
@@ -420,7 +498,8 @@ OnSceneGUI()可以丰富Scene界面交互，一般用于继承自Editor类重写
 当把Player类附加到某Cube上后并选中该Cube，SceneView界面如下：
 ![](https://raw.githubusercontent.com/iningwei/SelfPictureHost/master/Blog/20220705180417.png)
 
-实质上OnSceneGUI()中绘制的内容也属于Gizmos，也会受编辑器中开关Gizmos的显示控制。
+- 实质上OnSceneGUI()中绘制的内容也属于Gizmos，也会受编辑器中开关Gizmos的显示控制。
+- 上文中提到的SceneView.duringSceneGui回调中其实也是可以进行类似OnSceneGUI()中的绘制的。同样2D GUI需要在Handles.BeginGUI()和Handles.EndGUI()之间进行绘制。区别就是duringSceneGui回调中的绘制不要求选中目标物体，绘制的内容可以实现常驻SceneView
 
 ### 获得SceneView界面的尺寸
 Screen.width获得尺寸是对的，但是Screen.height获得的尺寸是包含了界面顶部标签区域和快捷键区域（即ribbon区）。
@@ -435,7 +514,7 @@ Screen.width获得尺寸是对的，但是Screen.height获得的尺寸是包含�
 二者都可以扩展SceneView界面的显示。
 ### Gizmos
 可以在SceneView绘制line、sphere、icon、texture、mesh等用来丰富界面显示，方便调试等。
-绘制需要在``OnDrawGizmos``或者``OnDrawGizmosSelected``方法中进行。
+绘制需要在``OnDrawGizmos``或者``OnDrawGizmosSelected``方法中进行，这两个方法都要求类继承自MonoBehaviour。
 - OnDrawGizmos() 每帧都会调用
 - OnDrawGizmosSelected() 只有当附着了组件的物体被选中后才会调用
 
@@ -453,7 +532,7 @@ public class GizmosExample : MonoBehaviour
 ```
 
 #### 另一种Gizmos显示方式
-如下建立一个TestDrawGizmo.cs的脚本，放到Editor目录下。
+通过DrawGizmo标签来实现，如下建立一个TestDrawGizmo.cs的脚本，放到Editor目录下。
 ```csharp
 public class TestDrawGizmo
 {
@@ -476,11 +555,46 @@ public class TestDrawGizmo
     }
 }
 ```
+未选中物体时，也可以在SceneView界面内显示Light组件物体的名字。
 当我们选中Light组件对应的物体时，SceneView界面内结果如下：
 ![](https://raw.githubusercontent.com/iningwei/SelfPictureHost/master/Blog/20220705185822.png)
 
+
+下面脚本放到Editor目录后，Scene场景中物体处于未选中状态时可以显示物体名。
+```csharp
+public class ShowObjName
+{
+
+    [DrawGizmo(GizmoType.NonSelected)]
+    static void DrawGameObjectName(Transform transform, GizmoType gizmoType)
+    {
+        Handles.Label(transform.position, transform.gameObject.name);
+    }
+}
+```
+本示例中，通过GizmoType.NonSelected来控制只对未选中的物体生效。
+
 ### Handles
 在OnSceneGUI()方法中调用，用来丰富SceneView界面的显示。[官方示例](https://docs.unity3d.com/2021.3/Documentation/Manual/GizmosAndHandles.html)
+
+## 扩展Game视图
+运行模式下Game视图可以通过OnGUI()函数内绘制GUI，是一种很古老的方式了。在非运行模式下其实也可以绘制GUI，辅助开发。一般处理方式是在类名前加上``[ExecuteInEditMode]``，表示该脚本可以在编辑器中生效。同时辅助UNITY_EDITOR宏，发布时剥离相关代码。
+```csharp
+
+#if UNITY_EDITOR
+[ExecuteInEditMode]
+public class Test : MonoBehaviour
+{
+     void OnGUI()
+    {
+        if(GUILayout.Button("Click"))
+        {
+            Debug.Log("Hello World!");
+        }
+    }
+}
+#endif
+```
 
 ## 一些实用Attribute
 - [InitializeOnLoadMethod]
@@ -489,13 +603,37 @@ public class TestDrawGizmo
 修饰Editor Class，和类的静态构造函数结合使用，可以达到和[InitializeOnLoadMethod]一样的目的。
 
 ## EditorGUILayout和GUILayout
+### 空行
 - EditorGUILayout.Separator() 一个比较大的空行
 
 - EditorGUILayout.Space() 一个比较小的空行
 
 - GUILayout.Space(10f) 可控具体空多少行
 
+### 布局
+#### 水平，垂直布局
 - GUILayout.BeginHorizontal()和GUILayout.EndHorizontal() 二者一起可以让内部GUI水平排列。同理还有Vertical。
+#### 折叠区域
+- EditorGUILayout.BeginFoldoutHeaderGroup()和EditorGUILayout.EndFoldoutHeaderGroup()
+#### 滚动区域
+- EditorGUILayout.BeginScrollView()和EditorGUILayout.EndScrollView()
+
+### 类型字段
+EditorGUILayout.LabelField（）标签字段 
+EditorGUILayout.IntField（） 整数字段 
+EditorGUILayout.FloatField（） 浮点数字段 
+EditorGUILayout.TextField（） 文本字段 
+EditorGUILayout.Vector2Field（） 二维向量字段 
+EditorGUILayout.Vector3Field（） 三维向量字段 
+EditorGUILayout.Vector4Field（） 四维向量字段 
+EditorGUILayout.ColorField（） 颜色字段
+
+### 滑动条、进度条
+EditorGUILayout.Slider()
+EditorGUI.ProgressBar() 
+
+### 提示框
+EditorGUILayout.HelpBox()
 
 
 
