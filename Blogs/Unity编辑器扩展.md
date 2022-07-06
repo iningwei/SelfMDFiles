@@ -499,7 +499,7 @@ OnSceneGUI()可以丰富Scene界面交互，一般用于继承自Editor类重写
 ![](https://raw.githubusercontent.com/iningwei/SelfPictureHost/master/Blog/20220705180417.png)
 
 - 实质上OnSceneGUI()中绘制的内容也属于Gizmos，也会受编辑器中开关Gizmos的显示控制。
-- 上文中提到的SceneView.duringSceneGui回调中其实也是可以进行类似OnSceneGUI()中的绘制的。同样2D GUI需要在Handles.BeginGUI()和Handles.EndGUI()之间进行绘制。区别就是duringSceneGui回调中的绘制不要求选中目标物体，绘制的内容可以实现常驻SceneView
+- 上文中提到的SceneView.duringSceneGui回调中其实也是可以进行类似OnSceneGUI()中的绘制的。同样2D GUI需要在Handles.BeginGUI()和Handles.EndGUI()之间进行绘制。**区别就是duringSceneGui回调中的绘制不要求选中目标物体，绘制的内容可以实现常驻SceneView**
 
 ### 获得SceneView界面的尺寸
 Screen.width获得尺寸是对的，但是Screen.height获得的尺寸是包含了界面顶部标签区域和快捷键区域（即ribbon区）。
@@ -578,13 +578,25 @@ public class ShowObjName
 在OnSceneGUI()方法中调用，用来丰富SceneView界面的显示。[官方示例](https://docs.unity3d.com/2021.3/Documentation/Manual/GizmosAndHandles.html)
 
 ## 扩展Game视图
-运行模式下Game视图可以通过OnGUI()函数内绘制GUI，是一种很古老的方式了。在非运行模式下其实也可以绘制GUI，辅助开发。一般处理方式是在类名前加上``[ExecuteInEditMode]``，表示该脚本可以在编辑器中生效。同时辅助UNITY_EDITOR宏，发布时剥离相关代码。
+运行模式下Game视图可以通过OnGUI()函数内绘制GUI，是一种很古老的方式了。在非运行模式下其实也可以绘制GUI，一般处理方式是在类（需要继承自MonoBehaviour）名前加上``[ExecuteInEditMode]``，表示该脚本可以在非运行状态下执行各个生命周期。必要时辅助UNITY_EDITOR宏，用以发布时剥离相关代码。
 ```csharp
-
 #if UNITY_EDITOR
 [ExecuteInEditMode]
 public class Test : MonoBehaviour
 {
+    // 其中值得介绍的是OnEnable和OnDisable
+    // 因为改了代码之后会将数据清零，而且不会执行Awake和Start
+    // 但是会在编译前执行OnDisable,编译后会执行OnEnable
+    // 可以用这一个时机，对一些委托的绑定与解绑，或者数据的初始化和销毁
+    // 当然正常的SetActive也会触发这两个时机
+    void OnEnable()
+    {
+    }
+
+    void OnDisable()
+    {
+    }
+
      void OnGUI()
     {
         if(GUILayout.Button("Click"))
@@ -598,9 +610,17 @@ public class Test : MonoBehaviour
 
 ## 一些实用Attribute
 - [InitializeOnLoadMethod]
-在Editor Class内部修饰静态方法，起到自动调用目标方法的功能。
+在Class内部修饰静态方法，起到自动调用目标方法的功能。
 - [InitializeOnLoad]
-修饰Editor Class，和类的静态构造函数结合使用，可以达到和[InitializeOnLoadMethod]一样的目的。
+修饰Class，和类的静态构造函数结合使用，可以达到和[InitializeOnLoadMethod]一样的目的。
+- [DidReloadScripts]
+修饰静态方法；代码被编译好后，会被执行
+```csharp
+	[DidReloadScripts]
+	private static void Reload()
+	{
+	}
+```
 
 ## EditorGUILayout和GUILayout
 ### 空行
@@ -609,6 +629,11 @@ public class Test : MonoBehaviour
 - EditorGUILayout.Space() 一个比较小的空行
 
 - GUILayout.Space(10f) 可控具体空多少行
+
+## 其它重要委托
+- 编辑器Update委托 EditorApplication.update+=
+
+
 
 ### 布局
 #### 水平，垂直布局
