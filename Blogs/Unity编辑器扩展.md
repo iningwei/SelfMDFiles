@@ -140,21 +140,7 @@ public class CreateACube : ScriptableWizard
         ScriptableWizard.DisplayWizard("创建一个Cube", typeof(CreateACube), "确定", "取消");
         //OR
         //ScriptableWizard.DisplayWizard<CreateACube>("创建一个Cube", "确定", "取消"); 
-    }
-
-    void OnDrawGizmos()
-    {
-        if (size < 3)
-        {
-            return;
-        }
-        else
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawCube(Vector3.zero, new Vector3(size, size, size));
-        }
-    }
-
+    } 
     void OnWizardCreate()
     {
         GameObject obj = GameObject.CreatePrimitive(PrimitiveType.Cube);
@@ -343,6 +329,8 @@ public class PlayerEditor : Editor
 
     public override void OnInspectorGUI()
     {
+        //base.OnInspectorGUI(); //调用父类方法绘制一次GUI，Player中原本的可序列化数据等会在这里绘制一次。 如果不调用父类方法，则这个Mono的Inspector全权由下面代码绘制。
+
         player.armor = EditorGUILayout.IntSlider("Armor", player.armor, 0, 100);
         ProgressBar(player.armor / 100f, "ArmorCount");
 
@@ -574,8 +562,13 @@ public class ShowObjName
 ```
 本示例中，通过GizmoType.NonSelected来控制只对未选中的物体生效。
 
+#### 使用Gizmos进行Debug
+Gizmos 提供了Drawline,DrayRay,DrawSphere等方法，可以方便开发过程中的调试和验证。
+
+
 ### Handles
 在OnSceneGUI()方法中调用，用来丰富SceneView界面的显示。[官方示例](https://docs.unity3d.com/2021.3/Documentation/Manual/GizmosAndHandles.html)
+也可以在SceneView.duringSceneGui回调中进行绘制。
 
 ## 扩展Game视图
 运行模式下Game视图可以通过OnGUI()函数内绘制GUI，是一种很古老的方式了。在非运行模式下其实也可以绘制GUI，一般处理方式是在类（需要继承自MonoBehaviour）名前加上``[ExecuteInEditMode]``，表示该脚本可以在非运行状态下执行各个生命周期。必要时辅助UNITY_EDITOR宏，用以发布时剥离相关代码。
@@ -621,40 +614,112 @@ public class Test : MonoBehaviour
 	{
 	}
 ```
+- [Header("")]
+修饰继承自MonoBehavior的类中的字段，用来在Inspector面板中在该字段顶部展示说明文字
+
 ## 其它重要委托
 - 编辑器Update委托 EditorApplication.update+=
 
-## EditorGUILayout和GUILayout
+## 编辑器扩展涉及到的类
+### GUI,GUILayout；EditorGUI,EditorGUILayout
+#### GUI和GUILayout
+这二者既可以用于运行时在OnGUI()函数中显示UI，也可以用于一些扩展的编辑器面板（Inspector重写、扩展的Window等等）。
+- GUI
+一种需要通过自行计算Rect（用于设置坐标和组件的尺寸）来显示UI组件的类
+- GUILayout
+是基于GUI的实现，自动进行排版，计算坐标和宽高
+#### EditorGUI和EditorGUILayout
+这二者只能用于扩展的编辑器面板显示UI。
+- EditorGUI
+需要通过自行计算Rect来显示UI
+- EditorGUILayout
+基于EditorGUI的实现，会自动进行排版，计算坐标和宽高
+
+### Handles，Gizmos
+上文中已涉及，不赘述
+
+### EditorUtility,EditorGUIUtility,AssetDatabase,Selection
+Unity内置的一些工具类，涉及到序列化对象修改、报错；资源读取、保存等
+- EditorUtility： Unity内置的关于Editor使用的工具类，常用API有：
+1,资源置脏
+```csharp
+EditorUtility.SetDirty(Object obj);//标记目标资源为“脏”
+AssetDatabase.SaveAssets();//保存项目内的“脏数据”
+```
+2,显示对话框
+``EditorUtility.DisplayDialog``
+3,进度条
+``EditorUtility.DisplayProgressBar，EditorUtility.ClearProgressBar``
+- EditorGUIUtility
+1,搜索框
+EditorGUIUtility.ShowObjectPicker
+2,选中提示
+EditorGUIUtility.PingObject
+
+- AssetDatabase: 在编辑器模式下，对项目资源的管理（创建资产、获得资产路径、资产加载、资产刷新、资产保存）
+- Selection: 含有当前选择的资源文件、文件夹或场景中选中的目标对象信息 
+下面代码展示了获得选中文件夹下的所有Texture(需要先选中一个目标文件夹)
+```csharp
+var texs = Selection.GetFiltered<Texture>(SelectionMode.DeepAssets); //进行深度遍历所有文件夹
+```
+下面代码展示：创建一个Cube并选中它
+```csharp
+if (GUILayout.Button("创建一个 Cube，同时选中"))
+{
+    var obj = GameObject.CreatePrimitive(PrimitiveType.Cube);  
+    Selection.activeGameObject = obj; 
+}
+```
+
+## 常用编辑器UI绘制API
 ### 空行
 - EditorGUILayout.Separator() 一个比较大的空行
 - EditorGUILayout.Space() 一个比较小的空行
 - GUILayout.Space(10f) 可控具体空多少行
+- GUILayout.FlexibleSpace() 底层自动计算空白区
 
 ### 布局
 #### 水平，垂直布局
 - GUILayout.BeginHorizontal()和GUILayout.EndHorizontal() 二者一起可以让内部GUI水平排列。同理还有Vertical。
 #### 折叠区域
-- EditorGUILayout.BeginFoldoutHeaderGroup()和EditorGUILayout.EndFoldoutHeaderGroup()
+- 折叠组 EditorGUILayout.BeginFoldoutHeaderGroup()和EditorGUILayout.EndFoldoutHeaderGroup()
+- 折叠 EditorGUILayout.Foldout()
+
+#### 开关控件
+- 单个开关 EditorGUILayout.Toggle，EditorGUILayout.ToggleLeft
+- 开关组 EditorGUILayout.BeginToggleGroup，EditorGUILayout.EndToggleGroup
+
 #### 滚动区域
 - EditorGUILayout.BeginScrollView()和EditorGUILayout.EndScrollView()
 
 ### 类型字段
-EditorGUILayout.LabelField（）标签字段 
-EditorGUILayout.IntField（） 整数字段 
-EditorGUILayout.FloatField（） 浮点数字段 
-EditorGUILayout.TextField（） 文本字段 
-EditorGUILayout.Vector2Field（） 二维向量字段 
-EditorGUILayout.Vector3Field（） 三维向量字段 
-EditorGUILayout.Vector4Field（） 四维向量字段 
-EditorGUILayout.ColorField（） 颜色字段
+EditorGUILayout.LabelField() 标签字段 
+EditorGUILayout.IntField() 整数字段 
+EditorGUILayout.FloatField() 浮点数字段 
+EditorGUILayout.TextField() 文本字段 
+EditorGUILayout.Vector2Field() 二维向量字段 
+EditorGUILayout.Vector3Field() 三维向量字段 
+EditorGUILayout.Vector4Field() 四维向量字段 
+EditorGUILayout.ColorField() 颜色字段
+EditorGUILayout.CurveField() 曲线字段（AnimationCurve）
 
 ### 滑动条、进度条
-EditorGUILayout.Slider()
+EditorGUILayout.Slider()，EditorGUILayout.IntSlider()
+EditorGUILayout.MinMaxSlider() 双滑块滑动条
 EditorGUI.ProgressBar() 
 
 ### 提示框
 EditorGUILayout.HelpBox()
 
+### 枚举选择
+- EditorGUILayout.EnumPopup 单选枚举
+- EditorGUILayout.EnumFlagsField 多选枚举
+- EditorGUILayout.IntPopup和EditorGUILayout.MaskField
+EditorGUILayout.IntPopup 单选整型
+EditorGUILayout.MaskField 多选整形
+
+### 一些注意项
+- EditorGUILayout.DropdownButton 并不是下拉按钮，而是鼠标按下就会触发的按钮。而Button是鼠标放开才会触发。
 
 
 ## 继承关系

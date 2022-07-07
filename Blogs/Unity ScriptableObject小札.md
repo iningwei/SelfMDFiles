@@ -57,6 +57,8 @@ public class MyScriptableObject : ScriptableObject, ISerializationCallbackReceiv
 - CreateInstance加载
 通过脚本``var so=ScriptableObject.CreateInstance<>();``获得实例。
 需要保存的话使用``AssetDatabase.CreateAsset(so, path);``来保存，该方法只能在编辑器环境使用，path形如：``Assets/xxx/xxx.asset``。
+
+
 - 资产加载
 由于其和普通的音效、图片等资产类似。因此根据ScriptObject实体资产的位置和状态，可以考虑使用Resources.Load、AB、或者io的方式加载。
 
@@ -74,6 +76,14 @@ public class MyScriptableObject : ScriptableObject, ISerializationCallbackReceiv
 
 ## Inspector面板重写
 和继承自MonoBehavior的类一样，其也支持Inspector面板重写
+
+## 保存
+上文提到可以使用AssetDatabase.CreateAsset()方法进行文件保存。但是对于硬盘中已存在的ScriptableObject，当我们选中其后并在Inspector面板内修改后，编辑器是可以自动识别"脏数据"并使用*符号提示保存的。
+当然用户也可以通过代码方式保存：
+```csharp
+EditorUtility.SetDirty(so);   
+AssetDatabase.SaveAssets();
+```
 
 ## ScriptObject不可运行时自动保存数据
 运行时对数据的修改无法保存，如果有需要，目前主流的方法是使用[JsonUtility](https://docs.unity3d.com/ScriptReference/JsonUtility.html?_ga=2.12333684.135331608.1614146309-299171731.1595242112)把ScriptObject存为Json字符串，使用``FromJsonOverwrite``方法再转成ScriptObject。
