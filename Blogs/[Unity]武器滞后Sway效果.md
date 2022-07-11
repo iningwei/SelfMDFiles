@@ -1,3 +1,4 @@
+专业名词是Weapon Sway效果
 ```csharp
 //============================================
 // ATTACH THIS TO WEAPON
