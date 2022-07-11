@@ -1,4 +1,58 @@
 [TOC]
+## 继承自 MonoBehaviour 的类的一些扩展
+一方面继承自MonoBehaviour的类都会默认被添加到 Component->Scripts 节点下。若该类使用[AddComponentMenu("XX/XX/XX")]修饰后，则会为其添加到已经存在的节点下。
+
+另一方面MonoBehaviour类都可以添加到GameObject作为Component，在Inspector界面可以显示该类的一些信息。
+所有``继承自UnityEngine.Object的类，如GameObject,Component,MonoBehaviour,Texture2D,AnimationClip;所有基本类型，如int,string,float,bool;一些内建类型，如Vector2,Vector3,Quaternion,Color,Rect,Layermask;序列化类型的Array,序列化类型的List;枚举Enum``。默认情况下这些类型的public变量是可以在Inspector界面显示的，同时编辑器对其进行序列化。
+### 一些涉及到变量显示和序列化的属性
+- [HideInInspector] 变量依旧可以被序列化，但是在Inspector界面上不可见
+- [NonSerialized] 变量不可被序列化，且在Inspector面板上不可见
+- [SerializeField] 可以把private类型变量变成可序列化的，在Inspector面板可见。（虽然Inspector面板可见，但仍然是private变量）
+
+
+### ContextMenu属性
+继承自MonoBehaviour的类的内部，可以为其函数添加``ContextMenu``属性，在编辑器界面下执行一些操作。
+```csharp
+public class TestContextMenu : MonoBehaviour
+{
+    [ContextMenu("DoLogTest")]
+    void DoLogTest()
+    {
+        Debug.Log("i am function DoLogTest");
+    }
+}
+```
+如上述代码，当把TestContextMenu脚本附加到GameObject上后，在GameObject的Inspector界面中会有TestContextMenu组件的信息，右键该组件（或者左键点击3个.按钮）会看到DoLogTest菜单项，点击后会按照预期打印日志。
+
+### ContextMenuItem属性
+可以为变量(public)添加右键弹出命令，从而执行相关的操作。
+该标识接受两个变量，1个是display name，一个是右键弹出菜单点击后的方法。
+```csharp
+public class Test : MonoBehaviour
+{
+    [ContextMenuItem("Random Age", "RandomAge")]
+    public int Age;
+    void RandomAge()
+    {
+        Age = new System.Random(DateTime.Now.Millisecond).Next(1, 100);
+    }
+
+    [ContextMenuItem("Random Name", "RandomName")]
+    public string Name;
+    private void RandomName()
+    {
+        string[] names = new string[] { "Jack", "Jim", "Tomas", "Han", "Ann" };
+        Name = names[new System.Random(DateTime.Now.Millisecond).Next(0, 4)];
+    }
+}
+```
+上述代码分别为Age和Name这两个字段添加了右键弹出菜单的功能。
+
+### Range属性
+[Range(min,max)]或者[RangeAttribute(min,max)]可以对变量的输入范围进行限定，使得Inspector检视面板内的数值输入框变成Slider,且范围为(min,max)。
+
+### Header属性
+[Header("")] Inspector面板中在目标字段顶部展示额外的说明文字
 
 ## 窗口扩展基础：MenuItem,ScriptableWizard,EditorWindow
 
@@ -91,8 +145,8 @@ public class TestMenuItem
 上述提到通过MenuItem标识可以为Unity创建新的目录，不仅如此还可以为已有的菜单增加内容。
 - MenuItem("GameObject/") 新建菜单项出现在GameObject节点下。
 - MenuItem("Assets/") 新建菜单项出现在Assets节点下（Project面板下右键弹出的面板内容和Assets节点展开的是一致的）
-- MenuItem("CONTEXT/组件名/XXX") 可以为某个具体组件的Inspector上下文菜单增加内容。打开方式为右键组件或者左键组件最右边的“齿轮”按钮，需要注意的是Inspector上下文添加菜单不支持多重层次。
-如下代码为Transform组件扩展其Inspector上下文菜单：
+- MenuItem("CONTEXT/组件名/XXX") 可以为某个具体组件的Inspector上下文菜单增加内容。打开方式为右键组件或者左键组件最右边的“齿轮”按钮(较新版本Unity为从上到下的3个.按钮)，需要注意的是Inspector上下文添加菜单不支持多重层次。
+如下代码对Transform组件扩展其Inspector上下文菜单：
 ```csharp
 public class AddChild
 {
@@ -123,6 +177,9 @@ static void DoSomething(OnInspectorGUI command)
 }
 ```
 
+#### 代码执行菜单项
+EditorApplication.ExecuteMenuItem(“XX/XX/XX”)
+ 
 ### ScriptableWizard
 通过继承ScriptableWizard可以创建编辑器向导，Unity已经为我们封装好了一些变量、方法、消息。如：
 - 变量：errorString(设置向导的错误提示信息)、helpString(设置向导的帮助提示)、isValid(可以控制向导的Create Button和Other Button能否点击)。
@@ -614,8 +671,6 @@ public class Test : MonoBehaviour
 	{
 	}
 ```
-- [Header("")]
-修饰继承自MonoBehavior的类中的字段，用来在Inspector面板中在该字段顶部展示说明文字
 
 ## 其它重要委托
 - 编辑器Update委托 EditorApplication.update+=
