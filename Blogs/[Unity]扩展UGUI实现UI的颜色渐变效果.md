@@ -52,3 +52,5 @@ public class Gradient : BaseMeshEffect
     }
 }
 ```
+
+参考：http://pastebin.com/dJabCfWn
