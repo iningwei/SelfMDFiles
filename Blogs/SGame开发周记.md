@@ -406,3 +406,7 @@ iOS包版本号升级到1.2.1,  Build顺延为3
 - 优化
 - 20220629 GP提审v1.3.3,bundle version code:68
 - 20220629 AppleStore提审v1.2.2,bundle version code:68
+
+## 第六十九周 2022.07.04-2022.07.08
+- 观察运营情况
+- 框架优化
