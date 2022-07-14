@@ -11,6 +11,10 @@ public class ABCD{}
 Type t=typeof(ABCD)
 ```
 
+- 获得泛型类的Type
+Type t=typeof(T);
+
+
 - 获得类的构造函数，并调用
 ```csharp
 //通过反射获得类
@@ -38,6 +42,10 @@ for (int i = 0; i < cMethods.Length; i++)
 Type t = Type.GetType(className);
 target = Activator.CreateInstance(t, new object[] { uiObj, windowName }) as Window;
 ```
+
+- 数据类型转换
+``Convert.ChangeType()``,原型 public static object ChangeType(object value, Type conversionType);
+该方法并不属于反射相关接口，但是常用于反射相关工作中。
 
 ## dll处理
 - 加载dll，并获得dll中的类
@@ -77,3 +85,5 @@ var addressM = bType.GetField("Address");
 addressM.SetValue(b, "England");
 Debug.LogError("name2:" + b.Name + ",age2:" + b.Age + ",address2:" + b.Address);
 ```
+
+
