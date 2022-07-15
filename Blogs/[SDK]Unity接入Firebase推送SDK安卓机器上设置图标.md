@@ -33,4 +33,7 @@ AndroidManifest.xml配置:``<meta-data android:name="com.google.firebase.messagi
 上述两个设置在[官方demo的AndroidManifest.xml](https://github.com/firebase/quickstart-android/blob/master/messaging/app/src/main/AndroidManifest.xml)中都有提到。
 同时需要注意，官方demo中创建了多个带后缀(mdpi、hdpi、xhdpi、xxhdpi等)的drawable目录：[这里](https://github.com/firebase/quickstart-android/tree/master/messaging/app/src/main/res)，用以存放不同分辨率的icon图片资源，用来更好适配不同分辨率机型。由于低分辨率机型已经很少了，因此我们就只创建了一个drawable目录，使用64*64分辨率的icon图片。
 
+## 补充
+20220715：
+Unity2021.2版本之后不再支持Unity内的Plugins/Android/res目录了，需要把该目录下的内容打成aar。否则在打包时会报错。
 
