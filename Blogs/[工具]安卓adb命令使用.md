@@ -14,3 +14,7 @@ adb logcat 捕获设备的日志信息
 adb logcat -s Unity 专门获得Unity相关的日志（注意U要大写）
 adb shell 获取设备的shell环境
 adb shell dumpsys meminfo com.test 查看正在运行的的安卓设备的程序的内存占用情况
+
+## 查看CPU架构
+adb shell getprop ro.product.cpu.abi
+示例输出：armeabi-v7a
