@@ -12,7 +12,7 @@
 压缩比：通常以比特率或每像素的平均比特数(bits per pixel, bpp)表示，常见的为2~8bpp。一般RGB原生纹理的像素指24位，4bpp表示每像素占4位，所以也可以认为4bpp表示压缩比为6:1。
 
 ## ASTC纹理压缩格式简介
-ASTC是在OpenGL ES3.0出现后，在2012年出现的一种业界领先的纹理压缩格式，它的压缩分块从4x4到12x12最终可以压缩每个像素占用1bit以下。
+ASTC(Adaptive Scalable Texture Compression),由ARM和AMD联合开发，2012年发布。是一种基于块的有损压缩算法。它的压缩分块从4x4到12x12最终可以压缩每个像素占用1bit以下。
 ASTC格式支持RGBA，适用于POT和NPOT纹理。
 ![astc block size](https://github.com/iningwei/SelfPictureHost/blob/master/Blog/astc%20block%20size.png?raw=true)
 上图展示了不同Block Size下每个像素占用的bits。易知，Block Size越大，压缩的越厉害。
@@ -22,7 +22,7 @@ nvidia官方对ASTC格式有详细的说明：[astc-texture-compression-for-game
 
 ## 适配机型
 1，iOS
-苹果从A8处理器开始支持ASTC，即iPhone6和iPad mini 4及以上的设备都支持。因此在当前情况下iOS上可以全部使用ASTC作为纹理格式。
+苹果从A8处理器开始支持ASTC，即iPhone6和iPad mini 4及以上的设备都支持。因此在当前情况下iOS上可以全部使用ASTC作为纹理格式。但是若有极端需求，则需要考虑使用PVRTC2。
 
 2，安卓
 安卓中所有支持OpenGL ES 3.1及以上的设备，和大部分支持OpenGL ES 3.0的设备都支持ASTC。因此在安卓上需要根据具体情况来设置纹理压缩格式，一般而言若项目依旧要考虑第三世界国家和低端机型，就要退而求其次使用ETC2格式进行压缩。
@@ -41,8 +41,12 @@ Unity官方对纹理压缩格式的选择和底层的一些异常处理都做了
 >此外，为了尽可能节约内存开销和传输带宽，贴图一般都会以一种合适的压缩格式存储。而常用的压缩格式，如BC或者DXT，都是将贴图分块进行压缩。这同样隐含了贴图必须是这些“块”的整数倍这样一个条件。这是第三个因素。</br>
 >上述几个因素（硬件寻址+贴图在内存上的特殊排布方式+压缩算法要求）决定了一款GPU在设计的时候就会将这个“块”的最小尺寸固定下来。有的GPU是``2x2像素``，有的是``4x4像素``，还有的是``8x8像素``。所以当贴图的尺寸不是这些“块”的整数倍的时候，当贴图被传送到GPU内存（显存）的时候，就会被拉伸或者在四周（一般是右侧和下侧）填充无用数据，使其成为这些“块”的整数倍。（称为pitch）
 >这个情况是GPU硬件的要求，与使用何种图形API无关。但是诸如OpenGL这种抽象等级较高的图形API在易用性和可控性之间选择了易用性，也就是尽力隐藏这些细节，在其内部为你完成必要的拉伸或者pitch的操作，从而使得你觉得好像它支持非二次幂的纹理。
-```
+
 - 为什么我们不使用png、jpg这类常见的压缩格式？
 尽管像jpg、png的压缩率很高，但并不适合纹理，主要问题是不支持像素的随机访问，这对GPU相当不友好，GPU渲染时只使用需要的纹理部分，我们总不可能为了访问某个像素去解码整张纹理吧？不知道顺序，也不确定相邻的三角形是否在纹理上采样也相邻，很难有优化。这类格式更适合下载传输以及减少磁盘空间而使用。
 
---TODO：https://zhuanlan.zhihu.com/p/237940807
+
+## 参考文档
+- [ASTC纹理压缩格式详解](https://zhuanlan.zhihu.com/p/158740249)
+- [Compressed GPU texture formats – a review and compute shader decoders – part 1](https://themaister.net/blog/2020/08/12/compressed-gpu-texture-formats-a-review-and-compute-shader-decoders-part-1/)
+- [你所需要了解的几种纹理压缩格式原理](https://zhuanlan.zhihu.com/p/237940807)
