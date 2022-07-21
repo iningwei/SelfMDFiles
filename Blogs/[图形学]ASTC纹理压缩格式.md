@@ -13,7 +13,9 @@
 
 ## ASTC纹理压缩格式简介
 ASTC(Adaptive Scalable Texture Compression),由ARM和AMD联合开发，2012年发布。是一种基于块的有损压缩算法。它的压缩分块从4x4到12x12最终可以压缩每个像素占用1bit以下。
-ASTC格式支持RGBA，适用于POT和NPOT纹理。
+ASTC格式在具体的Block Size下对RGB和RGBA压缩是一致的。
+ASTC格式适用于POT和NPOT纹理。
+
 ![astc block size](https://github.com/iningwei/SelfPictureHost/blob/master/Blog/astc%20block%20size.png?raw=true)
 上图展示了不同Block Size下每个像素占用的bits。易知，Block Size越大，压缩的越厉害。
 以ASTC 4\*4 Block Size为例，可以看到每个像素占用8bits即1个字节。因此一张1024\*1024的RGBA图片按照该格式压缩后占用的内存大小为1MB。
@@ -22,12 +24,12 @@ nvidia官方对ASTC格式有详细的说明：[astc-texture-compression-for-game
 
 ## 适配机型
 1，iOS
-苹果从A8处理器开始支持ASTC，即iPhone6和iPad mini 4及以上的设备都支持。因此在当前情况下iOS上可以全部使用ASTC作为纹理格式。但是若有极端需求，则需要考虑使用PVRTC2。
+苹果从A8处理器开始支持ASTC，即iPhone6和iPad mini 4及以上的设备都支持，ASTC格式在iOS设备上的显示效果比PVRTC的效果要好很多(PVRTC格式存在两个大问题：首先是透明贴图在iOS上显示比较模糊，失真；另一点是对于颜色比较丰富的图，特别是UI，颜色过渡大的区域会出现色阶问题，目前的方案一般是拆分Alpha通道，见这里：[IOS下拆分Unity图集的透明通道（不用TP）](https://zhuanlan.zhihu.com/p/32674470)),[Unity 分离贴图 alpha 通道实践](https://indienova.com/indie-game-development/unity-alpha-separate/)。因此在当前情况下iOS上可以全部使用ASTC作为纹理格式。
 
 2，安卓
 安卓中所有支持OpenGL ES 3.1及以上的设备，和大部分支持OpenGL ES 3.0的设备都支持ASTC。因此在安卓上需要根据具体情况来设置纹理压缩格式，一般而言若项目依旧要考虑第三世界国家和低端机型，就要退而求其次使用ETC2格式进行压缩。
 
-Unity官方对纹理压缩格式的选择和底层的一些异常处理都做了详细的说明：[Recommended, default, and supported texture formats, by platform](https://docs.unity3d.com/Manual/class-TextureImporterOverride.html)
+如果GPU不支持的话一般会解压为RGB或者RBGA，Unity官方对纹理压缩格式的选择和底层的一些异常处理都做了详细的说明：[Recommended, default, and supported texture formats, by platform](https://docs.unity3d.com/Manual/class-TextureImporterOverride.html)
 
 ## 其它
 - POT 和 NPOT
@@ -45,8 +47,16 @@ Unity官方对纹理压缩格式的选择和底层的一些异常处理都做了
 - 为什么我们不使用png、jpg这类常见的压缩格式？
 尽管像jpg、png的压缩率很高，但并不适合纹理，主要问题是不支持像素的随机访问，这对GPU相当不友好，GPU渲染时只使用需要的纹理部分，我们总不可能为了访问某个像素去解码整张纹理吧？不知道顺序，也不确定相邻的三角形是否在纹理上采样也相邻，很难有优化。这类格式更适合下载传输以及减少磁盘空间而使用。
 
+- 其它移动端压缩格式小结
+1，安卓
+ETC：也叫ETC1，被所有安卓设备支持，不支持透明通道，只有RGB bpp(bits per pixel)为4的压缩方式。
+ETC2：OpenGL ES 3.0及以上的设备支持，其有针对RGB，bpp值为4的压缩方式；也有针对RGBA，bpp值为8的压缩方式。项目中可以根据是否带透明通道，选择相应的压缩方式，进一步降低尺寸。
+2，iOS
+PVRTC：也针对RGB和RGBA提供了不同的压缩方式，但是二者的bpp确是一致的，比如RGB bpp为4以及RGBA bpp为4的这两个格式。可见由于RGBA bpp只有4，相对ETC2的RGBA bpp为8的压缩方式少了一半，（虽然不知道PVRTC内部的压缩算法细节，PS:PVRTC不开源）因此才会导致PVRTC在iOS上带透明通道时效果很差。且PVRTC还要求图片必须满足POT。
+
 
 ## 参考文档
 - [ASTC纹理压缩格式详解](https://zhuanlan.zhihu.com/p/158740249)
 - [Compressed GPU texture formats – a review and compute shader decoders – part 1](https://themaister.net/blog/2020/08/12/compressed-gpu-texture-formats-a-review-and-compute-shader-decoders-part-1/)
 - [你所需要了解的几种纹理压缩格式原理](https://zhuanlan.zhihu.com/p/237940807)
+- [各种移动GPU压缩纹理的使用方法](https://www.cnblogs.com/luming1979/archive/2013/02/04/2891421.html)
