@@ -8,9 +8,10 @@ Mono内存使用的是托管内存，由底层GC进行自动的释放。
 
 
 
-Native内存卸载方法：
+Native内存卸载示意图：
 
 ![](https://github.com/iningwei/SelfPictureHost/blob/master/Blog/unityneicun.png?raw=true)
+
 
 
 ## 内存泄漏
