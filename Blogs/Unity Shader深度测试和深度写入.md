@@ -25,7 +25,7 @@
 ZTest Less | Greater | LEqual | GEqual | Equal | NotEqual | Always
 
 默认值为LEqual，小于等于。即表示如果像素的深度小于等于深度缓冲的深度，则通过了深度测试。
-另外 ZTest Off等同于ZTest Always，关闭深度测试等于完全通过
+另外`` ZTest Off等同于ZTest Always，关闭深度测试等于完全通过``
 
  
 

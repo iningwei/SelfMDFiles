@@ -77,7 +77,7 @@ else 像素舍弃
 ```
 将stencil buffer的值与ReadMask与运算，然后与Ref值进行Comp比较，结果为true时进行Pass操作，否则进行Fail操作，操作值写入stencil buffer前先与WriteMask与运算。
 
-因为readMask默认值为255，所以这时可以简化为：``if (参考值 comparisonFunction 缓冲值)``
+因为readMask默认值为255（二进制为11111111，因此小于等于它的数和其&运算的结果是不变的），所以这时可以简化为：``if (参考值 comparisonFunction 缓冲值)``
 
 
 ## 实例

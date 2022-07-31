@@ -15,7 +15,7 @@ CPU和GPU是并行工作的，它们之间通过命令缓冲区(Command Buffer)�
 
 ``渲染状态A --> 渲染A --> 渲染B --> 渲染C`` Draw Call: 3 Batch：1
 
-从CPU到GPU最小号性能的地方是切换渲染状态，而不是Draw Call这个操作。因此在Unity引擎中也越来越淡化Draw Call，转而使用Batchs作为Graphics的性能指标。
+从CPU到GPU最消耗性能的地方是切换渲染状态，而不是Draw Call这个操作。因此在Unity引擎中也越来越淡化Draw Call，转而使用Batchs作为Graphics的性能指标。
 
 ## Unity中批处理的类型
 - Static Batching(静态批处理)
@@ -34,8 +34,28 @@ Unity还提供了一种灵活度比较高的运行时静态合批方法，通过
 - GPU Instancing
 静态批处理和动态批处理，都有自己的优势和劣势。但这些都是在CPU端做的优化，实际上GPU的运行速度是很高的，一次性渲染20个对象和一次性渲染200个对象，几乎是一样的。以上两种提升渲染能力的方法都是针对Command buffer，那我们能不能另辟蹊径，针对GPU来做个优化。比如：一个Draw Call，绘制一个对象；那能不能告诉GPU，一个Draw Call ，给我绘制一百个对象。GPU Instancing正是为了解决这个问题出现的。
 
-
 补充：在Unity的ProjectSettings-->Player界面有统一的静态批处理、动态批处理开关。
+
+## GPU Instancing
+
+Unity 会将可见范围内的所有符合要求的 Object 的对象的属性（位置，uv等）放入到 GPU 中的缓冲区中，从中抽取一个对象作为实例送入渲染流程，这个对象包含了所有符合要求对象的公共信息（那些它们相同的部分），收到 Draw Call 之后，从显存中取出实例的部分共享信息与从GPU常量缓冲器中取出对应对象的相关信息一并传递到下一渲染阶段。
+
+Unity5.4起增加了对GPU Instancing的支持。
+
+## 支持GPU Instacing的平台
+
+- DirectX 11+ on Windows
+- OpenGL ES3.0+/OpenGL Core 4.1+ on Windows,macOS,Linux,iOS and Android
+- Vulkan on Windows,Linux and android
+- WebGL(requires WebGL 2.0 API)
+
+### 如何使用GPU Instancing
+
+ 参见官方文档：
+
+[GPU instancing](https://docs.unity3d.com/2019.4/Documentation/Manual/GPUInstancing.html)
+
+[Creating shaders that support GPU instancing](https://docs.unity3d.com/2021.3/Documentation/Manual/gpu-instancing-shader.html)
 
 
 ## 合批失败原因汇总
@@ -361,7 +381,7 @@ Demo场景中两个相同的Sphere, 使用的Shader为Standard。动态合批失
 ## 结论
 通过以上测试笔者得到如下结论（只针对场景物体，UGUI另讨论）：
 - 批处理优先级
-静态批处理 > GPU Instancing > 动态批处理
+``静态批处理 > GPU Instancing > 动态批处理``
 在满足多个批处理的条件下，按照优先级进行，靠前的执行后（无论成功与否），不再执行后续的。比如物体使用了支持GPU Instancing的Shader，无论开启与否或者成功与否，后续都不再尝试动态批处理
 
 - 动态批处理
