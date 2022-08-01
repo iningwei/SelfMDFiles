@@ -39,11 +39,12 @@ float smoothstep(float a,float b,float x){
     float t=saturate((x-a)/(b-a));
     return 3.0*t*t-2.0*t*t*t
 }
+```
 另有一说函数逻辑为：
 ```csharp
 
 ```
-```
+
 
 smoothstep(x,y,a); //a如果小于x返回0 如果a>y返回1 在x y之间返回 3*a^2 - 2*a^3
 
