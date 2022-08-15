@@ -71,3 +71,20 @@ Lua
 
 
 ### 第3章 表达式
+#### 3.1 算术运算符
+lua中有幂运算符 ^ ，它是一个双目运算符
+#### 3.3 逻辑运算符
+and or not
+逻辑运算符认为false和nil是假(false),其它为真，0也是真(true)
+
+and 和 or的运算结果不是true和false，而是和它的两个操作数有关:
+```c
+a and b --如果a为false,则返回a，否则返回b
+a or b  --如果a为true，则返回a，否则返回b
+```
+
+and的优先级比or高
+
+not结果只返回true或者false
+
+
