@@ -54,6 +54,9 @@ public class Test : MonoBehaviour
 ### Header属性
 [Header("")] Inspector面板中在目标字段顶部展示额外的说明文字
 
+### FormerlySerializedAs属性
+[FormerlySerializedAs("")]可以自定义字段在Inspector上显示的内容。
+
 ## 窗口扩展基础：MenuItem,ScriptableWizard,EditorWindow
 
 ### MenuItem
@@ -660,17 +663,127 @@ public class Test : MonoBehaviour
 
 ## 一些实用Attribute
 - [InitializeOnLoadMethod]
-在Class内部修饰静态方法，起到自动调用目标方法的功能。
+在Class内部修饰静态方法，起到自动调用目标方法的功能。在编辑器下，每次打开编辑器时都会运行。或者代码重新编译后也会运行。编辑器下进入Play模式也会运行一次。
+该属性使用上不要求类是否继承自MonoBehavior，也不要求脚本是否至于Editor目录下。
+需要引入UnityEditor命名空间，不支持真机。
 - [InitializeOnLoad]
-修饰Class，和类的静态构造函数结合使用，可以达到和[InitializeOnLoadMethod]一样的目的。
+修饰Class，一般用于和类的静态构造函数结合使用，可以达到和[InitializeOnLoadMethod]一样的目的。
+同样，只支持在编辑器下使用，不支持真机。
+```csharp
+using UnityEngine;
+using UnityEditor;
+ 
+[InitializeOnLoad]
+public class LoadOrderTest
+{
+    static LoadOrderTest()
+    {
+        MyOnStart();
+ 
+ 
+        EditorApplication.update = MyUpdate;
+ 
+    }
+ 
+    static void MyOnStart()
+    {
+        Debug.Log("MyOnStart");  
+    }
+    
+    static void MyUpdate()
+    {
+        //if(Application.isFocused)
+        //{
+        //    Debug.Log("鼠标点击进入了Game窗口");
+        //}
+        //else
+        //{
+        //    Debug.Log("鼠标移除Game窗口，并点击了别的地方");
+        //}
+        
+        if (Application.isPlaying)
+        {
+            Debug.Log("点击了 play 按钮 进入运行时");
+        }
+        else
+        {
+            Debug.Log("点击 play 按钮 进入 editor模式");
+        }
+    }
+ 
+    [InitializeOnLoadMethod]
+    static void InitializeOnLoadMethod()
+    {
+        Debug.Log("InitializeOnLoadMethod");
+    }
+}
+```
 - [DidReloadScripts]
-修饰静态方法；代码被编译好后，会被执行
+修饰静态方法；代码被编译好后，会被执行。需引入命名空间：UnityEditor.Callbacks，因此不支持真机运行时。
 ```csharp
 	[DidReloadScripts]
 	private static void Reload()
 	{
 	}
 ```
+- [RuntimeInitializeOnLoadMethod]
+对比 InitializeOnLoadMethod ，其支持在真机App上运行。同样也是修饰静态方法，编辑器进入Play模式或者真机App运行时会调用。且其还提供有参数用以确定是在加载场景的哪个阶段调用。
+```c
+RuntimeInitializeLoadType.AfterSceneLoad // 加载场景后
+RuntimeInitializeLoadType.BeforeSceneLoad // 在加载场景之前
+RuntimeInitializeLoadType.AfterAssembliesLoaded // 加载所有程序集并初始化预加载的资源时进行回调
+RuntimeInitializeLoadType.BeforeSplashScreen // 在显示启动屏幕之前。
+RuntimeInitializeLoadType.SubsystemRegistration //用于注册子系统的回调
+```
+RuntimeInitializeOnLoadMethod修饰的静态方法，不要求该静态方法所在类是继承MonoBehaviour的。且该类在不在Editor目录下也不影响其被调用。
+```
+using UnityEngine;
+ 
+public class LoadOrderTestTwo : MonoBehaviour {
+ 
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    static void BeforeRuntimeInitializeOnLoadMethod()
+    {
+        Debug.Log("BeforeRuntimeInitializeOnLoadMethod");
+    }
+ 
+ 
+    [RuntimeInitializeOnLoadMethod]
+    static void OnRuntimeInitializeOnLoadMethod()
+    {
+        Debug.Log("OnRuntimeInitializeOnLoadMethod");
+    }
+ 
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+    static void AfterRuntimeInitializeOnLoadMethod()
+    {
+        Debug.Log("AfterRuntimeInitializeOnLoadMethod");
+    }
+ 
+    private void Awake()
+    {
+        Debug.Log("Awake");
+    }
+ 
+    private void Start()
+    {
+        Debug.Log("Start");
+ 
+    }
+ 
+    bool isUpdate = true;
+    private void Update()
+    {
+        if(isUpdate)
+        {
+            Debug.Log("Update");
+            isUpdate = false;
+        }
+ 
+    }
+}
+```
+运行顺序为：``BeforeRuntime、Awake、OnRuntime、AfterRuntime、Start、Update。``。特别要注意通过使用RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad),让方法在Awake前被调用，可以用于一些重要数据的初始化。
 
 ## 其它重要委托
 - 编辑器Update委托 EditorApplication.update+=

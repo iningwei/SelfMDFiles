@@ -51,3 +51,9 @@ EditorApplication.ExecuteMenuItem("GameObject/Create Other/Cube");
 ## 12：快速搜索
 自Unity2021.1起，QuickSearch功能已整合编辑器中。通过Edit->Search All（或在Windows按Ctrl+K、在macOS中按下Cmd+K）即可开始搜索。
 支持引擎内各种内容的搜索，包括资源、场景对象、菜单选项、软件包、API、各种设置等等
+
+## 13：相机设置为Scene场景显示的视图
+Scene场景确定目标位置后，选中目标相机后，按ctrl+shift+f，即可让相机的视图为当前Scene场景视角。
+
+## 14：从Shader创建材质
+先在编辑器中选中目标Shader，再使用Create->Material来创建材质即可。
