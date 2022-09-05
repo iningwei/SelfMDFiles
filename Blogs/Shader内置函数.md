@@ -9,6 +9,8 @@ https://zhuanlan.zhihu.com/p/108259045
 https://www.cnblogs.com/murongxiaopifu/p/9243540.html
 https://answers.unity.com/questions/1415235/objects-have-different-materials-on-same-material.html
 
+
+
 ## step
 step函数时阶跃函数，格式为step(a,b)，其函数逻辑为：
 ```csharp
@@ -63,7 +65,9 @@ fwidth(x);//就是取相邻两个像素（物理设备）该变量的差值，dd
 pow(x, y): x的y次方；
 
 smoothstep与lerp类似，返回 0 和 1 之间平滑的 Hermite 插值
+
 clip(x):x若小于0，则放弃当前像素。一般用于alpha test.
+
 abs(x)
 
 
