@@ -13,7 +13,6 @@
 （已解决）10，处理程序工程中报的系统日志： Render queue value outside of the allowed range (2450 - 2500) for selected Blend mode, resetting render queue to default
 （已处理）11，立州那边测出一些相机交互bug
 
-
 ### 2022/09/21
 （已处理）1，角色控制，动作增加融合
 （已处理）2，角色控制相机会出现偏的bug
@@ -37,7 +36,14 @@ Kawaii场景部分碰撞体的MeshCollider设置了Convex导致的
 （已解决）3，解决客户端运行时 Render queue value outside of the allowed range 的问题
 4，总结一下cbCheckCode的原理
 
-
 ### 2022/09/26
 （已处理）1，角色控制状态化
 2，回看之前悟空传同步方案
+
+### 2022/09/27
+1，大地图分块加载技术调研：分块的导航网格如何处理、分块的烘焙贴图如何处理、分块的角色信息同步如何处理
+2，ab异步加载，资源的小状态是否需要设置标识？
+3，打包动态设置宏，编译监听
+4，测试场景切换烘焙资源的卸载情况
+5，测试场景additive时，烘焙资源的机制
+6，处理ab 先异步加载，再立即调用同步加载代码
