@@ -47,3 +47,12 @@ Kawaii场景部分碰撞体的MeshCollider设置了Convex导致的
 4，测试场景切换烘焙资源的卸载情况
 5，测试场景additive时，烘焙资源的机制
 6，处理ab 先异步加载，再立即调用同步加载代码
+7，报账别忘了...
+
+
+### 2022/09/28
+1，查看内存中为啥shader占用这么多
+2，处理同一帧：先异步加载某个ab，再同步加载某个资源的问题
+3，重构ab同步加载，改成callback方式
+4，ShowWindow和ShowWindowAsync 回调代码统一
+5，ABSprite、ABTexture，同步、异步回调的代码归一化
