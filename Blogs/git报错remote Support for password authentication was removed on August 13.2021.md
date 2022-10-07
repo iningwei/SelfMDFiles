@@ -18,3 +18,5 @@ Settings->Developer settings->Personal access tokens->Generate new token
 // <REPO>：包括<>在内的全部字符替换成你要访问的仓库名称,注意是仓库名称，不是仓库url
 git remote set-url origin  https://<your_token>@github.com/<USERNAME>/<REPO>.git
 ```
+eg:(以下为笔者家里PC的Token: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)
+git remote set-url origin  https://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@github.com/iningwei/SelfMDFiles.git
