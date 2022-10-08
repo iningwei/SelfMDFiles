@@ -10,16 +10,7 @@ Settings->Developer settings->Personal access tokens->Generate new token
 
 最后点击Generate token生成token，需要记住该token，因为界面关闭后就无法再访问了。
 
-### Step2:使用命令
-在某个具体项目仓库下的git面板内输入命令：
-```c
-// <your_token>：包括<>在内的全部字符替换成你的token
-// <USERNAME>：包括<>在内的全部字符替换成你的username
-// <REPO>：包括<>在内的全部字符替换成你要访问的仓库名称,注意是仓库名称，不是仓库url
-git remote set-url origin  https://<your_token>@github.com/<USERNAME>/<REPO>.git
-```
-eg:(以下为笔者家里PC的Token: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)
-git remote set-url origin  https://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@github.com/iningwei/SelfMDFiles.git
-
+### Step2:
+再次push，遇到输入用户名密码的界面，输入github帐号的用户名和密码；再次弹出一个输入密码的对话框，输入上述获得到的token即可提交成功。
 
 20221008 PC的access token又改成：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
