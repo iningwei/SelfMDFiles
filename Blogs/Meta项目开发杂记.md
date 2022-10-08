@@ -64,5 +64,8 @@ Kawaii场景部分碰撞体的MeshCollider设置了Convex导致的
 
 
 ### 2022/09/30
-1，场景切换、多场景加载，及涉及到的lightmap index更新。
-2，特别要注意打Scene AB时，RootCompInfoHolder数据为空的情况
+（已处理）1，场景切换、多场景加载，及涉及到的lightmap index更新。
+2，特别要注意一键打Scene AB时，RootCompInfoHolder数据为空的情况，导致的场景贴图异常。考虑把打Scene AB拆分为两个步骤。
+
+### 2022/10/08
+（已处理）1，双端代码同步一下
