@@ -39,6 +39,17 @@ Kawaii场景部分碰撞体的MeshCollider设置了Convex导致的
 ### 2022/09/26
 （已处理）1，角色控制状态化
 2，回看之前悟空传同步方案
+玩家进入、创建玩家：ModelService.cs,ActorModelACK 玩家自己和其它玩家
+
+位置同步相关：
+玩家自己
+SceneService.cs:L178 进入场景后，向服务端发送ClientReadyACK
+SceneService.cs：PositionACK为服务端下行位置同步
+SceneService.cs:L241 SendPlayerPos 为客户端上行位置
+ActorMainCityFlyAction.cs 飞行
+其它玩家
+
+
 
 ### 2022/09/27
 1，大地图分块加载技术调研：分块的导航网格如何处理、分块的烘焙贴图如何处理、分块的角色信息同步如何处理
@@ -46,8 +57,7 @@ Kawaii场景部分碰撞体的MeshCollider设置了Convex导致的
 （已处理）3，打包动态设置宏，编译监听
 4，测试场景切换烘焙资源的卸载情况
 （已处理）5，测试场景additive时，烘焙资源的机制
-（已处理）6，处理ab 先异步加载，再立即调用同步加载代码
-（已处理）7，报账别忘了...
+（已处理）6，处理ab 先异步加载，再立即调用同步加载代码 
 
 
 ### 2022/09/28
@@ -69,3 +79,33 @@ Kawaii场景部分碰撞体的MeshCollider设置了Convex导致的
 
 ### 2022/10/08
 （已处理）1，双端代码同步一下
+2，本地化语言初始配置在cfg文件，用户可在app内设置，存储到PlayerPrefs中。相应调整。
+3，增加SKIP_SPLASH宏
+（已处理）4，分析舞吧项目换装编码规则，动作，喊佳林调整模型结构；和主策制定初始模型命名规则
+```
+编码格式  
+0_0_0000_0 未使用的占位则不显示
+
+第1位代表层次编码：共1-9，越外面的标识越覆盖在蒙皮上层，同层次不产生覆盖关系，第一期不用处理。  
+第2位代表部件流水序号，与层次编码一起组成了部件  
+第3-6位代表了服饰流水编号  
+第7位代表了性别，0为通用，1为男，2为女
+```
+5，写工具检测模型命名、贴图命名是否符合规范
+
+### 2022/10/09
+1，ABManager中加载common ab资源后，不能对其使用ab.Unload(false),卸载。否则在手机端会出现shader全部丢失的问题。在PC上没问题。
+2，增加对TextMeshPro组件的依赖引用关系，避免其shader丢失。
+3，今天打包又遇到在安卓真机上lightmap最终设置后场景变黑的情况了。然后过了一段时间打包又突然好了。目前还没有定位缘由，猜测原因：a,打包时部分资源没有加载进去，导致最终lightmap显示有问题。因为笔者这边没问题的包的包体尺寸要大于有问题的包的包体。b,这次又是美术工程和程序工程都新增加了compinfo，但是没有重打ab包。
+4，提供给佳林：换装蒙皮或者模型命名工具
+5，目前kawaiicity场景在PC上有两个性能问题：
+a:程序运行保持无任何交互，每隔一小段时间会有一个CPU的尖峰，查看CPU Profiler是Gfx.WaitForPresentOnGfxThread。而这个参数通常意味着是GPU的问题，经查
+b:场景异步卸载时，由于OnObjDestroyNotice导致的EarlyUpdate.UpdatePreloading很耗时。
+从2000ms->690ms(解决了AB引用之前遗留的bug)->300ms(Res内维护一个dic，记录Trans的ID，提高从Res查找引用Trans的效率)
+
+
+### 2022/10/10
+1，AB依赖问题处理
+2，OnObjDestory处理
+3，Lightmap texture ab load比较耗时，目前看是每个图耗时2.4秒
+4，协程工具考虑使用这个：[MEC](https://assetstore.unity.com/packages/tools/animation/more-effective-coroutines-free-54975#description)
