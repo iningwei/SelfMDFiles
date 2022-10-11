@@ -108,4 +108,17 @@ b:场景异步卸载时，由于OnObjDestroyNotice导致的EarlyUpdate.UpdatePre
 1，AB依赖问题处理
 2，OnObjDestory处理
 3，Lightmap texture ab load比较耗时，目前看是每个图耗时2.4秒
-4，协程工具考虑使用这个：[MEC](https://assetstore.unity.com/packages/tools/animation/more-effective-coroutines-free-54975#description)
+4，协程工具考虑换成这个：[MEC](https://assetstore.unity.com/packages/tools/animation/more-effective-coroutines-free-54975#description)，教程：http://trinary.tech/category/mec/
+
+
+
+### 2022/10/11
+1，TextmeshPro支持中文，打ab要验证是否切换为中文字体。
+2，日历选择[ZCalendar](https://gitee.com/jacobkay/unity-calendar)
+3，城市选择方案
+计算城市距离：https://blog.csdn.net/weixin_43881394/article/details/109616884
+4，星座方案：直接走配置
+5，调整pbr shader：漫反射、法线、自发光、混合贴图（R:金属度，G:AO，B:粗糙度）
+使用该方案：[UnityShader 基础（34）-综合应用-PBR材质](https://zhuanlan.zhihu.com/p/422881152)
+参考：[Unity PBR Standard Shader 实现详解（一）PBR的简单介绍及美术原理](https://zhuanlan.zhihu.com/p/135874778)
+
