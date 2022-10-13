@@ -99,21 +99,22 @@ ActorMainCityFlyAction.cs 飞行
 3，今天打包又遇到在安卓真机上lightmap最终设置后场景变黑的情况了。然后过了一段时间打包又突然好了。目前还没有定位缘由，猜测原因：a,打包时部分资源没有加载进去，导致最终lightmap显示有问题。因为笔者这边没问题的包的包体尺寸要大于有问题的包的包体。b,这次又是美术工程和程序工程都新增加了compinfo，但是没有重打ab包。
 4，提供给佳林：换装蒙皮或者模型命名工具
 5，目前kawaiicity场景在PC上有两个性能问题：
-a:程序运行保持无任何交互，每隔一小段时间会有一个CPU的尖峰，查看CPU Profiler是Gfx.WaitForPresentOnGfxThread。而这个参数通常意味着是GPU的问题，经查
+a:程序运行保持无任何交互，每隔一小段时间会有一个CPU的尖峰，查看CPU Profiler是Gfx.WaitForPresentOnGfxThread。而这个参数通常意味着是GPU的问题。
 b:场景异步卸载时，由于OnObjDestroyNotice导致的EarlyUpdate.UpdatePreloading很耗时。
 从2000ms->690ms(解决了AB引用之前遗留的bug)->300ms(Res内维护一个dic，记录Trans的ID，提高从Res查找引用Trans的效率)
 
 
 ### 2022/10/10
-1，AB依赖问题处理
-2，OnObjDestory处理
+（已处理）1，AB依赖问题处理
+（已处理）2，OnObjDestory处理
 3，Lightmap texture ab load比较耗时，目前看是每个图耗时2.4秒
 4，协程工具考虑换成这个：[MEC](https://assetstore.unity.com/packages/tools/animation/more-effective-coroutines-free-54975#description)，教程：http://trinary.tech/category/mec/
+并考虑上传到网盘和csdn
 
 
 
 ### 2022/10/11
-1，TextmeshPro支持中文，打ab要验证是否切换为中文字体。
+1，TextMeshPro支持中文，打ab要检测TextMeshPro不能使用默认字体。
 2，日历选择[ZCalendar](https://gitee.com/jacobkay/unity-calendar)
 3，城市选择方案
 计算城市距离：https://blog.csdn.net/weixin_43881394/article/details/109616884
@@ -122,3 +123,23 @@ b:场景异步卸载时，由于OnObjDestroyNotice导致的EarlyUpdate.UpdatePre
 使用该方案：[UnityShader 基础（34）-综合应用-PBR材质](https://zhuanlan.zhihu.com/p/422881152)
 参考：[Unity PBR Standard Shader 实现详解（一）PBR的简单介绍及美术原理](https://zhuanlan.zhihu.com/p/135874778)
 
+
+### 2022/10/12
+1，客户端导表问题
+2，服饰模型编号调整，后期还需反馈给佳林
+3，编号或者表还要增加配置，用来确定模型是通过蒙皮还是挂载点的方式加载到角色身上
+4，看佳林 那边总结的换装方案插件
+（已处理）5，和佳林对接DynamicBone的实现
+
+
+### 2022/10/13
+1，avatar 扭曲骨骼 twistbone处理
+2，dynamicbone骨骼方案确定
+3，APowerREC,Araxis整理上传
+4，AutoLink工具对于按钮的点击事件自动注册，自动生成函数，自动移除注册
+5，和潘老师那边加上登录前的http请求获得服务器列表
+
+6，佳林 推荐[Magica Cloth](https://www.bilibili.com/video/BV1iL4y1i7p5/?spm_id_from=333.337.search-card.all.click&vd_source=35717917bbfc5fd6004dd7231be24c25)系统。
+相关教程：
+[Magica Cloth 布料模拟使用心得，以及插件功能介绍](https://www.163.com/dy/article/FLBHM90H0526E124.html)
+[DynamicBone（动态骨骼）MagicaCloth的优化策略（4）](https://zhuanlan.zhihu.com/p/526285709mei'you)
