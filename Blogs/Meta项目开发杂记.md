@@ -150,3 +150,4 @@ b:场景异步卸载时，由于OnObjDestroyNotice导致的EarlyUpdate.UpdatePre
 
 3，异步打开窗体，刚好窗体中有DynamicComp引用的贴图，在增加引用计数时，可能窗体中的贴图还没有加载好。导致问题。
 4，lua中使用rapidjson解析json数据
+5，xlua第三方库封装记录一下
