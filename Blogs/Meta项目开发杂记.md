@@ -109,7 +109,7 @@ b:场景异步卸载时，由于OnObjDestroyNotice导致的EarlyUpdate.UpdatePre
 （已处理）2，OnObjDestory处理
 3，Lightmap texture ab load比较耗时，目前看是每个图耗时2.4秒
 4，协程工具考虑换成这个：[MEC](https://assetstore.unity.com/packages/tools/animation/more-effective-coroutines-free-54975#description)，教程：http://trinary.tech/category/mec/
-并考虑上传到网盘和csdn
+并考虑上传到网盘和csdn。
 
 
 
@@ -133,13 +133,20 @@ b:场景异步卸载时，由于OnObjDestroyNotice导致的EarlyUpdate.UpdatePre
 
 
 ### 2022/10/13
-1，avatar 扭曲骨骼 twistbone处理
+1，avatar 扭曲骨骼 twistbone处理：https://blog.csdn.net/qq_21397217/article/details/120896318
 2，dynamicbone骨骼方案确定
 3，APowerREC,Araxis整理上传
 4，AutoLink工具对于按钮的点击事件自动注册，自动生成函数，自动移除注册
-5，和潘老师那边加上登录前的http请求获得服务器列表
+（已处理）5，和潘老师那边加上登录前的http请求获得服务器列表
 
 6，佳林 推荐[Magica Cloth](https://www.bilibili.com/video/BV1iL4y1i7p5/?spm_id_from=333.337.search-card.all.click&vd_source=35717917bbfc5fd6004dd7231be24c25)系统。
 相关教程：
 [Magica Cloth 布料模拟使用心得，以及插件功能介绍](https://www.163.com/dy/article/FLBHM90H0526E124.html)
 [DynamicBone（动态骨骼）MagicaCloth的优化策略（4）](https://zhuanlan.zhihu.com/p/526285709mei'you)
+
+### 2022/10/14
+（已处理）1，loading加载转场界面，以及相关底层逻辑处理
+2，刘海屏，水滴屏，安全区处理
+
+3，异步打开窗体，刚好窗体中有DynamicComp引用的贴图，在增加引用计数时，可能窗体中的贴图还没有加载好。导致问题。
+4，lua中使用rapidjson解析json数据
