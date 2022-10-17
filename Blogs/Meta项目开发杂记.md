@@ -147,7 +147,20 @@ b:场景异步卸载时，由于OnObjDestroyNotice导致的EarlyUpdate.UpdatePre
 ### 2022/10/14
 （已处理）1，loading加载转场界面，以及相关底层逻辑处理
 2，刘海屏，水滴屏，安全区处理
-
 3，异步打开窗体，刚好窗体中有DynamicComp引用的贴图，在增加引用计数时，可能窗体中的贴图还没有加载好。导致问题。
 4，lua中使用rapidjson解析json数据
 5，xlua第三方库封装记录一下
+
+
+### 2022/10/15
+1，astra换装方案调研：https://assetstore.unity.com/packages/3d/characters/astra-232906
+该方案类似于SDK的方式，需要注册获取相关key
+fist name:hui
+last name:zhou
+email:215598028@qq.com
+password:zhouhui123@@@
+
+该方案，也是通过直接换蒙皮的方式，并没有太复杂的处理人物模型，包括捏脸，捏身体。
+
+2，测试Magica Cloth模拟头发效果
+效果比DynamicBone要好，裙子可能要用Deformer的方式，但是该方式相对较耗，还未测试。
