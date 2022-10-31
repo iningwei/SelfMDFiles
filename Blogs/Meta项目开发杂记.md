@@ -212,3 +212,21 @@ Unity已内置支持
 3，Avatar RenderTexture渲染，旋转
 4，创角基础模型展示(根据穿戴信息填充对应部位)
 5，角色基础模型上的基础部件，需要添加 DynamicCompInfoHolder
+
+
+
+### 2022/10/28
+1，Avatar系统开发
+2，出安卓包，测试性能
+
+### 2022/10/29
+周六加班
+1，分别在CSharp侧和lua侧，测试测嵌套结构
+2，proto文件加消息号，自动导出处理
+由于有大量空消息，还是要手动添加，故不处理
+3，ScrollView.cs考虑加入onItemLostRender
+4，proto导lua工具重写
+
+### 2022/10/31
+1，lua侧，MsgID注册工具
+2，ScrollView组件，修改Instantiate为通用带引用计数的实例化方式
