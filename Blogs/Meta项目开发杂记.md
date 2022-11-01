@@ -230,3 +230,7 @@ Unity已内置支持
 ### 2022/10/31
 1，lua侧，MsgID注册工具
 2，ScrollView组件，修改Instantiate为通用带引用计数的实例化方式
+
+
+### 2022/11/1
+1，增加SkinedMeshRenderer对骨骼节点依赖的脚本，代码中需要设置smr.bones，否则其不可见
