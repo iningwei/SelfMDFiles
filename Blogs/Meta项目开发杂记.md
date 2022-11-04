@@ -246,3 +246,7 @@ Unity已内置支持
 
 ### 2022/11/4
 1，PM工具
+2，PlayerPrefs扩展
+https://github.com/sabresaurus/PlayerPrefsEditor
+https://github.com/Dysman/bgTools-playerPrefsEditor    https://assetstore.unity.com/packages/tools/utilities/playerprefs-editor-167903
+
