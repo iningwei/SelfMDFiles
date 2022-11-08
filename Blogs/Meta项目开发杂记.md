@@ -263,3 +263,4 @@ https://github.com/Dysman/bgTools-playerPrefsEditor    https://assetstore.unity.
 5，ovo pbr shader的 暗色 这个参数 没效果，处理一下
 6，处理大量texture加载时产生的gc alloc
 7，通用的GM命令工具集成
+8，集成MapID
