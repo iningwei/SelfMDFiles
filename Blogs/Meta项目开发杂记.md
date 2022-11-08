@@ -250,3 +250,16 @@ Unity已内置支持
 https://github.com/sabresaurus/PlayerPrefsEditor
 https://github.com/Dysman/bgTools-playerPrefsEditor    https://assetstore.unity.com/packages/tools/utilities/playerprefs-editor-167903
 
+### 2022/11/7
+1，集成跳舞角色性能测试
+一个蒙皮+常规动作+创建的角色使用跳舞动作
+2，物品时效性的统一处理
+
+### 2022/11/8
+1，亟待解决Coroutine造成的大量GC问题。废弃MEC方案。
+2，确定大场景加载方案
+3，LoadingWindow进度感觉不太对
+4，确定场景使用什么shader
+5，ovo pbr shader的 暗色 这个参数 没效果，处理一下
+6，处理大量texture加载时产生的gc alloc
+7，通用的GM命令工具集成
