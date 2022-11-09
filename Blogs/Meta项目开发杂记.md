@@ -264,3 +264,9 @@ https://github.com/Dysman/bgTools-playerPrefsEditor    https://assetstore.unity.
 6，处理大量texture加载时产生的gc alloc
 7，通用的GM命令工具集成
 8，集成MapID
+
+### 2022/11/9
+1，刘海屏、水滴屏等异形屏适配
+2，瑞宇新shader集成
+3，处理TMP的描边问题
+4，佳林那边人嘴巴不动，找原因
