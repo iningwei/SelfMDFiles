@@ -270,3 +270,20 @@ https://github.com/Dysman/bgTools-playerPrefsEditor    https://assetstore.unity.
 2，瑞宇新shader集成
 3，处理TMP的描边问题
 4，佳林那边人嘴巴不动，找原因
+
+
+### 2022/11/11
+1，跳舞战斗，进场相关流程
+2，玩家actor同步相关改成Lua侧实现
+
+
+### 2022/11/12
+周六加班
+1，研究下UMA插件 https://www.bilibili.com/video/BV1gA411u7UF/?spm_id_from=333.337.search-card.all.click&vd_source=35717917bbfc5fd6004dd7231be24c25
+
+
+### 2022/11/14
+1，luaEnv tick
+2，测试新角色部件
+3，整理Lua侧Monobehavior实现机制
+4，看下LODGroup的原理，和使用流程
