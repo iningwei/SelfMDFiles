@@ -287,3 +287,15 @@ https://github.com/Dysman/bgTools-playerPrefsEditor    https://assetstore.unity.
 2，测试新角色部件
 3，整理Lua侧Monobehavior实现机制
 4，看下LODGroup的原理，和使用流程
+
+### 2022/11/14
+1，确定目前不用LOD
+会增加包体；会增加大量烘焙贴图
+
+2，捏脸、表情相关资料
+[骨骼动画系统——捏脸方案的实现与介绍(八)](https://zhuanlan.zhihu.com/p/466851975)
+[Unity 人物捏脸的实现](https://www.jianshu.com/p/0a9ad1e03992)
+[Unity3D捏脸+衣服摆动技术介绍](https://blog.csdn.net/jxw167/article/details/101711055)
+
+3，unity插件
+[Mesh Deformation Full Collection](https://assetstore.unity.com/packages/tools/modeling/mesh-deformation-full-collection-47061)
