@@ -75,7 +75,7 @@ ActorMainCityFlyAction.cs 飞行
 
 ### 2022/09/30
 （已处理）1，场景切换、多场景加载，及涉及到的lightmap index更新。
-2，特别要注意一键打Scene AB时，RootCompInfoHolder数据为空的情况，导致的场景贴图异常。考虑把打Scene AB拆分为两个步骤。
+（已处理）2，特别要注意一键打Scene AB时，RootCompInfoHolder数据为空的情况，导致的场景贴图异常。考虑把打Scene AB拆分为两个步骤。
 
 ### 2022/10/08
 （已处理）1，双端代码同步一下
@@ -114,13 +114,13 @@ b:场景异步卸载时，由于OnObjDestroyNotice导致的EarlyUpdate.UpdatePre
 
 
 ### 2022/10/11
-1，TextMeshPro支持中文，打ab要检测TextMeshPro不能使用默认字体。
-2，日历选择[ZCalendar](https://gitee.com/jacobkay/unity-calendar)
-3，城市选择方案
+（已处理）1，TextMeshPro支持中文，打ab要检测TextMeshPro不能使用默认字体。
+（已处理）2，日历选择[ZCalendar](https://gitee.com/jacobkay/unity-calendar)
+（已处理）3，城市选择方案
 计算城市距离：https://blog.csdn.net/weixin_43881394/article/details/109616884
 （已处理）4，星座方案：直接走配置
 描述走配置，其它在C# TimeTool.cs封装好
-5，调整pbr shader：漫反射、法线、自发光、混合贴图（R:金属度，G:AO，B:粗糙度）
+（已处理）5，调整pbr shader：漫反射、法线、自发光、混合贴图（R:金属度，G:AO，B:粗糙度）
 使用该方案：[UnityShader 基础（34）-综合应用-PBR材质](https://zhuanlan.zhihu.com/p/422881152)
 参考：[Unity PBR Standard Shader 实现详解（一）PBR的简单介绍及美术原理](https://zhuanlan.zhihu.com/p/135874778)
 
@@ -136,7 +136,7 @@ b:场景异步卸载时，由于OnObjDestroyNotice导致的EarlyUpdate.UpdatePre
 
 ### 2022/10/13
 1，avatar 扭曲骨骼 twistbone处理：https://blog.csdn.net/qq_21397217/article/details/120896318
-2，dynamicbone骨骼方案确定
+（已处理）2，dynamicbone骨骼方案确定
 3，APowerREC,Araxis软件整理上传
 （已处理）4，AutoLink工具对于按钮的点击事件自动注册，自动生成函数，自动移除注册
 经考虑，不自动注册点击事件，由程序自己处理
@@ -199,7 +199,7 @@ Unity已内置支持
 
 
 ### 2022/10/27
-1，调整服饰模型命名规则：
+（已处理）1，调整服饰模型命名规则：
 000_0000
 第1位代表层次编码：共1-9，越外面的标识越覆盖在蒙皮上层，同层次不产生覆盖关系，第一期不用处理。
 第2位代表部件流水序号，与层次编码一起组成了部件（比如上衣、裤子）。
@@ -210,10 +210,10 @@ Unity已内置支持
 4-7位代表不同服饰类型下的编号，编号从1到9999。这4位中未占用的0可以省略不显示。
 
 
-2，Lua工程窗体的文件件移除Window后缀，保持和美术工程中的文件夹名称一致
-3，Avatar RenderTexture渲染，旋转
-4，创角基础模型展示(根据穿戴信息填充对应部位)
-5，角色基础模型上的基础部件，需要添加 DynamicCompInfoHolder
+（已处理）2，Lua工程窗体的文件件移除Window后缀，保持和美术工程中的文件夹名称一致
+（已处理）3，Avatar RenderTexture渲染，旋转
+（已处理）4，创角基础模型展示(根据穿戴信息填充对应部位)
+（已处理）5，角色基础模型上的基础部件，需要添加 DynamicCompInfoHolder
 
 
 
@@ -222,7 +222,7 @@ Unity已内置支持
 （已处理）2，出安卓包，测试性能
 
 ### 2022/10/29
-周六加班
+``周六加班``
 （已处理）1，分别在CSharp侧和lua侧，测试测嵌套结构
 （已处理）2，proto文件加消息号，自动导出处理
 由于有大量空消息，还是要手动添加，故不处理
@@ -245,13 +245,13 @@ Unity已内置支持
 
 
 ### 2022/11/4
-1，PM工具
+（已处理）1，PM工具
 2，PlayerPrefs扩展
 https://github.com/sabresaurus/PlayerPrefsEditor
 https://github.com/Dysman/bgTools-playerPrefsEditor    https://assetstore.unity.com/packages/tools/utilities/playerprefs-editor-167903
 
 ### 2022/11/7
-1，集成跳舞角色性能测试
+（已处理）1，集成跳舞角色性能测试
 一个蒙皮+常规动作+创建的角色使用跳舞动作
 2，物品时效性的统一处理
 
@@ -262,33 +262,34 @@ https://github.com/Dysman/bgTools-playerPrefsEditor    https://assetstore.unity.
 4，确定场景使用什么shader
 5，ovo pbr shader的 暗色 这个参数 没效果，处理一下
 6，处理大量texture加载时产生的gc alloc
-7，通用的GM命令工具集成
-8，集成MapID
+（已处理）7，通用的GM命令工具集成
+（已处理）8，集成MapID
 
 ### 2022/11/9
-1，刘海屏、水滴屏等异形屏适配
+（已处理）1，刘海屏、水滴屏等异形屏适配
 2，瑞宇新shader集成
-3，处理TMP的描边问题
+（已处理）3，处理TMP的描边问题
+使用material-preset,限制描边类型差异数量
 4，佳林那边人嘴巴不动，找原因
 
 
 ### 2022/11/11
-1，跳舞战斗，进场相关流程
-2，玩家actor同步相关改成Lua侧实现
+（已处理）1，跳舞战斗，进场相关流程
+（已处理）2，玩家actor同步相关改成Lua侧实现
 
 
 ### 2022/11/12
-周六加班
+``周六加班``
 1，研究下UMA插件 https://www.bilibili.com/video/BV1gA411u7UF/?spm_id_from=333.337.search-card.all.click&vd_source=35717917bbfc5fd6004dd7231be24c25
 
 
 ### 2022/11/14
-1，luaEnv tick
+（已处理）1，luaEnv tick
 2，测试新角色部件
 3，整理Lua侧Monobehavior实现机制
-4，看下LODGroup的原理，和使用流程
+（已处理）4，看下LODGroup的原理，和使用流程
 
-### 2022/11/14
+### 2022/11/15
 1，确定目前不用LOD
 会增加包体；会增加大量烘焙贴图
 
@@ -299,3 +300,13 @@ https://github.com/Dysman/bgTools-playerPrefsEditor    https://assetstore.unity.
 
 3，unity插件
 [Mesh Deformation Full Collection](https://assetstore.unity.com/packages/tools/modeling/mesh-deformation-full-collection-47061)
+
+### 2022/11/16
+（已处理）1，调研 TMP 描边方案
+最终决定使用MaterialPreset的方式
+
+### 2022/11/17
+（已处理）1，换新女模型
+（已处理）2，确定服饰还要单独出一套不带身体部分的模型，供3D展示时使用
+3，遇到一个bug，有概率在创角界面，还没有创角就收到了playermin的下行。后续遇到再跟踪一下缘由。
+4，TMP还是支持文字渐变色的
