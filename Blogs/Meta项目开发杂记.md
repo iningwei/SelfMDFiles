@@ -308,5 +308,8 @@ https://github.com/Dysman/bgTools-playerPrefsEditor    https://assetstore.unity.
 ### 2022/11/17
 （已处理）1，换新女模型
 （已处理）2，确定服饰还要单独出一套不带身体部分的模型，供3D展示时使用
-3，遇到一个bug，有概率在创角界面，还没有创角就收到了playermin的下行。后续遇到再跟踪一下缘由。
+3，遇到一个bug，有概率在创角界面，还没有创角就收到了playermin的下行。后续遇到再跟踪一下缘由
 4，TMP还是支持文字渐变色的
+
+### 2022/11/18
+1，AB改成分帧加载，避免大量AB加载时的帧率高峰和Coroutine导致的大量GC
