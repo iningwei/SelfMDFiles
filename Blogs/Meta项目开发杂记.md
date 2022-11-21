@@ -313,3 +313,20 @@ https://github.com/Dysman/bgTools-playerPrefsEditor    https://assetstore.unity.
 
 ### 2022/11/18
 1，AB改成分帧加载，避免大量AB加载时的帧率高峰和Coroutine导致的大量GC
+
+
+### 2022/11/21
+1，BuildInCompRendererInfo实现分帧加载
+对于kawaii测试场景，Renderer引用高达4000多个。之前是在FillReferenceOfRootCompInfoHolder函数中，调用LoadTextureToMat。虽然11/18已经把AB的加载改成分帧但是这里超大量一起调用LoadTextureToMat依旧会产生大量DC，因此对holder的buildInCompRendererInfos进行分帧处理。解决了大量DC的问题
+
+2，ABManager LoadSprite未考虑到之前引用的移除，参考LoadSpriteToTarget()
+
+3，角色在程序工程显示效果和美术工程有点差异
+
+（已处理）4，BaseInteractionInput.lua inputType需要自动设置一下
+通过在cfg文件增加配置处理
+
+5，TextMeshPro制作Sprite .asset资源，一键工具
+https://blog.csdn.net/qq_26999509/article/details/98944048
+
+6，TextMeshPro美术字.asset 依赖处理
