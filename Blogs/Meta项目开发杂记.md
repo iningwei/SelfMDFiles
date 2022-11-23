@@ -340,3 +340,6 @@ https://blog.csdn.net/qq_26999509/article/details/98944048
 ### 2022/11/23
 1，男裸模处理
 2，通用 shader阴影处理
+3，支持异形 ScrollView 调研
+[Optimized Scroll Rect Extension](https://assetstore.unity.com/packages/tools/gui/optimized-scroll-rect-extension-213107)
+[Optimized ScrollView Adapter](https://assetstore.unity.com/packages/tools/gui/optimized-scrollview-adapter-68436)：https://download.csdn.net/download/qq_39735878/85498109
