@@ -317,7 +317,7 @@ https://github.com/Dysman/bgTools-playerPrefsEditor    https://assetstore.unity.
 
 ### 2022/11/21
 1，BuildInCompRendererInfo实现分帧加载
-对于kawaii测试场景，Renderer引用高达4000多个。之前是在FillReferenceOfRootCompInfoHolder函数中，调用LoadTextureToMat。虽然11/18已经把AB的加载改成分帧但是这里超大量一起调用LoadTextureToMat依旧会产生大量DC，因此对holder的buildInCompRendererInfos进行分帧处理。解决了大量DC的问题
+对于kawaii测试场景，Renderer引用高达4000多个。之前是在FillReferenceOfRootCompInfoHolder函数中，调用LoadTextureToMat。虽然11/18已经把AB的加载改成分帧但是这里超大量一起调用LoadTextureToMat依旧会产生大量GC，因此对holder的buildInCompRendererInfos进行分帧处理。解决了大量GC的问题
 
 2，ABManager LoadSprite未考虑到之前引用的移除，参考LoadSpriteToTarget()
 
@@ -330,3 +330,13 @@ https://github.com/Dysman/bgTools-playerPrefsEditor    https://assetstore.unity.
 https://blog.csdn.net/qq_26999509/article/details/98944048
 
 6，TextMeshPro美术字.asset 依赖处理
+
+
+### 2022/11/22
+1，ABManager优化
+2，fillReferenceOfDynamicCompInfoHolder未支持异步
+3，ovo_shader 增加主颜色支持
+
+### 2022/11/23
+1，男裸模处理
+2，通用 shader阴影处理
