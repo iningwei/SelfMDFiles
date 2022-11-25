@@ -342,10 +342,20 @@ https://blog.csdn.net/qq_26999509/article/details/98944048
 2，通用 ovo shader 阴影太弱
 3，支持异形 ScrollView 调研
 [Optimized Scroll Rect Extension](https://assetstore.unity.com/packages/tools/gui/optimized-scroll-rect-extension-213107)
-[Optimized ScrollView Adapter](https://assetstore.unity.com/packages/tools/gui/optimized-scrollview-adapter-68436)：https://download.csdn.net/download/qq_39735878/85498109
+[Optimized ScrollView Adapter](https://assetstore.unity.com/packages/tools/gui/optimized-scrollview-adapter-68436)
+[UGUI Super ScrollView](https://assetstore.unity.com/packages/tools/gui/ugui-super-scrollview-86572)
 
 
 ### 2022/11/24
 1，场景地图通过配表的方式加载
 地图名、加载方式
 sky_city_scene_final
+
+
+### 2022/11/25
+1，考虑把Material拆出来，单独打ab
+暂时先不改，涉及到的地方太多了
+
+
+### 2022/11/26
+1，普通场景移除lightmap的回到，角色创建改成在场景加载完成后就执行
