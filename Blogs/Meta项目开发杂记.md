@@ -362,4 +362,4 @@ https://blog.csdn.net/qq_26999509/article/details/98944048
 1，普通场景移除lightmap的回到，角色创建改成在场景加载完成后就执行
 2，部分协议增加pos字段，以便大场景确定初始chunk
 3，场景烘焙后，额外灯光的动态阴影丢失
-
+[Lighting Mode: Subtractive](https://docs.unity3d.com/Manual/LightMode-Mixed-Subtractive.html)
