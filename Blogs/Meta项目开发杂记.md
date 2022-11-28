@@ -363,3 +363,10 @@ https://blog.csdn.net/qq_26999509/article/details/98944048
 2，部分协议增加pos字段，以便大场景确定初始chunk
 3，场景烘焙后，额外灯光的动态阴影丢失
 [Lighting Mode: Subtractive](https://docs.unity3d.com/Manual/LightMode-Mixed-Subtractive.html)
+
+
+
+### 2022/11/28
+1，地图chunk工具，Bakery设置不生效问题
+2，地图chunk工具，设置光照贴图最大尺寸为2048，使用时设置最大为1024，然后再打ab包。目前是分块后就自动打ab包了
+3，分块地图运行时，场景光会影响烘焙的物体
