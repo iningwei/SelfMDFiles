@@ -359,7 +359,7 @@ https://blog.csdn.net/qq_26999509/article/details/98944048
 ### 2022/11/26
 ``周六加班``
 
-1，普通场景移除lightmap的回到，角色创建改成在场景加载完成后就执行
+1，普通场景移除lightmap的回调用，角色创建改成在场景加载完成后就执行
 2，部分协议增加pos字段，以便大场景确定初始chunk
 3，场景烘焙后，额外灯光的动态阴影丢失
 [Lighting Mode: Subtractive](https://docs.unity3d.com/Manual/LightMode-Mixed-Subtractive.html)
@@ -370,3 +370,9 @@ https://blog.csdn.net/qq_26999509/article/details/98944048
 1，地图chunk工具，Bakery设置不生效问题
 2，地图chunk工具，设置光照贴图最大尺寸为2048，使用时设置最大为1024，然后再打ab包。目前是分块后就自动打ab包了
 3，分块地图运行时，场景光会影响烘焙的物体
+
+### 2022/11/29
+1，确定地图界面做哪些功能
+2，确定场景内角色点击后是否查看详情
+3，角色hud信息
+4，运行时一些场景性能相关信息监控：https://blog.csdn.net/llhswwha/article/details/115064498
