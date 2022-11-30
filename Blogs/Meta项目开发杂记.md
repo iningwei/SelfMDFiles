@@ -342,8 +342,8 @@ https://blog.csdn.net/qq_26999509/article/details/98944048
 2，通用 ovo shader 阴影太弱
 3，支持异形 ScrollView 调研
 [Optimized Scroll Rect Extension](https://assetstore.unity.com/packages/tools/gui/optimized-scroll-rect-extension-213107)
-[Optimized ScrollView Adapter](https://assetstore.unity.com/packages/tools/gui/optimized-scrollview-adapter-68436)
-[UGUI Super ScrollView](https://assetstore.unity.com/packages/tools/gui/ugui-super-scrollview-86572)
+[Optimized ScrollView Adapter](https://assetstore.unity.com/packages/tools/gui/optimized-scrollview-adapter-68436):这个太复杂了
+[UGUI Super ScrollView](https://assetstore.unity.com/packages/tools/gui/ugui-super-scrollview-86572)：这个代码相对较简洁，Lua侧封装也简单
 
 
 ### 2022/11/24
@@ -376,3 +376,10 @@ https://blog.csdn.net/qq_26999509/article/details/98944048
 2，确定场景内角色点击后是否查看详情
 3，角色hud信息
 4，运行时一些场景性能相关信息监控：https://blog.csdn.net/llhswwha/article/details/115064498
+
+### 2022/11/30
+1，Honey Select调研
+[《Honey Select》捏人剖析](https://blog.csdn.net/xoyojank/article/details/77104708?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-77104708-blog-110480884.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-77104708-blog-110480884.pc_relevant_default&utm_relevant_index=2)
+HS1采用Unity5开发，HS2采用Unity2018开发。
+
+2，测试新的附加骨骼方案，并更新蒙皮对骨骼节点的依赖关系工具和初始化设置流程
