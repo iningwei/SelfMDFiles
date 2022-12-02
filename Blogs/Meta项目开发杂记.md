@@ -369,18 +369,20 @@ https://blog.csdn.net/qq_26999509/article/details/98944048
 ### 2022/11/28
 1，地图chunk工具，Bakery设置不生效问题
 2，地图chunk工具，设置光照贴图最大尺寸为2048，使用时设置最大为1024，然后再打ab包。目前是分块后就自动打ab包了
-3，分块地图运行时，场景光会影响烘焙的物体
+3，程序端运行动态分块地图运行时，场景光会影响烘焙的物体
 
 ### 2022/11/29
-1，确定地图界面做哪些功能
-2，确定场景内角色点击后是否查看详情
-3，角色hud信息
+（已处理）1，确定地图界面做哪些功能
+（已处理）2，确定场景内角色点击后是否查看详情
+一期不做
+（已处理）3，角色hud信息
 4，运行时一些场景性能相关信息监控：https://blog.csdn.net/llhswwha/article/details/115064498
 
 ### 2022/11/30
-1，Honey Select调研
+（已处理）1，Honey Select调研
 [《Honey Select》捏人剖析](https://blog.csdn.net/xoyojank/article/details/77104708?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-77104708-blog-110480884.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-77104708-blog-110480884.pc_relevant_default&utm_relevant_index=2)
 HS1采用Unity5开发，HS2采用Unity2018开发。
+应该是从底层对角色骨骼进行了处理，并没有使用Unity自带的骨骼系统。
 
 2，测试新的附加骨骼方案，并更新蒙皮对骨骼节点的依赖关系工具和初始化设置流程
 
@@ -389,3 +391,5 @@ HS1采用Unity5开发，HS2采用Unity2018开发。
 目前遇到的问题有
 a，走的过程中，上行了信息，但是服务端未同步;跳的过程中，上行了信息，但是服务端未同步
 b，角色action变化由于未同步方向信息，会导致一些急变方向的action变化时，角色方向异常（比如玩家改变角色移动方向从右向左180度变化，虽然后续会同步方向信息，但是由于延迟存在，会出现短暂的玩家先向右跑动再向左跑动的现象）
+
+### 2022/12/02
