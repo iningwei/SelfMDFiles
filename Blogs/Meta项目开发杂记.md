@@ -403,3 +403,22 @@ b，角色action变化由于未同步方向信息，会导致一些急变方向�
 ### 2022/12/04
 1，角色表情BlendShapes测试
 2，joystick优化,拖拽按钮转向和拖动方向一致
+
+
+
+### 2022/12/05
+1，WebGL流程调研
+
+### 2022/12/06
+1，测试WebGL网页集成
+2，WebGL手机端测试
+
+### 2022/12/07
+1，测试冷师弟那边修改好的地图拆分工具
+增加了对单个chunk直接烘焙功能、修改了之前地图拆分烘焙时部分chunk光照贴图异常问题、自动生成基础场景并设置各种参数打ab
+
+### 2022/12/0
+1，[Unity WebGL官方文档](https://docs.unity3d.com/2021.3/Documentation/Manual/webgl-browsercompatibility.html)看一遍
+
+
+https://czhenya.github.io/2048.github.io/
