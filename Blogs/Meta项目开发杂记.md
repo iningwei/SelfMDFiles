@@ -417,8 +417,10 @@ b，角色action变化由于未同步方向信息，会导致一些急变方向�
 1，测试冷师弟那边修改好的地图拆分工具
 增加了对单个chunk直接烘焙功能、修改了之前地图拆分烘焙时部分chunk光照贴图异常问题、自动生成基础场景并设置各种参数打ab
 
-### 2022/12/0
+### 2022/12/08
 1，[Unity WebGL官方文档](https://docs.unity3d.com/2021.3/Documentation/Manual/webgl-browsercompatibility.html)看一遍
+2，梭理战斗模块杀进程后中途再加入流程
+
 
 
 https://czhenya.github.io/2048.github.io/
