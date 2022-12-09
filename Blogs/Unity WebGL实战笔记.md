@@ -18,7 +18,7 @@ Strip Engine Code可以大大降低WebGL文件大小，但是要慎用其裁剪�
 
 ### WebGL 2.0
 WebGL 2.0 于 2017 年首次发布。相比上一版本，WebGL 2.0在图形功能方面实现了很大提升，带来了OpenGL ES 3.0 功能集，为 WebGL 1.0 图形管道添加了对变换反馈、实例渲染、多个渲染目标、统一缓冲区对象、遮挡查询和更广泛的纹理支持的访问。
-目前几乎所有主流浏览器都支持WebGL 2.0了。目前笔者使用Unity版本默认的图形API选择的也是WebGL 2.0,且WebGL 1.0旁也标示了Deprecated。
+目前几乎所有主流浏览器都支持WebGL 2.0了(Safari浏览器需要iOS15+才支持WebGL 2.0)。目前笔者使用Unity版本WebGL 1.0旁标示了Deprecated。
 
 ### 显示效果
 默认情况下WebGL设置的品质比较低，锯齿感比较强，可以在性能允许的前提下通过增加Anti Aliasing级别以及设置Quality的级别来增加显示效果。
