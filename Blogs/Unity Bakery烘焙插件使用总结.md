@@ -7,3 +7,7 @@ Bakery版本：1.9
 可以不用设改变Unity的天空盒适配Bakery的Skylight，否则场景烘焙出来会有Skylight带来的天空色。
 只需要调节Skylight的Intensity，来达到合适的环境效果即可
 3，最终运行场景时，若有Mixed需求（比如对部分动态物体需要动态阴影效果），则烘焙时Bakery面板需要选择渲染模式(Render mode)为Subtractive（参考这里：[Lighting Mode: Subtractive](https://docs.unity3d.com/Manual/LightMode-Mixed-Subtractive.html)），运行时主灯Mode设置为Mixed。
+
+
+Subtractive模式烘焙后的Receive Shadows问题。
+有遇到烘焙后部分烘焙物体无法接受动态物体的投影。发现有问题的烘焙物体的共性是：使用了Standard Shader,且设置了Metallic为1或者Metallic设置了贴图，导致无法显示动态物体的阴影。
