@@ -359,8 +359,8 @@ https://blog.csdn.net/qq_26999509/article/details/98944048
 ### 2022/11/26
 ``周六加班``
 
-1，普通场景移除lightmap的回调用，角色创建改成在场景加载完成后就执行
-2，部分协议增加pos字段，以便大场景确定初始chunk
+（已处理）1，普通场景移除lightmap的回调用，角色创建改成在场景加载完成后就执行
+（已处理）2，部分协议增加pos字段，以便大场景确定初始chunk
 3，场景烘焙后，额外灯光的动态阴影丢失
 [Lighting Mode: Subtractive](https://docs.unity3d.com/Manual/LightMode-Mixed-Subtractive.html)
 
@@ -416,7 +416,7 @@ b，角色action变化由于未同步方向信息，会导致一些急变方向�
 增加了对单个chunk直接烘焙功能、修改了之前地图拆分烘焙时部分chunk光照贴图异常问题、自动生成基础场景并设置各种参数打ab
 
 ### 2022/12/08
-1，[Unity WebGL官方文档](https://docs.unity3d.com/2021.3/Documentation/Manual/webgl-browsercompatibility.html)看一遍
+（已处理）1，[Unity WebGL官方文档](https://docs.unity3d.com/2021.3/Documentation/Manual/webgl-browsercompatibility.html)看一遍
 （已处理）2，梭理战斗模块杀进程后中途再加入流程
 
 
