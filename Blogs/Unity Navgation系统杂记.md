@@ -11,3 +11,8 @@ NavMeshAgent agent
 使用agent.ResetPath(),可以停止寻路，同isStopped一样，会有很大延迟。
 
 使用agent.destination = agent.transform.position;虽然看起来很尴尬，但是可以满足需求。
+
+- navAgent.SetDestination(point)
+若目标点point不可达，这会为你分配一个当前Navmesh上一个可达的点。若无可达点，这返回false。
+
+NavMesh.pathfindingIterationsPerFrame = 50000;

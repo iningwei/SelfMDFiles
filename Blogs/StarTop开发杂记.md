@@ -92,4 +92,21 @@
 ## 20230201 星期三
 - 增加ActorGetBuilding行为，使得可以攻击不在导航区域中的人类建筑
 - 集成人族最后两个兵种
+- 常量数值通过配置表ConfigData配置
 
+
+## 20230202 星期四
+- 相机调整
+- 出生点模型显示、虫族出生点刷新进度表现
+- 战斗结束特效集成
+- 战斗UI血条等大小和相机距离建立关系
+- TODO：总结一下使用NavmeshAgent不使用ObstacleAvoidance如何避免出现拥挤。以及解决Carve导致的诡异现象
+https://blog.csdn.net/qq_37724011/article/details/115184131
+https://github.com/llamacademy/ai-series-part-33  这个人的git很多好东西
+- TODO：解决门被打破后，部分寻路虫子会滑步的问题
+
+## 20230203 星期五
+- in,out,ref
+- 调整AI逻辑
+- 增加hudVisibleLevel字段，控制hud显示级别
+- 各种bug修改
