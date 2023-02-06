@@ -15,4 +15,6 @@ NavMeshAgent agent
 - navAgent.SetDestination(point)
 若目标点point不可达，这会为你分配一个当前Navmesh上一个可达的点。若无可达点，这返回false。
 
+SetDestination缓慢的问题：
+https://answers.unity.com/questions/431248/navmeshagent-setdestination-too-slow.html
 NavMesh.pathfindingIterationsPerFrame = 50000;
