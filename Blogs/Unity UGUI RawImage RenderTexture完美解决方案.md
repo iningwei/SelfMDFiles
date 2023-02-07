@@ -15,7 +15,7 @@ UGUI中使用RawImage加载RenderTexture是一种很常用的3D转2D的方案，
 
 ## 解决方案
 笔者目前针对这种情况总结出了两种解决方案：
-1，使用两个相机，两个RT来渲染Model，通过这种方式可以算出目标Model的Alpha值，RT $\rightarrow$ RawImage的时候使用一个自定义的Shader，并用这个Alpha值来渲染。
+1，使用两个相机，两个RT来渲染Model，通过这种方式可以算出目标Model的Alpha值，RT $\rightarrow$ RawImage的时候使用一个自定义的Shader，并用这个Alpha值来渲染。注意最终用来承载RT的RawImage需要设置Color为(0,0,0,1)或(1,1,1,1)。这种方式不要求限定渲染RT的原始相机的Background为(0,0,0,0)，可以为任意颜色。
 
 2，在AnyPortrait 2D动画插件的官方文档[Rendering to Render Texture](https://rainyrizzle.github.io/en/AdvancedManual/AD_RenderTexture.html)中也提到了我上述提到的问题，其已经提供解决方案，通过扒代码，发现其是在Surface Shader中的#pragma中加入了keepalpha关键词。
 
