@@ -128,7 +128,7 @@ https://github.com/llamacademy/ai-series-part-33  这个人的git很多好东西
 
 ## 20230208 星期三
 - 处理连续刷礼物，tip信息间隔展示问题
-- TODO:GPU动画优化
+- TODO:使用GPU加速动画
 - 连续礼物效果表现
 - AI调整
 - 玩家加入、actor生产瞬间的UI闪烁问题
@@ -142,4 +142,10 @@ https://github.com/llamacademy/ai-series-part-33  这个人的git很多好东西
 ## 20230209 星期四
 - TODO：jiguangqiang_bullet缓存个数过多，感觉有问题
 - (已处理)：门开始播放死亡特效时，即移除其Carve
-- TODO:ActorManager L150 RecycleActorObj和GameObjectDestroy(actor)顺序问题可能是导致组件未销毁完毕的原因，后面有时间处理一下。
+- (无需处理，就是需要这个顺序):ActorManager L150 RecycleActorObj和GameObjectDestroy(actor)顺序问题可能是导致组件未销毁完毕的原因，后面有时间处理一下。
+- (已处理):RT实现方式回退之前版本，目前只改了毁灭机甲的prefab
+调整好还要通测一下，特别是编辑器下偶尔黑屏的问题
+
+## 20230211 星期五
+- 增加换路功能
+- 飞行单位实现思路调研
