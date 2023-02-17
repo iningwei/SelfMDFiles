@@ -174,3 +174,13 @@ https://github.com/llamacademy/ai-series-part-33  这个人的git很多好东西
 - TODO：主播直播道具和礼物对应表单，是否程序这边提供，通过一个快捷方式弹出和隐藏
 - (已处理)：玩家换路成功增加快速提示
 - 增加大屁股虫贝塞尔曲线弹道
+
+
+## 20230217 星期五
+- 集成大屁股虫：子弹、特效、路线、行为树
+- TODO:QuickTip参考森林马拉松会有多个分不同高度弹出，避免一个出现拥堵
+- TODO：看下二次贝塞尔曲线ratio大于1时会有什么影响，没影响的话需要更新BezierTool.InterpVector3的实现
+- TODO：ActorData的 canBeAttack 参数查一下
+- TODO：人类飞行单位出生位置设置代码再检查一下
+- TODO：挨个检查子弹是否加了Behavior Tree Owner: bullet
+- TODO：每局结算，上行分数要不要上行该角色阵营信息。方便后续按照阵营筛选排名信息
