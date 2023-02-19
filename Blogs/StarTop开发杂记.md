@@ -184,3 +184,13 @@ https://github.com/llamacademy/ai-series-part-33  这个人的git很多好东西
 - TODO：人类飞行单位出生位置设置代码再检查一下
 - TODO：挨个检查子弹是否加了Behavior Tree Owner: bullet
 - TODO：每局结算，上行分数要不要上行该角色阵营信息。方便后续按照阵营筛选排名信息
+
+## 20230219 星期日
+``周日加班``
+- (已处理)：SummonData表的dy指令名称需要调整
+- (已处理)：大机甲改成城门口出生，相关攻击优先级逻辑调整
+- (已处理)：大机甲和屎壳郎的出场动画和自身分开
+- (已处理)：出生范围加大，速度offset，避免拥堵
+- TODO：虫王的UI
+- TODO：世界排名
+- TODO：xxx加入战场的提示
