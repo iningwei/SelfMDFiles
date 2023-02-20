@@ -194,3 +194,13 @@ https://github.com/llamacademy/ai-series-part-33  这个人的git很多好东西
 - TODO：虫王的UI
 - TODO：世界排名
 - TODO：xxx加入战场的提示
+
+
+## 20230220 星期一
+- TODO：虫族大屁股虫不对人族指挥官产生伤害
+- TODO：人族到城外的单位不来回移动
+- TODO：集成新的场景
+- TODO：相机增加人类视角
+- TODO：人类大机甲优先攻击血量最多的角色
+- TODO：GiftPreview有问题，送仙女棒，不消失等
+- TODO：大屁股虫的aoe伤害还是会对人族指挥官造成伤害
