@@ -212,3 +212,12 @@ https://github.com/llamacademy/ai-series-part-33  这个人的git很多好东西
 ## 20230222 星期三
 - TODO：寻路dots化
 - 指挥官名字显示为上局第一名名字
+- TODO：电浆虫在城门没破的情况下会先打城内的actor
+
+## 20230223 星期四
+- 大屁股虫子弹NaN问题处理
+- 资源压缩，最大图片只支持到1024
+
+## 20230224 星期五
+- Navmeshquery jobsystem研究
+- TODO:对称版本demo实现

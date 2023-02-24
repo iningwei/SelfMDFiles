@@ -13,8 +13,25 @@ NavMeshAgent agent
 使用agent.destination = agent.transform.position;虽然看起来很尴尬，但是可以满足需求。
 
 - navAgent.SetDestination(point)
-若目标点point不可达，这会为你分配一个当前Navmesh上一个可达的点。若无可达点，这返回false。
+若目标点point不可达，这会为你分配一个当前Navmesh上一个离目标point最近的可达点。若无可达点，这返回false。
 
-SetDestination缓慢的问题：
-https://answers.unity.com/questions/431248/navmeshagent-setdestination-too-slow.html
-NavMesh.pathfindingIterationsPerFrame = 50000;
+- SetDestination缓慢的问题
+若有大量的角色同时寻路，且伴随carve的重建，那么寻路会很耗时，表现出的结果就是角色很卡，可以通过设置``NavMesh.pathfindingIterationsPerFrame``为一个很大的值来规避。
+SetDestination本身是一个异步方法，unity默认是限制了其每帧执行的次数的。通过上述设置提高了每帧执行的次数，但是本质上它还是一个单线程的方法。当角色海量时，还是会大大降低游戏帧率的。
+
+
+- 判断可达
+```csharp
+ NavMeshPath path = new NavMeshPath();
+                    agent.CalculatePath(targetPos, path);
+                    if (path.status == NavMeshPathStatus.PathComplete)
+                    {
+                        //reachable
+                        agent.SetPath(path);
+                        //agent.SetDestination(targetPos);//already CalculatePath,so use SetPath is more effective than SetDestination
+                    }
+                    else
+                    {
+                        //not reachable
+                    }
+```
