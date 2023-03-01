@@ -221,3 +221,24 @@ https://github.com/llamacademy/ai-series-part-33  这个人的git很多好东西
 ## 20230224 星期五
 - Navmeshquery jobsystem研究
 - TODO:对称版本demo实现
+
+
+## 20230227 星期一
+- TODO：OnPlayerDispatchTroopsTimeAdd会出现player为null的情况，很奇怪。需要查一下
+- ECS、DOTS学习:https://auniquepig.com/2021/06/21/DotsSwords/
+
+- 出新包要注意的地方：1，Config表关闭debug、关闭shortcut 2，移除DebugReporter.txt 3，cfg关闭日志trace和打印 4，检查备份代码可否被删除
+
+
+## 20230228 星期二
+- TODO：部分玩家直播间世界排行榜没弹出
+- TODO：有玩家输入虫加入不了，玩家在各个直播间都无法加入
+- TODO：玩家头像有概率获取失败
+- TODO：登录时带上设备码
+- TODO：客户端带上版本号信息，服务器控制可播版本号范围
+
+## 20230301 星期三
+- TODO：服务器踢人后加个标识
+- 版本升级到1.0.1
+- 场景navmesh烘焙更新
+- 虫族各路只管攻击自己的门，不管其它家的
