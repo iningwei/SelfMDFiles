@@ -16,4 +16,9 @@ https://www.youtube.com/watch?v=ubUPVu_DeVk&list=PLzDRvYVwl53s40yP5RQXitbT--IRcH
 
 Entities官方文档：https://docs.unity3d.com/Packages/com.unity.entities@0.51/manual/index.html
 Hybrid Renderer官方文档：https://docs.unity3d.com/Packages/com.unity.rendering.hybrid@0.51/manual/index.html
-目前不支持默认BuildIn渲染管线，因此在默认管线里面创建的entity物体会出现无法显示的问题。
+目前不支持默认BuildIn渲染管线，因此在默认管线里面创建的entity物体会出现无法显示的问题(the built in render pipeline isn't supported by Hybrid Renderer V2)。
+
+
+
+Entities 0.17升级到0.5的注意事项
+https://docs.unity.cn/Packages/com.unity.entities@0.50/manual/upgrade-guide.html#systembase
