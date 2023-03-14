@@ -18,3 +18,7 @@ https://github.com/Fndroid/clash_for_windows_pkg/releases
 
 ## 参考文档
 https://igghelper.com/helper/?p=413
+
+https://blog.51cto.com/niuben/5668770
+
+https://clashforwindows.org/
