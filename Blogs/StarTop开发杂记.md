@@ -312,3 +312,6 @@ https://github.com/llamacademy/ai-series-part-33  这个人的git很多好东西
 ``周日加班``
 - TOOD:结算加入玩家输赢、胜利方信息
 - TODO：送置顶礼，自动加入人数少的一方
+
+## 20230314 星期二
+## 一些AI逻辑修改
