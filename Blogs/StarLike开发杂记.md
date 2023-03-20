@@ -20,3 +20,27 @@
 目前笔者电脑显卡RTX2060，CPU i5-10400F。StarTop和StarLike当蒙皮数量达到400，帧率即下降到20；
 - TODO：噩梦之刃，双技能攻击
 - TODO：出生点模型替换
+- TODO：看帧同步相关文章：https://zhuanlan.zhihu.com/p/556920018
+- TODO：场景增加四叉树管理，用于快速搜寻目标，不用逐个遍历
+
+
+## 20230316 星期四
+- TODO：炙刃战车喷火效果
+
+## 20230317 星期五
+- 增加技能系统，技能驱动子弹，子弹驱动buff
+- 通过技能系统实现多种攻击类型
+
+## 20230319 星期日
+``周日加班``
+
+- 增加6种兵种
+
+## 20230320 星期一
+- 增加6种兵种的子弹、死亡、击中等特效
+- 增加碰撞，使用Navmesh的Obstacle Avoidance
+- 增加激光类型子弹，并按照特定规则集成
+- TODO：弹幕兵通过配表来配置快捷键之类的
+- TODO：子弹目标S了，则自动干掉子弹，避免出现太多空枪
+- TODO：A* Pathfinding相关教程：https://zhuanlan.zhihu.com/p/73145849
+- TODO：https://halitanildonmez.wordpress.com/2018/01/11/using-a-path-finding-project-with-rvo2-library/
