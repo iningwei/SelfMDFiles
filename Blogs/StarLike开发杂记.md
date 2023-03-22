@@ -40,7 +40,18 @@
 - 增加6种兵种的子弹、死亡、击中等特效
 - 增加碰撞，使用Navmesh的Obstacle Avoidance
 - 增加激光类型子弹，并按照特定规则集成
-- TODO：弹幕兵通过配表来配置快捷键之类的
-- TODO：子弹目标S了，则自动干掉子弹，避免出现太多空枪
+- 弹幕兵通过配表来配置快捷键之类的
+- 子弹目标S了，则自动干掉子弹，避免出现太多空枪
 - TODO：A* Pathfinding相关教程：https://zhuanlan.zhihu.com/p/73145849
 - TODO：https://halitanildonmez.wordpress.com/2018/01/11/using-a-path-finding-project-with-rvo2-library/
+
+## 20230321 星期二
+- demo优化完善
+- 帧同步相关知识了解，寻路、碰撞，RVO
+- TODO：http://www.jikedoc.com/article/4642614.html
+- TODO：https://www.cxyzjd.com/article/KubilityDef/79483414
+
+## 20230322 星期三
+- demo提审前最后一些调整修改：新的角色入场提示界面，相机镜头调整
+- TODO： [Sourcetree使用ssh后出现 The server's host key is not cached in the registry](https://www.cnblogs.com/ring1992/p/16589304.html)
+- TODO：[Windows 平台 SourceTree 拉取仓库 反复崩溃](https://www.cnblogs.com/lesten/p/16202268.html)
