@@ -8,9 +8,14 @@
 
 https://www.jianshu.com/p/bb13de4127ca
 https://blog.csdn.net/huutu/article/details/109759751
+作者自己的分享：[基于Animation Instancing的人群模拟](https://zhuanlan.zhihu.com/p/28255631?ADUIN=252347463&utm_id=0)
 
 
 https://zhuanlan.zhihu.com/p/36896547
+
+
+2，
+https://github.com/chengkehan/GPUSkinning
 
 ## assetstore方案
 1，[GPU Instancer 75$](https://assetstore.unity.com/packages/tools/utilities/gpu-instancer-117566)

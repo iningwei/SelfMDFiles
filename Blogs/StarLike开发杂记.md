@@ -55,3 +55,17 @@
 - demo提审前最后一些调整修改：新的角色入场提示界面，相机镜头调整
 - TODO： [Sourcetree使用ssh后出现 The server's host key is not cached in the registry](https://www.cnblogs.com/ring1992/p/16589304.html)
 - TODO：[Windows 平台 SourceTree 拉取仓库 反复崩溃](https://www.cnblogs.com/lesten/p/16202268.html)
+
+
+## 20230323 星期四
+``今天强哥、飒哥、静姐、飒嫂他们去北京出差``
+- 移植GPU渲染蒙皮动画到异星项目
+- 异星游戏内大量AddComponent造成很多GC，优化NavAgent和AnimAgent为非MonoBehavior的形式，降低GC。
+- 确定新款demo改成回合制出兵，类似Game Science的产品《Red Tides》
+- 开会讨论新项目网络版的寻路、avo进度以及否需要请外援
+- 新款回合制demo 10%
+- 解决GPU渲染框架一个bug，预制件放在场景中可以运行，但是拖拽到场景中的预制件看不到渲染内容。
+原因是放在场景中的预制件名字和GPU Texture名字一致。拖拽到场景中的预制件名字后面自动加了(Clone)字符，导致有些资源加载不到。
+
+- TODO：调研dots版本A*寻路
+- TODO：学习A* Pathfinding Pro
