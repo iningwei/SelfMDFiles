@@ -12,6 +12,8 @@ NavMeshAgent agent
 
 使用agent.destination = agent.transform.position;虽然看起来很尴尬，但是可以满足需求。
 
+使用carve,即需要为物体添加NavMeshObstacle组件，在需要停止的时候启用该组件，并设置Carve为true，同时关闭NavMeshAgent（NavMeshObstacle和NavMeshAgent两个组件无法共存）
+
 - navAgent.SetDestination(point)
 若目标点point不可达，这会为你分配一个当前Navmesh上一个离目标point最近的可达点。若无可达点，这返回false。
 
@@ -35,3 +37,5 @@ SetDestination本身是一个异步方法，unity默认是限制了其每帧执�
                         //not reachable
                     }
 ```
+
+git上一个机遇dots的nav寻路：https://github.com/dotsnav/dotsnav
