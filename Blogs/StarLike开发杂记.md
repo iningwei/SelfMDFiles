@@ -148,4 +148,43 @@ https://gist.github.com/ditzel
 ## 20230407 星期五
 - kdtree研究，测试性能
 - 异星新场景碰撞、路网设置
-- TODO：C#下的窗体管理还是要做
+- TODO：C#下的窗体管理还是要做：完善相关工具链
+- TODO：C#下的Resources目录下的预制件同步、异步加载
+
+
+## 20230410 星期一
+- 异星新场景调整，bug修复，出包等
+- 项目调研：竞品远古战场
+使用了RTS Toolkit Free插件
+使用GPU Instancer插件来做蒙皮动画
+Job来优化范围寻敌和最近敌人
+重点关注：GameController3c.cs
+
+- TODO：详细调研RTS Toolkit Free
+
+
+## 20230411 星期二
+- TODO：帧同步对战模式实现，还需要学习的流程
+  - 学习jobs
+  - 封装A*地图编辑器、高效算法实现
+  - dots封装A*
+  - RVO避障
+  - 帧同步框架
+
+- TODO：把StarLike寻路改成A* Pathfinding Pro.
+
+## 20230412 星期三
+- StarLike寻路换成A* Pathfinding Pro.
+
+
+## 20230413 星期四
+- TODO：研究立州发的BB哥之前做的星际之巅的客户端工程
+- 研究A* Pathfinding Pro.实现分层，实现不同类actor穿越。
+- TODO：研究Hybrid热更
+- TODO：后续把U上传日志的功能去掉了，统一用工具上传
+
+## 20230414 星期五
+- A* Pathfinding Pro.寻路dots版，20%
+- TODO：新项目的新UI集成
+- TODO：一个很好的ECS视频教程：https://www.youtube.com/watch?v=IO6_6Y_YUdE
+- TODO：深入理解JOBS：国人翻译：https://zhuanlan.zhihu.com/p/56459126 ,  官方文档：https://docs.unity.cn/Documentation/Manual/JobSystemOverview.html
