@@ -26,7 +26,7 @@ It translates your code from IL/.NET bytecode to optimized native CPU code that 
 dots有一系列文章：https://www.zhihu.com/column/c_1304460571526750208
 作者有很多干货：https://www.zhihu.com/people/yakshaver
 
-3， 
+3，dots官方教程：https://learn.unity.com/course/dots-best-practices 
 
 Pathfinding in Unity DOTS! (Insane Speed!!!)：
 https://www.youtube.com/watch?v=1bO1FdEThnU&list=PLzDRvYVwl53s40yP5RQXitbT--IRcHqba&index=7
