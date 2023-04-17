@@ -185,6 +185,8 @@ Job来优化范围寻敌和最近敌人
 
 ## 20230414 星期五
 - A* Pathfinding Pro.寻路dots版，20%
-- TODO：新项目的新UI集成
+- （已处理）新项目的新UI集成
 - TODO：一个很好的ECS视频教程：https://www.youtube.com/watch?v=IO6_6Y_YUdE , ECS 教程：https://forum.unity.com/threads/new-version-of-entities-1-0-pre-release-now-available-february-2023.1400887/ ，ECS官方文档：https://docs.unity3d.com/Packages/com.unity.entities@1.0/manual/index.html
-- TODO：深入理解JOBS：国人翻译：https://zhuanlan.zhihu.com/p/56459126 ,  官方文档：https://docs.unity.cn/Documentation/Manual/JobSystemOverview.html
+
+## 20230417 星期一
+- 新UI集成
