@@ -17,7 +17,7 @@ PyQt5已安装成功，但是安装PyQt5-tools一直报错：
       During handling of the above exception, another exception occurred:
 ```
 找了很久才发现是自己Python版本太高导致的。
-这里:[pip install pyqt5-tools](https://pypi.org/project/pyqt5-tools/)可以查看到当前(2022/12/01)python版本最高才支持到3.9。
+这里:[pip install pyqt5-tools](https://pypi.org/project/pyqt5-tools/) 可以查看到当前(2022/12/01)python版本最高才支持到3.9。
 
 ![](https://raw.githubusercontent.com/iningwei/SelfPictureHost/master/Blog/20221201231307.png)
 
