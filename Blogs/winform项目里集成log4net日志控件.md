@@ -50,7 +50,7 @@
 			<!--<param name="MaxFileSize" value="300MB" />-->
 
 			<!--创建新文件的方式，可选为Size（按文件大小），Date（按日期），Once（每启动一次创建一个文件），Composite（按日期及文件大小），默认为Composite-->
-			<!--设置为Date则每隔一段时间会生成一个日志文件,大概日志有10来KB的时候就会生成一个新文件，上面MaxFileSize对其不生效；设置为Size则会根据MaxFileSize的设置自动生成新文件-->			
+			<!--设置为Date则每隔一段时间会生成一个日志文件,上面MaxFileSize对其不生效；设置为Size则会根据MaxFileSize的设置自动生成新文件-->			
 			<!--参考该文：Log4Net MaxSizeRollBackups和MaxFileSize不生效问题解决办法 https://www.cnblogs.com/Khan-Sadas/p/12802687.html-->
 			<!--<param name="RollingStyle" value="Date" />-->
 			<!--当RollingStyle为Composite或Date，这里设置文件名格式-->
