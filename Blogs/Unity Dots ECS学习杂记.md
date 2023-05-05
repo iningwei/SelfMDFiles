@@ -5,7 +5,7 @@
 官方文档：https://docs.unity3d.com/Manual/JobSystem.html
 ### step3：看简单demo
 [job-system-cookbook](https://github.com/stella3d/job-system-cookbook)
-
+[DOTS-training-samples](https://github.com/Unity-Technologies/DOTS-training-samples)
 ## Burst
 这里点击[Released packages](https://docs.unity3d.com/Manual/pack-safe.html) 找到com.unity.burst,点击后会看到介绍和各个版本的说明。
 官方对burst的简介：
@@ -48,3 +48,5 @@ https://docs.unity.cn/Packages/com.unity.entities@0.50/manual/upgrade-guide.html
 
 
 4，ECS github 官方demo：https://github.com/Unity-Technologies/EntityComponentSystemSamples/
+
+5，[MinecraftECS](https://github.com/UnityTechnologies/MinecraftECS)
