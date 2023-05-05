@@ -50,3 +50,5 @@ https://docs.unity.cn/Packages/com.unity.entities@0.50/manual/upgrade-guide.html
 4，ECS github 官方demo：https://github.com/Unity-Technologies/EntityComponentSystemSamples/
 
 5，[MinecraftECS](https://github.com/UnityTechnologies/MinecraftECS)
+
+6，一个ECS帧同步框架[LittleBee](https://github.com/dudu502/LittleBee)
