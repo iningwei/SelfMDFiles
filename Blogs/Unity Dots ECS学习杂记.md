@@ -58,3 +58,8 @@ https://docs.unity.cn/Packages/com.unity.entities@0.50/manual/upgrade-guide.html
  ECS教程：https://forum.unity.com/threads/new-version-of-entities-1-0-pre-release-now-available-february-2023.1400887/ 
  
  ECS官方文档：https://docs.unity3d.com/Packages/com.unity.entities@1.0/manual/index.html
+
+ 8，
+ [最新DOTS全面技术解析，从基本概念到应用原理](https://mp.weixin.qq.com/s/DtiA_790XTkuwKC9O-lJmw)
+ 
+ [Unity中文课堂 | 学习DOTS不迷路，超全面宝藏教程带你上车](https://mp.weixin.qq.com/s?__biz=MzkyMTM5Mjg3NQ==&mid=2247541365&idx=1&sn=b8306c212645131751b7e6b96f7e6471&chksm=c18621f1f6f1a8e778172b2204197b359d98aaecb3c8a5d4cf83a83235e4d631228dc2d6b7cd&scene=21#wechat_redirect)
