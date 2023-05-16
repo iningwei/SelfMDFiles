@@ -19,6 +19,7 @@ It translates your code from IL/.NET bytecode to optimized native CPU code that 
 [Harnessing the power of ECS for Unity | Unity at GDC 2023](https://www.youtube.com/watch?v=WSrvUynsd34&list=PLX2vGYjWbI0TkxPwhWgsBhvj-EwxJDt5x&index=6)
 
 
+[官方DOTS Guide and Samples](https://github.com/Unity-Technologies/EntityComponentSystemSamples)
 
 ## 其它
 1，UniteAustinTechnicalPresentation Nordeus demo和安装:https://blog.csdn.net/vic_torsun/article/details/115011482
@@ -47,14 +48,12 @@ Entities 0.17升级到0.5的注意事项
 https://docs.unity.cn/Packages/com.unity.entities@0.50/manual/upgrade-guide.html#systembase
 
 
-4，ECS github 官方demo：https://github.com/Unity-Technologies/EntityComponentSystemSamples/
-
 5，[MinecraftECS](https://github.com/UnityTechnologies/MinecraftECS)
 
 6，一个ECS帧同步框架[LittleBee](https://github.com/dudu502/LittleBee)
 
 
-7，一个很好的ECS视频教程：https://www.youtube.com/watch?v=IO6_6Y_YUdE 
+7，一个很好的ECS视频教程：[Unity ECS 1.0 Full Project Tutorial | Step-by-Step](https://www.youtube.com/watch?v=IO6_6Y_YUdE)
  ECS教程：https://forum.unity.com/threads/new-version-of-entities-1-0-pre-release-now-available-february-2023.1400887/ 
  
  ECS官方文档：https://docs.unity3d.com/Packages/com.unity.entities@1.0/manual/index.html
