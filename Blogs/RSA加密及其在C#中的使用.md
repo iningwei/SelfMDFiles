@@ -213,3 +213,7 @@ Console.ReadLine();
 
 ## 扩展阅读
 [C#实现RSA加密解密](https://www.cnblogs.com/laggage/p/11028614.html)
+[The data to be decrypted exceeds the maximum for this modulus of 128 bytes. ](https://www.cnblogs.com/Mainz/p/2767646.html)
+[RSA非对称加密算法实现：C#](https://www.cnblogs.com/shanfeng1000/p/14840055.html)
+[密码学基础1：RSA算法原理全面解析](https://www.jianshu.com/p/6aa7b59be872)
+[密码学基础3：密钥文件格式完全解析](https://www.jianshu.com/p/ce7ab5f3f33a)
