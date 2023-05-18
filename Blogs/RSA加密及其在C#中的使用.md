@@ -201,7 +201,7 @@ string csharp_prikey = RSAKeyConvert.RSAPrivateKeyJava2DotNet(java_prikey);
 Console.WriteLine("csharp_prikey:" + csharp_prikey);
 
 
-string msg = "123666666哪里(=@__@=)hehe"; ;
+string msg = "123666666哪里(=@__@=)hehe"; 
 byte[] msgCrypted = UEncrypt.RSAEncrypt(System.Text.Encoding.Default.GetBytes(msg), csharp_pubKey);
 
 byte[] msgDecrypted = UEncrypt.RSADecrypt(msgCrypted, csharp_prikey);
