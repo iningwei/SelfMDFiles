@@ -1,6 +1,8 @@
 ## job
 ### step1：概念理解，囫囵吞枣
-深入理解JOBS：国人翻译：https://zhuanlan.zhihu.com/p/56459126 ,  官方文档：https://docs.unity.cn/Documentation/Manual/JobSystemOverview.html
+深入理解JOBS：国人翻译：https://zhuanlan.zhihu.com/p/56459126
+
+官方文档：https://docs.unity.cn/Documentation/Manual/JobSystemOverview.html
 ### step2：详细理解，并提供了更复杂的实例
 官方文档：https://docs.unity3d.com/Manual/JobSystem.html
 ### step3：看简单demo
@@ -62,3 +64,8 @@ https://docs.unity.cn/Packages/com.unity.entities@0.50/manual/upgrade-guide.html
  [最新DOTS全面技术解析，从基本概念到应用原理](https://mp.weixin.qq.com/s/DtiA_790XTkuwKC9O-lJmw)
  
  [Unity中文课堂 | 学习DOTS不迷路，超全面宝藏教程带你上车](https://mp.weixin.qq.com/s?__biz=MzkyMTM5Mjg3NQ==&mid=2247541365&idx=1&sn=b8306c212645131751b7e6b96f7e6471&chksm=c18621f1f6f1a8e778172b2204197b359d98aaecb3c8a5d4cf83a83235e4d631228dc2d6b7cd&scene=21#wechat_redirect)
+
+
+
+ 9，
+ [使用job system获得最近目标](https://answers.unity.com/questions/1899963/unity-job-system-based-target-finding.html)
