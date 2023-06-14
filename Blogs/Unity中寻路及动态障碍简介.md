@@ -24,7 +24,7 @@ D\*算法是一种以A\*为基础可以实时根据动态障碍物的位置修�
 避免上面链接失效，这里还有一个：[避障算法-VO、RVO 以及 ORCA（RVO2）](https://new.qq.com/omn/20220315/20220315A01GKM00.html)
 ### RVO
 算法原理、演示地址：http://gamma.cs.unc.edu/RVO/
-Unity插件[A* Pathfinding Project Pro](https://assetstore.unity.com/packages/tools/ai/a-pathfinding-project-pro-87744?aid=1011l7JId&utm_campaign=unity_affiliate&utm_medium=affiliate&utm_source=partnerize-linkmaker)有对RVO的实现
+Unity插件[A* Pathfinding Project Pro](https://assetstore.unity.com/packages/tools/ai/a-pathfinding-project-pro-87744?aid=1011l7JId&utm_campaign=unity_affiliate&utm_medium=affiliate&utm_source=partnerize-linkmaker) 有对RVO的实现
 国内一个介绍RVO的文章：https://www.jianshu.com/p/8fc4e90e3850
 
 ### ORCA(RVO2)
@@ -36,4 +36,6 @@ ORCA介绍比较好的文章：[RTS游戏中的避障算法](https://zhuanlan.zh
 
 
 ## 补充
-一个使用unity burst compiled jobs 实现的A\*寻路系统（依旧使用Navmesh烘焙，然后提取数据）:[UnityAStarNavigation](https://github.com/jeffvella/UnityAStarNavigation)
+- 一个使用unity burst compiled jobs 实现的A\*寻路系统（依旧使用Navmesh烘焙，然后提取数据）:[UnityAStarNavigation](https://github.com/jeffvella/UnityAStarNavigation)
+- 基于A\*PathfindingProject扩展的dots版本：[dots-pathfinding-orca](https://github.com/SpikyAndrew/dots-pathfinding-orca)
+- [导航动态避让算法RVO的优化ORCA(Optimal Reciprocal Collision Avoidance)](https://blog.csdn.net/u012740992/article/details/89397714#comments_13246451)

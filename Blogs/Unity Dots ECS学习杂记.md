@@ -8,6 +8,8 @@
 ### step3：看简单demo
 [job-system-cookbook](https://github.com/stella3d/job-system-cookbook)
 [DOTS-training-samples](https://github.com/Unity-Technologies/DOTS-training-samples)
+
+[unity-job-system-based-target-finding](https://answers.unity.com/questions/1899963/unity-job-system-based-target-finding.html)
 ## Burst
 这里点击[Released packages](https://docs.unity3d.com/Manual/pack-safe.html) 找到com.unity.burst,点击后会看到介绍和各个版本的说明。
 官方对burst的简介：
@@ -69,3 +71,8 @@ https://docs.unity.cn/Packages/com.unity.entities@0.50/manual/upgrade-guide.html
 
  9，
  [使用job system获得最近目标](https://answers.unity.com/questions/1899963/unity-job-system-based-target-finding.html)
+ 
+ 
+ [Unity3DMMORPG技术分享: 基于ECS的技能释放与Buff管理详解](https://zhuanlan.zhihu.com/p/622784466)
+ 
+ [大智_Unity大玩家 ECS专栏：第五页、第六页](https://space.bilibili.com/8052043/article)

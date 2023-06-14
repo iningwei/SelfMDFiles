@@ -330,3 +330,11 @@ TODO：魔盒里面的兵种介绍、玩法说明还没有
 [Ragdoll Animator](https://assetstore.unity.com/packages/tools/physics/ragdoll-animator-209616)
 
 [Hairibar.Ragdoll](https://www.youtube.com/watch?v=ByNPbbACf40)
+
+## 20230611 星期日
+``周日加班``
+基于Hairibar.Ragdoll调通了可控Ragdoll
+
+
+## 20230613 星期二
+- TODO：研究下GPU Instancer，看下在我们游戏中使用的话对性能的提升效果如何
