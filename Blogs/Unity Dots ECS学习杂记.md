@@ -61,6 +61,8 @@ https://docs.unity.cn/Packages/com.unity.entities@0.50/manual/upgrade-guide.html
  ECS教程：https://forum.unity.com/threads/new-version-of-entities-1-0-pre-release-now-available-february-2023.1400887/ 
  
  ECS官方文档：https://docs.unity3d.com/Packages/com.unity.entities@1.0/manual/index.html
+ 
+ 
 
  8，
  [最新DOTS全面技术解析，从基本概念到应用原理](https://mp.weixin.qq.com/s/DtiA_790XTkuwKC9O-lJmw)
@@ -76,3 +78,5 @@ https://docs.unity.cn/Packages/com.unity.entities@0.50/manual/upgrade-guide.html
  [Unity3DMMORPG技术分享: 基于ECS的技能释放与Buff管理详解](https://zhuanlan.zhihu.com/p/622784466)
  
  [大智_Unity大玩家 ECS专栏：第五页、第六页](https://space.bilibili.com/8052043/article)
+ 
+ 10，一个DOTS寻路开源工程：https://github.com/reeseschultz/ReeseUnityDemos
