@@ -356,7 +356,26 @@ TODO：魔盒里面的兵种介绍、玩法说明还没有
 
 - 日志上传地址改为：  http://log.qiyoogame.com/Gm/save-file/auto
 
+注：文件查看地址为http://log.qiyoogame.com/Gm/log/auto/
 - TODO:统一封装送礼特别是组刷相关接口
 - TODO：引入热更
 
 设置-隐私（位置、相机、麦克风）-应用权限-麦克风-允许应用访问你的麦克风
+
+
+
+## 20230704 星期二
+- 底层框架调整以支持代码资源热更新
+- TODO，框架调整涉及到的资源名大小写的一些调整 congci_F73 立绘图标名、资源名
+- TODO：换了字体，导致部分界面Text元素不显示。需要逐一调整
+- TODO：目前已经不要求场景有一个Root节点了。故打场景，搜集依赖的代码也需要重新调整
+
+
+
+## 20230706 星期四
+- 一些备注
+特效也是用otherprefab类型来打ab，是因为子弹目前放在了Effect目录下，但是子弹又属于actor，是按照op类型加载的；若子弹按照effect类型打ab，则加载子弹就会出错。
+因此预制件只有两种ab类型：window和otherprefab
+- TODO:ab加载预制件的reuse感觉没必要。自己维护对象池
+- TODO：ServiceFetch的OnBeforeSceneLoadRuntimeMethod在热更方案中未自动调用，需要调整。
+[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]修饰的都需要调整
