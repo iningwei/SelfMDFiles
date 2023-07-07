@@ -379,3 +379,10 @@ TODO：魔盒里面的兵种介绍、玩法说明还没有
 - TODO:ab加载预制件的reuse感觉没必要。自己维护对象池
 - TODO：ServiceFetch的OnBeforeSceneLoadRuntimeMethod在热更方案中未自动调用，需要调整。
 [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]修饰的都需要调整
+
+## 20230707 星期五
+- （NormalBullet会重复添加导致的，已hack处理）巡洋舰子弹在新开局的时候会出现诡异现象
+- （已测试，无问题）测试新的通过属性的流程获得Service是否有问题
+- TODO：核弹爆炸的shader有一部分未收集到变体中。需要重新收集变体，同时这个地方的要运行后，手动处理一下
+- TODO：GameScene不是完整天空盒
+- TODO：第二局后，有些角色的攻击目标是自己阵营的了。这部分有点问题。看了一下和子弹一样，重复加了组件
