@@ -422,3 +422,10 @@ https://gitee.com/fengssy/ts-gameframework
 
 ## 20230716 星期日
 - ``周日加班``，虾哥、佳林和我
+
+
+## 20230717 星期一
+- 家园警戒优化
+- TODO：升星后的模型适当调大
+- TODO：测试打包进去shader
+- TODO：打包后核弹shader还有问题，要处理一下
