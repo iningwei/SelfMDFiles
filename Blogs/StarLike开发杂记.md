@@ -426,6 +426,37 @@ https://gitee.com/fengssy/ts-gameframework
 
 ## 20230717 星期一
 - 家园警戒优化
-- TODO：升星后的模型适当调大
-- TODO：测试打包进去shader
-- TODO：打包后核弹shader还有问题，要处理一下
+- （已处理，增加配表参数）TODO：升星后的模型适当调大
+- （已处理，并不是shader的问题，实际问题是后处理在打包后未生效。目前通过在GameEntry界面主动加入了对后面可能用到的后处理的直接引用，已经hack解决。）TODO：打包后核弹shader还有问题，要处理一下
+- TODO：升星UI提示
+
+## 20230718 星期二
+- 升星UI提示和相关逻辑
+- 666弹幕增加电池能量0.5个点
+
+## 20230719 星期三
+- 升星规则调整
+- 一些bug修复
+- 回合出兵增加时间间隔，避免瞬间卡顿
+- TODO：压测了一下，描边挺消耗性能的。看来还是需要换个方案
+- Unity商店RTSToolkit demo能支持差不多3K单位寻路战斗。使用了KDTree
+
+
+## 20230720 星期四
+- TODO，bug：核弹配置的是只对地，但是对巡洋舰确有伤害，对战神没有伤害。
+- TODO，bug：遇到启动后分辨率显示错误的问题
+
+- 打包注意事项
+0，设置好版本号
+1，把ResEx拷贝到StreamingAssets目录
+2，检查是否有gpu texture需要更新，从美术工程拷贝过来
+3，打热更dll,并拷贝到ResEx目录
+
+
+
+- TODO：泰坦蓝色两种星级颜色一样了。 不过礼物兵不需要。。。！！！
+
+
+C:\Users\ZhouHui\AppData\Roaming\webcast_mate\miniGame\UnityDownload
+
+C:\Users\ZhouHui\AppData\Roaming\webcast_mate\miniGame\UnityInstall
