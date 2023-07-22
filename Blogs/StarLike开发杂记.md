@@ -452,9 +452,16 @@ https://gitee.com/fengssy/ts-gameframework
 2，检查是否有gpu texture需要更新，从美术工程拷贝过来
 3，打热更dll,并拷贝到ResEx目录
 
-
-
 - TODO：泰坦蓝色两种星级颜色一样了。 不过礼物兵不需要。。。！！！
+## 20230721 星期五
+- bug修复，优化
+
+## 20230722 星期六
+``周6加班``。连上7天了。
+- 前三入场特效处理
+
+
+
 
 
 C:\Users\ZhouHui\AppData\Roaming\webcast_mate\miniGame\UnityDownload
