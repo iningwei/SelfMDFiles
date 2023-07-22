@@ -450,7 +450,7 @@ https://gitee.com/fengssy/ts-gameframework
 0，设置好版本号
 1，把ResEx拷贝到StreamingAssets目录
 2，检查是否有gpu texture需要更新，从美术工程拷贝过来
-3，打热更dll,并拷贝到ResEx目录
+3，打热更dll,并拷贝到ResEx目录。打全量包时，热更dll别忘了从ResEx拷贝到StreamingAssets目录下
 
 - TODO：泰坦蓝色两种星级颜色一样了。 不过礼物兵不需要。。。！！！
 ## 20230721 星期五
