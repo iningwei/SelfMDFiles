@@ -460,10 +460,35 @@ https://gitee.com/fengssy/ts-gameframework
 ``周6加班``。连上7天了。
 - 前三入场特效处理
 
+## 20230724 星期一
+- 优化
 
+## 20230725 星期二
+- 云启动接入
 
-
-
+## 20230726 星期三
+- 音效集成
+- TODO：龙之岛项目buff不生效问题
+- 云启动，触摸操作
+- 游戏默认下载安装目录，这里记录一下
 C:\Users\ZhouHui\AppData\Roaming\webcast_mate\miniGame\UnityDownload
-
 C:\Users\ZhouHui\AppData\Roaming\webcast_mate\miniGame\UnityInstall
+- TODO：
+1，橙，666这两个指令 需要加入抖音后台
+2，+- 空格都支持
+3，小玩法内容更新
+
+## 20230727 星期四
+- 出兵改成间隔持续出的那种试试呢。
+- （已处理，实为之前UI自适应导致的）BUG:改分辨率后启动后导致的UI显示问题
+- 4-30的入场特效
+
+
+## 20230728 星期五
+TODO：
+- 玩家信息增加电池上限信息
+- 增加仙女棒组刷功能
+- 设置界面
+
+## 20230731 星期一
+- 云启动涉及到Mobile部分，触屏操控的实现
