@@ -414,9 +414,9 @@ https://gitee.com/fengssy/ts-gameframework
 - TODO：AOE伤害支持其他形状
 
 ## 20230714 星期五
-- TODO：版本号显示增加上原始资源版本号的显示
-- TODO：蜘蛛炮两个射口不对称。调一下
-- TODO：影响很大的bug:大量召唤同一个单位时，部分角色的aStarAgent会丢失。
+- （已处理）TODO：版本号显示增加上原始资源版本号的显示
+- （已处理）TODO：蜘蛛炮两个射口不对称。调一下
+- （已处理）TODO：影响很大的bug:大量召唤同一个单位时，部分角色的aStarAgent会丢失。
 
 
 
@@ -428,7 +428,7 @@ https://gitee.com/fengssy/ts-gameframework
 - 家园警戒优化
 - （已处理，增加配表参数）TODO：升星后的模型适当调大
 - （已处理，并不是shader的问题，实际问题是后处理在打包后未生效。目前通过在GameEntry界面主动加入了对后面可能用到的后处理的直接引用，已经hack解决。）TODO：打包后核弹shader还有问题，要处理一下
-- TODO：升星UI提示
+- （已处理）TODO：升星UI提示
 
 ## 20230718 星期二
 - 升星UI提示和相关逻辑
@@ -438,13 +438,13 @@ https://gitee.com/fengssy/ts-gameframework
 - 升星规则调整
 - 一些bug修复
 - 回合出兵增加时间间隔，避免瞬间卡顿
-- TODO：压测了一下，描边挺消耗性能的。看来还是需要换个方案
+- （已处理）TODO：压测了一下，描边挺消耗性能的。看来还是需要换个方案
 - Unity商店RTSToolkit demo能支持差不多3K单位寻路战斗。使用了KDTree
 
 
 ## 20230720 星期四
-- TODO，bug：核弹配置的是只对地，但是对巡洋舰确有伤害，对战神没有伤害。
-- TODO，bug：遇到启动后分辨率显示错误的问题
+- （已处理）TODO，bug：核弹配置的是只对地，但是对巡洋舰确有伤害，对战神没有伤害。
+- （已处理）TODO，bug：遇到启动后分辨率显示错误的问题
 
 - 打包注意事项
 0，设置好版本号
@@ -452,7 +452,7 @@ https://gitee.com/fengssy/ts-gameframework
 2，检查是否有gpu texture需要更新，从美术工程拷贝过来
 3，打热更dll,并拷贝到ResEx目录。打全量包时，热更dll别忘了从ResEx拷贝到StreamingAssets目录下
 
-- TODO：泰坦蓝色两种星级颜色一样了。 不过礼物兵不需要。。。！！！
+- （已处理）TODO：泰坦蓝色两种星级颜色一样了。 不过礼物兵不需要。。。！！！
 ## 20230721 星期五
 - bug修复，优化
 
@@ -468,7 +468,7 @@ https://gitee.com/fengssy/ts-gameframework
 
 ## 20230726 星期三
 - 音效集成
-- TODO：龙之岛项目buff不生效问题
+- （已处理）TODO：龙之岛项目buff不生效问题
 - 云启动，触摸操作
 - 游戏默认下载安装目录，这里记录一下
 C:\Users\ZhouHui\AppData\Roaming\webcast_mate\miniGame\UnityDownload
@@ -486,9 +486,19 @@ C:\Users\ZhouHui\AppData\Roaming\webcast_mate\miniGame\UnityInstall
 
 ## 20230728 星期五
 TODO：
-- 玩家信息增加电池上限信息
+- （已处理）玩家信息增加电池上限信息
 - 增加仙女棒组刷功能
-- 设置界面
+- （已处理）设置界面
 
 ## 20230731 星期一
 - 云启动涉及到Mobile部分，触屏操控的实现
+
+## 20230803 星期四
+最近几天完成一些优化，并出包1.0.2，包括：
+- 出场特效分级调整
+- 基地距离扩大，镜头调整，增加键盘操作移动
+- 基地震荡波技能
+
+新增加b+数字的方式自动加入游戏
+
+- TODO：明天比对一下美术和项目工程的ZGame，整理一下，把最终版本移到Garfield项目

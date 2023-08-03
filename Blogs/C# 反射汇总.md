@@ -87,3 +87,32 @@ Debug.LogError("name2:" + b.Name + ",age2:" + b.Age + ",address2:" + b.Address);
 ```
 
 
+### 通过类名获得Type，并作为泛型方法参数
+可能会考虑使用如下代码
+```csharp
+            string name = "JiDi"; 
+            Type t = Type.GetType(name);
+            actor=normalActorFactory.Create<t>(summonPlayer, comp, dataId, modelPath, initPos, initForward);
+```
+编辑器下报错：``“t”是 变量，但此处被当做 类型 来使用``
+
+解决方案：
+先通过反射获得对应的泛型方法，再通过泛型方法调用。代码如下：
+```csharp
+            string name = "JiDi";
+            Type t = Type.GetType(name);
+            MethodInfo method = typeof(NormalActorFactory).GetMethod("Create").MakeGenericMethod(t);
+            actor = method.Invoke(normalActorFactory, new object[] { summonPlayer, comp, dataId, modelPath, initPos, initForward }) as Actor;
+```
+```csharp
+public class NormalActorFactory
+{
+    public Actor Create<T>(Player summonPlayer, CompType comp, int dataId, string modelPath, Vector3 initPos, Vector3 initForward) where T : Actor
+    {
+
+    }
+}
+```
+
+
+
