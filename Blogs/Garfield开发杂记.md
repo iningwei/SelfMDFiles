@@ -81,3 +81,9 @@
 - 本局排行和周排行的UI拼接
 - game02的UI拼接
 - 集成SoftMask插件
+
+## 20230907 星期四
+- TODO：玩家角色复活逻辑
+- game02战斗UI逻辑
+- showTime倒计时逻辑
+- TODO：同一个角色。玩家对应的actor和礼物对应的actor是不一样的ID，存在一些数值差异
