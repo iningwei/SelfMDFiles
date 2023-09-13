@@ -116,3 +116,5 @@
 ## 20230913 星期三
 - TODO：RealtimeRankShowArea 界面还没有处理完
 - TODO：game02礼物炸弹和礼物网功能
+- 窗体名和窗体注册功能优化，增加ignore标签
+- 关卡总榜功能调通
