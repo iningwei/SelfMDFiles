@@ -23,3 +23,34 @@
 显示错误，错误原因是，箭头处未设置自发光贴图，把主贴图赋过去，最终效果和Built-in工程下的效果是一样的：
 
 ![](https://raw.githubusercontent.com/iningwei/SelfPictureHost/master/Blog/BuiltInToURP/URPMatInspector.png)
+
+在官方文档[Converting your shaders](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@17.0/manual/upgrading-your-shaders.html)中有Built-in shader和URP shader对应关系的列表:
+
+| Unity built-in shader | Universal Render Pipeline shader |
+| ---- | ---- |
+| Standard | Universal Render Pipeline/Lit |
+| Standard (Specular Setup) | Universal Render Pipeline/Lit |
+| Standard Terrain  | Universal Render Pipeline/Terrain/Lit |
+| Particles/Standard Surface  | Universal Render Pipeline/Particles/Lit |
+| Particles/Standard Unlit  | Universal Render Pipeline/Particles/Unlit |
+| Mobile/Diffuse  | Universal Render Pipeline/Simple Lit |
+| Mobile/Bumped Specular  | Universal Render Pipeline/Simple Lit |
+| Mobile/Bumped Specular(1 Directional Light)  | Universal Render Pipeline/Simple Lit |
+| Mobile/Unlit (Supports Lightmap)  | Universal Render Pipeline/Simple Lit |
+| Mobile/VertexLit  | Universal Render Pipeline/Simple Lit |
+| Legacy Shaders/Diffuse  | Universal Render Pipeline/Simple Lit |
+| Legacy Shaders/Specular  | Universal Render Pipeline/Simple Lit |
+| Legacy Shaders/Bumped Diffuse  | Universal Render Pipeline/Simple Lit |
+| Legacy Shaders/Bumped Specular  | Universal Render Pipeline/Simple Lit |
+| Legacy Shaders/Self-Illumin/Diffuse |	Universal Render Pipeline/Simple Lit |
+| Legacy Shaders/Self-Illumin/Bumped Diffuse | Universal Render Pipeline/Simple Lit |
+| Legacy Shaders/Self-Illumin/Specular | Universal Render Pipeline/Simple Lit |
+| Legacy Shaders/Self-Illumin/Bumped Specular | Universal Render Pipeline/Simple Lit |
+| Legacy Shaders/Transparent/Diffuse | Universal Render Pipeline/Simple Lit |
+| Legacy Shaders/Transparent/Specular | Universal Render Pipeline/Simple Lit |
+| Legacy Shaders/Transparent/Bumped Diffuse | Universal Render Pipeline/Simple Lit |
+| Legacy Shaders/Transparent/Bumped Specular | Universal Render Pipeline/Simple Lit |
+| Legacy Shaders/Transparent/Cutout/Diffuse | Universal Render Pipeline/Simple Lit |
+| Legacy Shaders/Transparent/Cutout/Specular | Universal Render Pipeline/Simple Lit |
+| Legacy Shaders/Transparent/Cutout/Bumped Diffuse | Universal Render Pipeline/Simple Lit |
+| Legacy Shaders/Transparent/Cutout/Bumped Specular | Universal Render Pipeline/Simple Lit |
