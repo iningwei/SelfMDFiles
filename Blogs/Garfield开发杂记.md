@@ -220,3 +220,13 @@
 ## 20231011 星期三
 - TODO：支持RawImage的剥离
 - TODO：支持mesh的剥离
+
+## 20231012 星期四
+- 公司办公地点改到原511对面509。今早9点到达公司开始搬各自东西。
+- TODO：shawang 的mesh莫名旋转
+- TODO：对ab目标增加不处理标签功能
+- TODO：mesh依旧被打入到了prefab对应的ab中
+
+## 20231013 星期五
+- TODO：fbx过滤方式调整
+- TODO：剥离mesh，由于mesh collider会依赖到mesh,会导致mesh collider出问题，需要处理
