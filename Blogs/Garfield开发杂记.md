@@ -215,18 +215,24 @@
 - （暂时不处理）TODO：material加载后反复设置图片参数，需要规避
    - mesh renderer中material设置图片设计到引用计数。目前还不好拆分。
 
-- TODO：ShaderMeshAnimation的依赖处理和加载
+- （已处理）TODO：ShaderMeshAnimation的依赖处理和加载
 
 ## 20231011 星期三
-- TODO：支持RawImage的剥离
-- TODO：支持mesh的剥离
+- （已处理）TODO：支持RawImage的剥离
+- （已处理）TODO：支持mesh的剥离
 
 ## 20231012 星期四
 - 公司办公地点改到原511对面509。今早9点到达公司开始搬各自东西。
-- TODO：shawang 的mesh莫名旋转
-- TODO：对ab目标增加不处理标签功能
-- TODO：mesh依旧被打入到了prefab对应的ab中
+- （已处理。还是由其它fbx同名mesh导致的。）TODO：shawang 的mesh莫名旋转
+- （已处理）TODO：对ab目标增加不处理标签功能
+- （已处理）TODO：mesh依旧被打入到了prefab对应的ab中
 
 ## 20231013 星期五
-- TODO：fbx过滤方式调整
+- （已处理）：fbx过滤方式调整
 - TODO：剥离mesh，由于mesh collider会依赖到mesh,会导致mesh collider出问题，需要处理
+
+## 20231016 星期一
+- 对RawImage剥离的支持
+- Texture和Sprite类型判断
+- 解决meshcollider依赖mesh的问题
+- TODO：报错：CollisionMeshData couldn't be created because the mesh has been marked as non-accessible. Mesh asset path "" Mesh name "Garfield_changjing_03_beginning"
