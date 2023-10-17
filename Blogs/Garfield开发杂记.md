@@ -229,10 +229,13 @@
 
 ## 20231013 星期五
 - （已处理）：fbx过滤方式调整
-- TODO：剥离mesh，由于mesh collider会依赖到mesh,会导致mesh collider出问题，需要处理
+- 已处理）TODO：剥离mesh，由于mesh collider会依赖到mesh,会导致mesh collider出问题，需要处理
 
 ## 20231016 星期一
 - 对RawImage剥离的支持
 - Texture和Sprite类型判断
 - 解决meshcollider依赖mesh的问题
-- TODO：报错：CollisionMeshData couldn't be created because the mesh has been marked as non-accessible. Mesh asset path "" Mesh name "Garfield_changjing_03_beginning"
+- 已处理）TODO：报错：CollisionMeshData couldn't be created because the mesh has been marked as non-accessible. Mesh asset path "" Mesh name "Garfield_changjing_03_beginning"
+
+## 20231017 星期二
+- 修复ZGame框架的几个小bug
