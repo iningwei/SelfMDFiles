@@ -80,3 +80,18 @@ https://docs.unity.cn/Packages/com.unity.entities@0.50/manual/upgrade-guide.html
  [大智_Unity大玩家 ECS专栏：第五页、第六页](https://space.bilibili.com/8052043/article)
  
  10，一个DOTS寻路开源工程：https://github.com/reeseschultz/ReeseUnityDemos
+ 
+ 
+ 
+ 
+ 
+
+[Unity Dots 10万人同屏RVO避障是一种什么体验? 3D人物带动画,不使用ECS](https://www.bilibili.com/video/BV1aw411e7Yu/?vd_source=998bd4bb8e4478ba2454fd02aac061fa)
+
+
+[【Unity】十万人同屏寻路? 基于Dots技术的多线程RVO2避障](https://blog.csdn.net/final5788/article/details/133079504)
+
+
+
+
+[高效拖尾 用 Unity Ecs 实现的系统 5万个实体](https://www.bilibili.com/video/BV1xV411V7Es/?from=search&vd_source=998bd4bb8e4478ba2454fd02aac061fa)

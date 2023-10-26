@@ -1,0 +1,2 @@
+OnDestroy不触发问题：https://www.jianshu.com/p/0d6878b0ef66
+即使代码对某未active obj调用了其MonoBehaviour组件的Awake方法，删除该obj依旧无法触发OnDestory方法。

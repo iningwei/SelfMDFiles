@@ -190,18 +190,17 @@
 - （已处理）TODO：引入kdtree大幅提高性能；500单位可以维持在28帧左右。1000单位降到10帧
 - TODO：KDTree深入学习：https://zhuanlan.zhihu.com/p/529487972
 - 全局hud不可见情况下，角色重生瞬间UI闪烁的问题
-- TODO:Mesh Animator
-丢失骨骼信息，game01需要依赖骨骼绑定一些节点
+- （已处理）TODO:Mesh Animator丢失骨骼信息，game01需要依赖骨骼绑定一些节点，因此game01不使用该方案
 - Game02集成了MeshAnimator，有一些问题
    - （已处理，是有同名动作导致的）细狗行走动作，上半身不动；
    - （已处理）金克斯使用了透明通道，丢失阴影
-   - TODO：项目工程内batching失败（原因是目前ab方案导致每个模型都有一个独立的mat，不是共用mat，因此无法合批）
-   - TODO：动作资源打ab， 解决内存问题
+   - （已处理）TODO：项目工程内batching失败（原因是目前ab方案导致每个模型都有一个独立的mat，不是共用mat，因此无法合批）
+   - （已处理）TODO：动作资源打ab， 解决内存问题
    - （已处理，好像是有的，之前看起来硬切还是因为攻击动作丢失了，视觉看起来是硬切）crossfade无效，动作硬切
    
 ## 20231008 星期日
 - （已处理。把循环方式从Once改成Loop就可以了，这是一中hack方式，理论上Once也应该可以的，攻击动作本来也应该是设置为Once类型，且使用预制件测试都没有问题，打成AB在项目中就出现了）TODO：攻击动作丢失，不显示
-- TODO：框架对材质球打AB的处理需要调整
+- （已处理）TODO：框架对材质球打AB的处理需要调整
 - （已处理）TODO：game02 角色begin dead就不再移动
 
 
@@ -229,13 +228,38 @@
 
 ## 20231013 星期五
 - （已处理）：fbx过滤方式调整
-- 已处理）TODO：剥离mesh，由于mesh collider会依赖到mesh,会导致mesh collider出问题，需要处理
+- （已处理）TODO：剥离mesh，由于mesh collider会依赖到mesh,会导致mesh collider出问题，需要处理
 
 ## 20231016 星期一
 - 对RawImage剥离的支持
 - Texture和Sprite类型判断
 - 解决meshcollider依赖mesh的问题
-- 已处理）TODO：报错：CollisionMeshData couldn't be created because the mesh has been marked as non-accessible. Mesh asset path "" Mesh name "Garfield_changjing_03_beginning"
+- （已处理）TODO：报错：CollisionMeshData couldn't be created because the mesh has been marked as non-accessible. Mesh asset path "" Mesh name "Garfield_changjing_03_beginning"
 
 ## 20231017 星期二
 - 修复ZGame框架的几个小bug
+- （已处理。因为emoji是挂在ui下的，而ui在DontDestroyOnLoad下，因此设置parent为null后也被放到对应场景下了）TODO:emoji回收的对象为啥显示在DontDestroyOnLoad下
+- （已处理）TODO：RemoveRefTrs；AddRefTrs 判断逻辑有问题
+- ``晚上9点05下班！！！``
+
+## 20231018 星期三
+- TODO：打包场景1的显示有问题，应该是shader变种的问题导致的
+
+
+## 20231019 星期四
+- （已处理）TODO：为资源收集器，增加开关属性，动态控制
+
+## 20231020 星期五
+- （已处理）TODO：Text、TMP多语言
+- （已处理）TODO：图片多语言
+
+## 20231023 星期一
+- （已处理，已重写，之前就支持多平台的）TODO：头像模块重写。支持更多平台头像缓存
+
+## 20231024 星期二
+- TODO：目前客户端运行游戏有点卡，需要找到缘由
+- TODO：调通资源的异步加载
+
+
+## 20231026 星期四
+- WebP图片支持
