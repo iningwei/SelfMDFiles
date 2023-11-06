@@ -88,3 +88,6 @@ RIFF文件由一个简单的表头（header）跟随着多个"chunks"所组。�
 笔者使用了上述提到的[webp-unity3d](https://github.com/minhhh/webp-unity3d/tree/master)，在Windows PC环境下实现了需求（其它平台未测）。
 
 需要注意的是，该作者通过CreateTexture2DFromWebP获得到的Texture2D是不可读的。可以在该方法中增加参数，Apply生成ITexture2D时通过参数来供外部自由设置。
+
+### 其它
+[官方技术文档](https://developers.google.com/speed/webp/download?hl=zh-cn)
