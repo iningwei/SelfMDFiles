@@ -277,10 +277,48 @@
 
 ## 20231101 星期三
 - 今天把二江的房子退了，早晨喊了货拉拉把最后一波行李运送到了菁萃
-- TODO：礼物进阶功能
-- TODO：涛哥说的几个图标调整
+- （已处理）TODO：礼物进阶功能
+- （已处理）TODO：涛哥说的几个图标调整
 - UNITY_IOS 和 UNITY_IPHONE 的区别
 
 ## 20231102 星期四
 - TODO：框架支持节点数组 GiftTipArea.cs
-- TODO：在全名健身项目对当前项目框架调整
+- （已处理）TODO：在全名健身项目对当前项目框架调整
+
+
+## 20231109 星期四
+- （已处理）TODO：今天遇到奇怪bug，佳林那边新提交的几个礼物特效，对他们预制件打AB，由于我们剥离了AnimatorController，对AnimatorController打AB后，引用的.anim资源未打进去。
+
+
+## 20231114 星期二
+- Game02礼物调整
+- Game02出生点逻辑调整
+
+## 20231121 星期三
+- 最近对Game02尝试做一些性能优化
+   - 目前完成GPU蒙皮动画，使用官方AnimationInstancing方案（TODO：shader支持自发光，支持透明贴图；参考MeshAnimator，CrossFade使用jobs加速）
+   - TODO：射线jobs:https://thegamedev.guru/unity-cpu-performance/raycast-commands/
+   
+- TODO:设置visual studio支持capolit
+https://baiming.blog.csdn.net/article/details/129886670?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-129886670-blog-134344591.235%5Ev38%5Epc_relevant_default_base&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-129886670-blog-134344591.235%5Ev38%5Epc_relevant_default_base&utm_relevant_index=2
+
+
+## 20231124 星期五
+- （已处理）TODO:bug,结算排行榜上的玩家（未加入对局）头像未显示问题
+   - PlayerAvatarManager.cs L109
+- （已处理）TODO:bug,热更后版本号未变
+- （已处理）TODO:bug,快捷键无法结束游戏
+- 出正式包1.0.1 resVersion:0
+   - resVersion:升级到1，解决P快捷键仍然弹出问题
+   - 重新出包了，还是从resVersion：0 开始
+- cfg文件中AppBundleVersion和ResVersion容易混淆，目前是使用的AppBundleVersion。但是看家园确使用的ResVersion
+
+
+
+## 20231128 星期二
+- Timer框架调整，还有一些问题
+   - Skill脚本中skillShootDelay
+   - BulletAgent OnDestroy
+
+## 20231129 星期三
+- Timer新框架调整完毕：增加缓存机制，降低gc

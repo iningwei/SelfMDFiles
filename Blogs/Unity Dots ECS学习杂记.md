@@ -95,3 +95,11 @@ https://docs.unity.cn/Packages/com.unity.entities@0.50/manual/upgrade-guide.html
 
 
 [高效拖尾 用 Unity Ecs 实现的系统 5万个实体](https://www.bilibili.com/video/BV1xV411V7Es/?from=search&vd_source=998bd4bb8e4478ba2454fd02aac061fa)
+
+
+
+
+
+https://github.com/aleksandrpp/MassiveShooting/tree/master
+
+https://github.com/nezix/NeighborSearchGridBurst

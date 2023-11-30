@@ -85,9 +85,18 @@ RIFF文件由一个简单的表头（header）跟随着多个"chunks"所组。�
 ```
 
 ### 转换为texture
-笔者使用了上述提到的[webp-unity3d](https://github.com/minhhh/webp-unity3d/tree/master)，在Windows PC环境下实现了需求（其它平台未测）。
-
-需要注意的是，该作者通过CreateTexture2DFromWebP获得到的Texture2D是不可读的。可以在该方法中增加参数，Apply生成ITexture2D时通过参数来供外部自由设置。
+笔者使用了上述提到的[webp-unity3d](https://github.com/minhhh/webp-unity3d/tree/master) 。在编辑器下顺利读取转化webp图片。需要注意的是，该作者通过CreateTexture2DFromWebP获得到的Texture2D是不可读的。可以在该方法中增加参数，Apply生成ITexture2D时通过参数来供外部自由设置。
 
 ### 其它
 [官方技术文档](https://developers.google.com/speed/webp/download?hl=zh-cn)
+
+### 后记
+上述[webp-unity3d](https://github.com/minhhh/webp-unity3d/tree/master) 在打包后会报错：
+```
+DllNotFoundException: Unable to load DLL 'webp'. Tried the load the following dynamic libraries: Unable to load dynamic library 'webp' because of 'Failed to open the requested dynamic library (0x06000000) - 找不到指定的模块。  (WinError:0000007e)
+  at WebP.Extern.NativeBindings.WebPGetInfo (System.IntPtr data, System.UIntPtr data_size, System.Int32& width, System.Int32& height) [0x00000] in <00000000000000000000000000000000>:0 
+  at WebP.Texture2DExt.CreateTexture2DFromWebP (System.Byte[] lData, System.Boolean lMipmaps, System.Boolean lLinear, System.Boolean resultTextureReadable, WebP.Status& lError, WebP.Texture2DExt+ScalingFunction scalingFunction) [0x00000] in <00000000000000000000000000000000>:0 
+  at UnityWebRequestMgr+<_GetTexture>d__10.MoveNext () [0x00000] in <00000000000000000000000000000000>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) [0x00000] in <00000000000000000000000000000000>:0
+```
+切换成[unity.webp](https://github.com/netpyoung/unity.webp) ，PC环境下实现了需求（其它平台未测）。
