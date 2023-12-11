@@ -24,3 +24,6 @@
    - [Unity中，通过代码创建overrideController并使用ApplyOverrides设置其参数](https://www.jianshu.com/p/166b1ab85e24)
    - [Unity Animator state节点的Motion动态替换AnimationClip](https://blog.csdn.net/qq_37776196/article/details/131300166)
    - 知乎好文[Unity中Animator Override的性能问题](https://zhuanlan.zhihu.com/p/371397382)
+   
+## 20231211 星期一
+- TODO：集成 https://github.com/Tayx94/graphy ，以后这个插件永久集成到框架中

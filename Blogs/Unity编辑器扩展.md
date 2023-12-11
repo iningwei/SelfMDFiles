@@ -1,6 +1,6 @@
 [TOC]
 ## 继承自 MonoBehaviour 的类的一些扩展
-一方面继承自MonoBehaviour的类都会默认被添加到 Component->Scripts 节点下。若该类使用[AddComponentMenu("XX/XX/XX")]修饰后，则会为其添加到已经存在的节点下。
+一方面继承自MonoBehaviour的类都会默认被添加到 Component->Scripts 节点下。若该类使用[AddComponentMenu("XX/XX/XX")]修饰后，则会为其修改节点目录。
 
 另一方面MonoBehaviour类都可以添加到GameObject作为Component，在Inspector界面可以显示该类的一些信息。
 所有``继承自UnityEngine.Object的类，如GameObject,Component,MonoBehaviour,Texture2D,AnimationClip;所有基本类型，如int,string,float,bool;一些内建类型，如Vector2,Vector3,Quaternion,Color,Rect,Layermask;序列化类型的Array,序列化类型的List;枚举Enum``。默认情况下这些类型的public变量是可以在Inspector界面显示的，同时编辑器对其进行序列化。
@@ -8,6 +8,7 @@
 - [HideInInspector] 变量依旧可以被序列化，但是在Inspector界面上不可见
 - [NonSerialized] 变量不可被序列化，且在Inspector面板上不可见
 - [SerializeField] 可以把private类型变量变成可序列化的，在Inspector面板可见。（虽然Inspector面板可见，但仍然是private变量）
+- [FormerlySerializedAsAttribute],重命名变量名又不想丢失其序列化信息时，使用这个属性。详见:[官方文档](https://docs.unity3d.com/ScriptReference/Serialization.FormerlySerializedAsAttribute.html)
 
 
 ### ContextMenu属性
@@ -50,12 +51,25 @@ public class Test : MonoBehaviour
 
 ### Range属性
 [Range(min,max)]或者[RangeAttribute(min,max)]可以对变量的输入范围进行限定，使得Inspector检视面板内的数值输入框变成Slider,且范围为(min,max)。
-
+### MinMax属性
 ### Header属性
 [Header("")] Inspector面板中在目标字段顶部展示额外的说明文字
+### Tooltip属性
+[Tooltip("field tip!")]Inspector面板中鼠标移动到目标字段顶部显示tip信息
+### Space属性
+[Space(30)]Inspector面板中两字段显示间隔
+### TextArea属性
+[TextArea()]
+[TextArea(int minLines,int maxLines)]
 
+让string类型字段的编辑可以在Inspector中以带滚动条高度可变的样子呈现。
 ### FormerlySerializedAs属性
 [FormerlySerializedAs("")]可以自定义字段在Inspector上显示的内容。
+### RequireComponent属性 和 DisallowMultipleComponent属性
+[RequireComponent(typeof())]
+[DisallowMultipleComponent]
+### OnValidate()函数
+脚本被加载，或者检视面板内有变化时触发，只在编辑器内被调用。
 
 ## 窗口扩展基础：MenuItem,ScriptableWizard,EditorWindow
 
@@ -889,6 +903,14 @@ EditorGUILayout.MaskField 多选整形
 ### 一些注意项
 - EditorGUILayout.DropdownButton 并不是下拉按钮，而是鼠标按下就会触发的按钮。而Button是鼠标放开才会触发。
 
+## 其它
+### Debug.Break()
+可以暂停Editor
+### 控制数值类型变化速度
+鼠标拖拽改变数值类型的值的时候，按住shift或者alt键，可以分别加快或者减慢数值变化的速度
+
+## 第三方更丰富扩展
+[NaughtyAttributes](https://github.com/dbrizov/NaughtyAttributes)
 
 ## 继承关系
 ``ScriptableWizard:EditorWindow:ScriptableObject:Object``
