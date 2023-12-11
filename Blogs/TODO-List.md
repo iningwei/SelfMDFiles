@@ -6,3 +6,28 @@
 
 ## 20230803
 - YooAsset
+
+## 20231207
+- [Drawing Thousands of Meshes with DrawMeshInstanced / Indirect in Unity](https://toqoz.fyi/thousands-of-meshes.html)
+- SRP
+   - [【Unity】SRP底层渲染流程及原理](https://zhuanlan.zhihu.com/p/378781638)
+   - [Unity SRP 实战（五）基于 GPU 的剔除](https://zhuanlan.zhihu.com/p/484230476?utm_id=0)
+- BRG
+   - [BatchRendererGroup sample: Achieve high frame rate even on budget devices](https://blog.unity.com/engine-platform/batchrenderergroup-sample-high-frame-rate-on-budget-devices)
+- CommandBuffer
+   - [百人计划3.7.2command buffer及urp概述](https://zhuanlan.zhihu.com/p/510965477?utm_id=0)
+- GPUInstancing
+   - [GPU Instancing 深入浅出-基础篇（1）](https://zhuanlan.zhihu.com/p/523702434)
+- 百人计划图形与美术
+知乎专栏，对unity图形这块有很多内容：https://www.zhihu.com/column/c_1489935270266642432
+
+- DrawMesh
+   - [Drawing Thousands of Meshes with DrawMeshInstanced / Indirect in Unity](https://toqoz.fyi/thousands-of-meshes.html)
+- GPU Animation
+   - [基于GPU Skin的骨骼动画Instance的实现](https://blog.csdn.net/leonwei/article/details/77387357)
+   - [GPU-Skinning-Demo](https://github.com/Minghou-Lei/GPU-Skinning-Demo)
+   - [GPU Instancer](https://assetstore.unity.com/packages/tools/utilities/gpu-instancer-117566#releases) 配合 [GPU Instancer - Crowd Animations](https://assetstore.unity.com/packages/tools/animation/gpu-instancer-crowd-animations-145114#releases) 。使用了ComputerShader、代码耦合性太高、使用也不太方便
+- JobSystem
+   - [使用C# Job System并行化Dynamic Bone](https://www.bilibili.com/video/BV1Q741177Jd/?vd_source=998bd4bb8e4478ba2454fd02aac061fa)
+- ComputerShader
+   - [Compute Shaders and Emergent Algorithms](https://emergentbehavior.com/i-have-the-power-of-compute-shaders/)
