@@ -94,7 +94,7 @@ protoc 是 protobuf 自带的编译器，可以将 .proto 文件编译成 java�
 ```
 protoc --python_out=. demo.proto
 ```
-即可在protoc/bin文件夹下生成demo_pb2.py文件，即所需的文件。（也可以把protoc/bin目录加入到系统环境变量中，方便随时使用protoc命令）
+即可在protoc/bin文件夹下生成demo_pb2.py文件。（也可以把protoc/bin目录加入到系统环境变量中，方便随时使用protoc命令）
 
 ```
 --python_out:用于指定要生成python文件同时设置其输出路径，上例中的.即表示输出路径和protoc.exe同级。
