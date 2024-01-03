@@ -31,3 +31,10 @@
    - [使用C# Job System并行化Dynamic Bone](https://www.bilibili.com/video/BV1Q741177Jd/?vd_source=998bd4bb8e4478ba2454fd02aac061fa)
 - ComputerShader
    - [Compute Shaders and Emergent Algorithms](https://emergentbehavior.com/i-have-the-power-of-compute-shaders/)
+   
+   
+## 20240113
+- DOTS
+dots系列入门文章，很不错。[第一篇、HelloCube小试牛刀](https://zhuanlan.zhihu.com/p/666856501)
+- [Unity ECS 官方Tutorial HelloCube 学习笔记（自用+记录）](https://zhuanlan.zhihu.com/p/644183309)
+- [DOTS实战技巧总结](https://www.cnblogs.com/uwatech/p/17635358.html)
