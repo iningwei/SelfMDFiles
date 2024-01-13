@@ -39,7 +39,10 @@ dots系列入门文章，很不错。[第一篇、HelloCube小试牛刀](https:/
 - [Unity ECS 官方Tutorial HelloCube 学习笔记（自用+记录）](https://zhuanlan.zhihu.com/p/644183309)
 - [DOTS实战技巧总结](https://www.cnblogs.com/uwatech/p/17635358.html)
 
+- [Unity】DOTS 1.0 初体验 坦克尿尿教程](https://zhuanlan.zhihu.com/p/575792897)
+   - 原始教程在这里:https://github.com/Unity-Technologies/EntityComponentSystemSamples/blob/master/EntitiesSamples/Assets/Tutorials/Tanks/README.md
 
+- [Unity Job Tutorial 学习笔记（自用+记录）](https://zhuanlan.zhihu.com/p/644182588)
 - [Unity DOTS 1.0 in 60 MINUTES!](https://www.youtube.com/watch?v=H7zAORa3Ux0)
 
 - [Unity ECS Study - Use Scriptable Object in ECS by parsing SO data to IComponent](https://medium.com/@vincewang10a7/unity-ecs-study-use-scriptable-object-in-ecs-by-parsing-so-data-to-icomponent-73c5e7f228c9)
