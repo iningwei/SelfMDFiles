@@ -46,3 +46,11 @@ dots系列入门文章，很不错。[第一篇、HelloCube小试牛刀](https:/
 - [Unity DOTS 1.0 in 60 MINUTES!](https://www.youtube.com/watch?v=H7zAORa3Ux0)
 
 - [Unity ECS Study - Use Scriptable Object in ECS by parsing SO data to IComponent](https://medium.com/@vincewang10a7/unity-ecs-study-use-scriptable-object-in-ecs-by-parsing-so-data-to-icomponent-73c5e7f228c9)
+
+
+- [Unity DOTS中的baking（一） Baker简介](https://zhuanlan.zhihu.com/p/671472040)
+
+
+- [Unity基础教程系列(新)（六）——Jobs（Animating a Fractal）](https://zhuanlan.zhihu.com/p/350081516)
+
+- 一个很详细的dots学习笔记 [【Unity DOTS1.0】学习之路---基础课1-3笔记](https://blog.csdn.net/answer226/article/details/131270230)
