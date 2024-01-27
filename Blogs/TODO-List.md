@@ -55,3 +55,19 @@ dots系列入门文章，很不错。[第一篇、HelloCube小试牛刀](https:/
 
 - 一个很详细的dots学习笔记 [【Unity DOTS1.0】学习之路---基础课1-3笔记](https://blog.csdn.net/answer226/article/details/131270230)
 
+
+
+
+
+
+## MyShell
+AI平台：MyShell https://app.myshell.ai/zh/explore
+使用bbbbbbion@gmail.com登录的
+
+## TaskOn
+绑定的iningwei twitter帐号
+
+swappi的还没有薅完：https://medium.com/@swappidex/swappi-x-cfxs-world-enter-the-ecosystem-1d2e7d8835b9
+
+
+https://github.com/Haruma-K/UnityScreenNavigator
