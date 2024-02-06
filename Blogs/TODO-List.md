@@ -71,3 +71,26 @@ swappi的还没有薅完：https://medium.com/@swappidex/swappi-x-cfxs-world-ent
 
 
 https://github.com/Haruma-K/UnityScreenNavigator
+
+
+## gg羊毛
+项目：Solana链的GG项目
+简介：GG是一家游戏工作室，由 SOL 资深人士组成的团队创建，他们拥有 DeFi 和 Web3 中一些最大协议的经验，并得到@Delphi_Digital@CozomoMedici@gmoneyNFT和其他加密货币原住民的支持。GG 正在融合加密、游戏和增强现实，在 Solana 上创建第一个 ARC（AR 加密）游戏生态系统。游戏预计2024年下半年上线，现在参与即可获得G积分。
+名称：GG
+钱包：任意支持SOL链的钱包
+时间：正在进行中
+官方推特：
+https://twitter.com/ggdotzip
+网站链接：邀请码自取
+https://gg.zip/MYMDI
+https://gg.zip/9QDC1
+https://gg.zip/M68J0
+https://gg.zip/IONFG
+https://gg.zip/REXWR
+https://gg.zip/KLR9T
+https://gg.zip/TDURU
+https://gg.zip/MLRD0
+https://gg.zip/V87Z8
+https://gg.zip/SXF77
+
+我的username:DAGOUZI
