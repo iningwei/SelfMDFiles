@@ -65,6 +65,7 @@ AI平台：MyShell https://app.myshell.ai/zh/explore
 使用bbbbbbion@gmail.com登录的
 
 ## TaskOn
+https://taskon.xyz/
 绑定的iningwei twitter帐号
 
 swappi的还没有薅完：https://medium.com/@swappidex/swappi-x-cfxs-world-enter-the-ecosystem-1d2e7d8835b9
