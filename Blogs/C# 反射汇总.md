@@ -114,5 +114,16 @@ public class NormalActorFactory
 }
 ```
 
+### 泛型方法中调用T的构造函数，最终返回T的实例
+```csharp
+    public T AddNode<T>(GameObject nodePrefab) where T : Node
+    {
+        // 使用 Activator.CreateInstance 创建 T 类型的实例
+        T newNode = (T)Activator.CreateInstance(typeof(T), nodePrefab);
+
+        // 返回新创建的实例
+        return newNode;
+    }
+```
 
 

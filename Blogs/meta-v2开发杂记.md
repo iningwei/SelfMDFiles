@@ -99,14 +99,14 @@
 - TODO：热更资源自动上传到CDN；热更包自动上传到共享盘
 
 # 2024年2月1日     星期四
-- TODO：安卓打包后，删除无用的两个文件夹
+- （已处理）TODO：安卓打包后，删除无用的两个文件夹
 
 
 # 2024年2月2日     星期五
 - 安卓包自动上传到共享盘
 - 整理UI资源，制定图集分类。
 - 拼主界面UI界面，抽取公用节点做成预制件
-- TODO：小地图逻辑
+- （已处理）TODO：小地图逻辑
 
 
 # 2024年2月5日     星期一
@@ -114,7 +114,7 @@
 - 实现操作台界面和逻辑
 
 # 2024年2月6日     星期二
-- TODO：改表，slotid改成long类型
+- （已处理）TODO：改表，slotid改成long类型
 
 
 # 2024年2月20日     星期二
@@ -126,7 +126,7 @@
 
 # 2024年2月21日     星期三
 - TODO：ShowNetMask和HideNetMask自动根据协议对来自动调用，需要扩展协议结构
-- TODO：图文混排
+- （已处理）TODO：图文混排
 - 工作记录逻辑功能
 - 开始工作，停止工作逻辑
 - TODO：ShowNetMask需提供参数，是否显示中间转动圈
@@ -139,6 +139,14 @@
 
 # 2024年2月23日     星期五
 - 填充能量界面和逻辑
-- TODO：对实例化的item进行封装，类似area
-- TODO:window下的Area节点，增加标识，避免在window中查找子物体搜索到Area节点
-- TODO：底层支持图片置灰功能，需要改shader，通过materialproperty来实现
+- （已处理）TODO：对实例化的item进行封装，类似area
+- （已处理）TODO:window下的Area节点，增加标识，避免在window中查找子物体搜索到Area节点
+- （已处理）TODO：底层支持图片置灰功能，需要改shader，通过materialpropertyblock来实现
+   - TODO：UGUI不支持MPB，使用gray mat替换实现，需要测试mat卸载问题
+
+# 2024年2月24日     星期一
+- 客户端框架升级
+   - 增加Node、NodeHolder概念，降低窗体冗余、耦合
+   - 增加UIRootTag标识，处理AutoLinkUI
+   - 增加WindowMsgID概念，增加可读性
+   
