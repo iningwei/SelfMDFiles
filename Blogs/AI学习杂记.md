@@ -1,0 +1,1 @@
+[微软生成式AI新手教程](https://github.com/microsoft/generative-ai-for-beginners)
