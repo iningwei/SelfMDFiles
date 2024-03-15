@@ -28,7 +28,7 @@ You might have to install separate package for the ruby development environment,
 - 安装后，查看ruby版本 ``ruby -v``， 若不是刚下载的版本，还需要使用命令切一下版本
 
 ## 安装CocoaPods
-上述安装完毕后，执行``sudo gem install cocoapods -n/usr/local/bin``安装cocoapods
+上述安装完毕后，执行``sudo gem install -n /usr/local/bin cocoapods``安装cocoapods
 安装完毕，执行``pod --version``查看cocoapods版本
 
 到这里对于unity打包来说cocoapods其实并没有完全装好，还需要继续按以下步骤处理。

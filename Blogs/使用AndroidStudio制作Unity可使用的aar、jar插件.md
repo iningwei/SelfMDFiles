@@ -15,7 +15,16 @@ Unity:2020.3.0f1
 由于需要使用新Activity取代默认的UnityPlayerActivity，因此需要创建一个继承自UnityPlayerActivity的Activity。故需要引入Unity中的classes.jar
 笔者项目使用的是il2cpp，因此选择目录``\Editor\Data\PlaybackEngines\AndroidPlayer\Variations\il2cpp\Release\Classes``下classes.jar。（这里补充一下使用最新版本的classes.jar报错，笔者暂时使用了一个老版本unity的classes.jar）
 
+
 复制该classes.jar文件，鼠标右键点击上图视图中app/libs节点目录，在弹出菜单中选择Paste。文件粘贴到libs目录后，再右键clases.jar文件，选择Add As Library
+
+#### 补充：找到classes.jar报错原因了
+是因为最新版的classes.jar中已经没有UnityPlayerActivity的定义了。
+存放目录为：``\Editor\Data\PlaybackEngines\AndroidPlayer\Source\com\unity3d\player\UnityPlayerActivity.java``
+
+
+可以在androidStudio中main/java下创建新的package包com.unity3d.player，然后把UnityPlayerActivity.java拷贝过去，这样就可以使用新版本的classes.jar文件了。
+另外，建议拷贝unity的classes.jar到androidStudio中后，建议给该classes.jar命名为unity-classes.jar，这样也不会出现后文重名不好区分问题了
 
 ### 修改build.gradle文件
 点开app/build.gradle文件，内容如下：

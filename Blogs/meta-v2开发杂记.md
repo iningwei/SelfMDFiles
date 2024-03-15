@@ -147,6 +147,89 @@
 # 2024年2月24日     星期一
 - 客户端框架升级
    - 增加Node、NodeHolder概念，降低窗体冗余、耦合
-   - 增加UIRootTag标识，处理AutoLinkUI
+   - 增加UIRootTag标识，处理AutoLinkUI 
    - 增加WindowMsgID概念，增加可读性
    
+# 2024年3月4日     星期一
+- 易宝支付：https://open.yeepay.com/docs/v2/products/yjzf/index.html
+
+
+# 2024年3月6日     星期三
+- 现在Unity打的apk都无法安装到模拟器上了。
+Unity的TargetArchitectures只有ARM选项了，没有模拟器可用的X86了。是这个原因吗？
+- 选定webview方案：UniWebView，明天带测试机来测试（PS：作者是OneVCat）
+- 一个博文[【Unity】UniWebView的使用](https://blog.csdn.net/weixin_42186644/article/details/123506018)
+
+
+# 2024年3月7日     星期四
+- TODO：飞船表要增加scale字段，整体控制飞船大小
+- TODO：测试挖矿场景渲染30个RT性能
+
+- SDK相关要求
+   - 美洽SDK安卓要求JDK7+
+   - UniWebView要求安卓5.0（API Level21）以及以上、iOS 9.0以及以上
+  
+- 美洽SDK博文：https://blog.csdn.net/weixin_44554456/article/details/105584540
+
+
+# 2024年3月8日     星期五
+- 昨晚加班过了9点，今天9点50多打的卡
+- 调通安卓上美洽客户SDK
+   - 由于无法通过EDM4U顺利加载美洽安卓依赖，故目前采用导出android studio的方式进行打包
+
+
+# 2024年3月11日     星期一
+- 总结下之前角色同步相关的协议流程
+```csharp
+meta v2协议流程
+## 大流程
+1，http post请求拿到socket地址，C2SAccountLogin请求登录。收到登录成功返回（S2CAccountLogin），客户端请求自己的角色信息：C2SRoleInfo
+
+2，收到自己角色信息：S2CRoleInfo，若RoleInfo.Level为0,则走创角流程3和4，否则走5
+
+3，请求创角：C2SRoleCreate
+
+4，收到自己角色信息：S2CRoleInfo；以及S2CRoleCreate告诉创角结果
+
+5，根据S2CRoleInfo中的mapId，客户端表现上开始走进度条加载目标场景，场景加载完毕后，若场景需要同步角色信息，则还要告诉服务器客户端已经准备好了：C2SRoleEnterSceneMap。后续 6，7，8，9的流程也是场景需要同步玩家信息才会发生。
+
+
+6，客户端依次收到：S2CRolePublic(玩家自己和玩家周围9宫范围的角色信息)后，开始创建角色。角色位置通过 S2CPosSync 同步过来。
+
+7，游戏过程中，客户端会按照一定规则上行：C2SPosChangeAction 用来更新角色动作；C2SPosMove 用来更新角色位置和朝向
+
+8，游戏过程中，有新玩家进入角色范围，服务器会下行：S2CRolePublic；玩家离开角色范围，服务器会下行：S2CPosRemove
+
+9，游戏过程中，服务端会下行：S2CPosChangeAction、S2CPosMove以更新角色动作、位置、朝向
+
+
+## 切换场景流程
+1，客户端上行：C2SPosChangeMap
+2，收到：S2CPosChangeMap 开始切换地图
+3，若是切换到的目标地图是需要同步角色位置、方向信息到服务端的，则在客户端场景加载完毕后，需要上行 C2SRoleEnterSceneMap
+
+
+## 其它
+1，场景内服务器会主动下行的协议：S2CPlayerMin新角色进入玩家周围或角色基本信息(昵称、衣着等)更新; S2CSyncPos同步角色位置、朝向; S2CPlayerRemove移除角色（角色已不在玩家周围）;S2CChangeAction更新角色动作（走、跑、跳等）
+
+2，场景内客户端会上行：C2SChangeAction用来更新角色动作；C2SPlayerMove用来更新角色位置和朝向
+
+3，玩家主动切换地图场景：C2SChangeMap（PosId暂时没用上）
+```
+- mac机器配置开发环境
+- TODO：导表工具要增加遇到同名sheet，弹出提示的功能
+
+
+
+# 2024年3月12日     星期二
+- TODO：mac cocoapods环境配置
+- TODO：mac vpn配置
+
+# 2024年3月14日     星期四
+- TODO:统一安卓和ios sdk接口名称
+- TODO：ios通知unity sdk init成功，且接口和android保持一致
+- TODO：和美洽咨询sdk 8.0的问题。有个断层，8.0直接到12.0。我们项目设置的最低是11.0。
+   - 因此可否考虑把我们项目最低支持版本设置为12.0
+   
+# 2024年3月15日     星期五
+- TODO：iOS向unity发送消息

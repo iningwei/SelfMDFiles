@@ -16,7 +16,14 @@
 [remix官方文档](https://remix-ide.readthedocs.io/en/latest/index.html)
 [remix中文文档](https://remix-ide.readthedocs.io/zh-cn/latest/)
 
-推荐在remix中把LEARNETH的教程学一下，很详细。
+### 推荐在remix中把LEARNETH的教程学一下，很详细
+#### Remix Basics
+https://remix.ethereum.org/#lang=en&optimize=false&runs=200&evmVersion=null&version=soljson-v0.8.24+commit.e11b9ed9.js
+- Deploy面板合约函数按钮
+蓝色：pure或者view函数，不消耗gas
+橙色：消耗gas
+
+#### Intro to Solidity
 - 基本头结构
 ```
 // SPDX-License-Identifier: MIT
@@ -28,3 +35,7 @@ pragma solidity ^0.8.3;
 
 - address默认值
 0x0000000000000000000000000000000000000000
+
+
+## 20240306
+一个挺好的git学习资料：[WTF-Solidity](https://github.com/AmazingAng/WTF-Solidity)

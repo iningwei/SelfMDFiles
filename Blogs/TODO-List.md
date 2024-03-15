@@ -98,16 +98,49 @@ https://gg.zip/SXF77
 
 
 twitter换个号，就叫0xGAN，做实盘
-twitter换个号，kol乱象，做曝光
-
-
-ACH KEY CFX
+twitter换个号，kol乱象，做曝光 
 
 
 
-https://blog.csdn.net/floenrce/article/details/134807160?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-134807160-blog-125907069.235%5Ev43%5Epc_blog_bottom_relevance_base5&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-134807160-blog-125907069.235%5Ev43%5Epc_blog_bottom_relevance_base5&utm_relevant_index=2
+## mirror l2
+BTC最新2层项目Mirror L2，Conflux技术和参与投资的BTC L2，昨天刚官宣，大家先把任务做起来，赚积分，兑换MIRR Token，40%的代币给用户。
+
+Mirror L2 是一个去中心化的权益证明 (POS) BTC L2 网络
+
+官推宣布获得 UTXO（比特币杂志投资部门）、Conflux 和 IMO Ventures 的种子轮投资，团队成员来自微软、谷歌、麻省理工学院等；
+
+目前有节点选举及积分任务（官推粉丝才几百人，非常早期）👇：
+1, 进入 https://mirrorl2.com?danjyKav
+2, 点击网页上面的User campaign 按钮，完成链接推特、转发推文和加入电报群的活动，免费领3个积分，后期可以兑换Token.
 
 
 
-https://blog.csdn.net/qq_43331089/article/details/128876896?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0-128876896-blog-134807160.235^v43^pc_blog_bottom_relevance_base5&spm=1001.2101.3001.4242.1&utm_relevant_index=3
- 
+Mirror L2，Conflux技术和参与投资的BTC L2，昨天刚官宣，大家先把任务做起来，赚积分。
+有节点选举及积分任务（非常早期）👇：
+1, 进入 https://mirrorl2.com/?danjyKav
+2, 点击网页上面的User campaign 按钮，完成链接推特、转发推文和加入电报群的活动，免费领13个积分，后期可以兑换Token.
+
+
+
+
+
+MIRROR is the best BTC Layer 2 project 🚀
+
+It was invested by Bitcoin Magazine (more 3.1m Followers), Conflux …
+
+Founded by Team who came from Microsoft, Google, Samsung, … 
+
+Lets join our Airdrop program by access: 
+
+https://mirrorl2.com/?danjyKav
+
+
+## DBC TASKON任务
+dbc钱包：wallet.dbcglobal.io
+
+email:215598028
+password:1xxxxxxxx8
+inputName:zhoudagou
+dbc钱包地址：5D7CAD7WyBRdxws53xUxgf4ronQNbvqgVKUfBrkg41AbzYmc
+
+做了taskon任务
