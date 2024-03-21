@@ -217,13 +217,13 @@ meta v2协议流程
 3，玩家主动切换地图场景：C2SChangeMap（PosId暂时没用上）
 ```
 - mac机器配置开发环境
-- TODO：导表工具要增加遇到同名sheet，弹出提示的功能
+- （已处理）TODO：导表工具要增加遇到同名sheet，弹出提示的功能
 
 
 
 # 2024年3月12日     星期二
-- TODO：mac cocoapods环境配置
-- TODO：mac vpn配置
+- （已处理）TODO：mac cocoapods环境配置
+- （已处理）TODO：mac vpn配置
 
 # 2024年3月14日     星期四
 - TODO:统一安卓和ios sdk接口名称
@@ -233,3 +233,40 @@ meta v2协议流程
    
 # 2024年3月15日     星期五
 - TODO：iOS向unity发送消息
+
+
+# 2024年3月16日     星期六
+- 今天过来加班
+- （已处理）TODO：一键打所有窗口ab工具
+- （已处理）TODO：导表工具，导出时，先删除tmp目录下所有文件
+- （已处理）TODO：UniWebView插件.a文件svn未提交成功，导致iOS打包报错：Undefined symbol
+   - 相关可以blog一下
+   
+   
+   
+# 2024年3月18日     星期一
+- TODO：变体收集工具，需要排除当前渲染管线不支持的shader对应的mat。或者根据当前shaderlist的shader来筛选
+
+- （已处理）TODO:iOS右下角trail version
+- （已处理）TODO:去除unity启动图标
+- iOS上有些页面中文乱码：原因是脚本里面的中文乱码了，是编码的问题，中文字符串代码在mac中已乱码
+- （已处理）TODO：打包首次启动，若用的wifi，则未弹出网络使用的提示选择框，导致后续http请求无返回。目前解决办法是切到流量，强制弹出后即可。
+
+- （已处理）TODO:登录 S2CAccountLogin 相关报错处理
+- （已处理）TODO：MessageBox增加参数，控制显示几个按钮。主要用于LoginService登录错误，需要重启，只需要显示一个确认按钮。以及是否需要显示右上叉叉按钮
+
+
+# 2024年3月19日     星期二
+- 昨天加班到晚上9点过，今天上午9点50多打的卡
+- TODO：从框架中移除lua相关
+- TODO：客户端框架升级，适当降低 ShowWindow 传参的数量
+
+
+
+# 2024年3月20日     星期三
+- 昨天加班到晚上9点过，今天上午10点01打的卡
+- TODO：新帐号系统逻辑
+
+
+# 2024年3月21日     星期四
+- iOS上测试热更新

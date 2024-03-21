@@ -115,10 +115,10 @@ Mirror L2 是一个去中心化的权益证明 (POS) BTC L2 网络
 
 
 
-Mirror L2，Conflux技术和参与投资的BTC L2，昨天刚官宣，大家先把任务做起来，赚积分。
+0撸的空投，比特币L2:Mirror L2，Conflux技术参与投资的BTC L2，昨天刚官宣，大家先把任务做起来，赚积分。
 有节点选举及积分任务（非常早期）👇：
 1, 进入 https://mirrorl2.com/?danjyKav
-2, 点击网页上面的User campaign 按钮，完成链接推特、转发推文和加入电报群的活动，免费领13个积分，后期可以兑换Token.
+2, 点击网页上面的User campaign 按钮，完成链接推特、转发推文和加入电报群以及投票的活动，免费领13个积分，后期可以兑换Token.
 
 
 
