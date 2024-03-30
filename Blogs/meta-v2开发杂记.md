@@ -269,4 +269,39 @@ meta v2协议流程
 
 
 # 2024年3月21日     星期四
-- iOS上测试热更新
+- TODO：iOS上测试热更新
+- TODO：文哥HTTP协议改密码和注销帐号
+
+
+# 2024年3月23日     星期六
+- 今天加班
+- 抗机器人验证
+- TODO：重构窗体link这块的逻辑
+
+# 2024年3月25日     星期一
+- （已处理）TODO：iOS热更程序集调用DllImport的函数报错：Method body is null
+   - 把通过 DllImport 调用iOS原生方法的接口统一移到SDKExt.cs中，并添加程序集SDKExt。然后设置程序集SDKExt.cs作为GameEntry程序集的引用程序集。
+   - 本项目热更程序集为：Assembly-CSharp，其它程序集都为非热更程序集
+   - 目前只找到通过把相关代码移到非热更程序集来解决的方法，导致的结果就是这些接口无法热更了。
+- （已处理）TODO：解决iOS下GameEntry启动后，需要拉serverlist.json而此时网络未确权的问题
+   - TODO：android上还要多测试几个机型，网络是否通使用的是unity的api，这个貌似在某些机型上不可用   
+- TODO：断线重连的测试
+- 实现PageView
+- 解决nest scrollRect，外层不响应的问题
+
+
+# 2024年3月26日     星期二
+- Window和WindowManager重构，优化Linkwindow逻辑
+- (已处理)TODO：测试下Linkwindow这块功能
+
+
+# 2024年3月29日     星期五
+- 热更新GameEntry一些逻辑处理：跳转下载界面
+- 安卓keystore设置
+- (已处理)TODO：白名单
+- TODO：接入iOS支付
+
+
+# 2024年3月30日     星期六
+- 周六加班
+- “我的”一级界面拼图
