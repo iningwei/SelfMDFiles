@@ -305,3 +305,13 @@ meta v2协议流程
 # 2024年3月30日     星期六
 - 周六加班
 - “我的”一级界面拼图
+
+
+# 2024年4月1日     星期一
+- 拼地址界面，以及选择行政区划相关逻辑
+
+# 2024年4月2日     星期二
+- 拼个人信息界面和逻辑
+- TODO：copy功能；图片保存
+   - 图片保存目前暂定使用：[UnityNativeGallery](https://github.com/yasirkula/UnityNativeGallery)
+- TODO：往项目里面集成美洽SDK
