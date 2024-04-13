@@ -312,6 +312,37 @@ meta v2协议流程
 
 # 2024年4月2日     星期二
 - 拼个人信息界面和逻辑
-- TODO：copy功能；图片保存
+- TODO：copy功能：GUIUtility.systemCopyBuffer="content"
+- TODO：图片保存
    - 图片保存目前暂定使用：[UnityNativeGallery](https://github.com/yasirkula/UnityNativeGallery)
 - TODO：往项目里面集成美洽SDK
+
+# 2024年4月3日     星期三
+- 拼售卖记录界面
+- 拼订单记录界面
+
+# 2024年4月7日     星期日
+- 清明放假调休
+- 窗体自动代码工具
+
+# 2024年4月8日     星期一
+- TODO：美洽SDK在安卓上感叹号，发送不成功
+- (已处理)TODO：uniwebview安卓上打不开光武发的http的网址
+   - 报错：ERR_CLEARTEXT_NOT_PERMITTED
+   - 原因:Android9.0对未加密的流量不再信任，添加了新的限制。
+   - 解决办法:在Android 的mainfest.xml中的application添加一句配置：android:usesCleartextTraffic="true"
+- TODO：复制安卓测试成功，待测试ios
+- TODO：测试截屏保存图片到相册
+   - TODO:写按区域截图代码
+- 易宝支付实名相关逻辑 
+
+
+# 2024年4月9日     星期二
+
+
+# 2024年4月10日     星期三
+- 注册登录界面和逻辑
+
+
+# 2024年4月12日     星期四
+- 给易宝出申请正式商编的测试包

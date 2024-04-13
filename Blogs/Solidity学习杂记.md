@@ -1,3 +1,6 @@
+批量发放代币工具：https://bulksender.app/referral
+合约创建工具：https://github.com/OpenZeppelin
+
 ## 20240228 
 [学习 Solidity——智能合约开发手册](https://www.freecodecamp.org/chinese/news/learn-solidity-handbook/)
 
@@ -39,3 +42,6 @@ pragma solidity ^0.8.3;
 
 ## 20240306
 一个挺好的git学习资料：[WTF-Solidity](https://github.com/AmazingAng/WTF-Solidity)
+
+## 20240409
+另一个挺好的git学习资料：[solidity-expert](https://github.com/dukedaily/solidity-expert)
