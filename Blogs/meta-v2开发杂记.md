@@ -408,3 +408,5 @@ meta v2协议流程
 - 处理：OnHomeWindowClosed
 - 处理星域preview的释放
 - 处理星域preview的拖动预览
+
+- 再重新处理一下ScrollView的问题
