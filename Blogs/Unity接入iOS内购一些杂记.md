@@ -9,6 +9,7 @@
 我们按照公司营业执照，翻译为英文，填了后台地址。但是一直显示地址验证失败。 我们联系了苹果商务折腾了好几天也没给我们解决。
 
 偶尔在知乎上看到这个：
+
 ![](https://github.com/iningwei/SelfPictureHost/blob/master/Blog/2024/05/address%20fail2.png?raw=true)
 
 试了下，重新精简了下翻译，MD竟然通过了。
