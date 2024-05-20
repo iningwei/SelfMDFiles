@@ -1,7 +1,9 @@
 XCode11已不再自带Application Loader了。可以通过以下方式进行ipa的上传。
 - XCode构建ipa时直接上传
-在Archive出文件后，在Archive界面（Window->Organize）通过DistributeApp构建能上传AppStore的包时，在引导界面有一个选项是可以直接上传到Store的。
-这种方式在遇到卡顿，报错时不太好处理，又要重新打包构建，很耗时间
+在Archive出文件后，在Archive界面（XCode, Window->Organizer）通过DistributeApp构建能上传AppStore的包时，在引导界面有一个选项是可以直接上传到Store的。
+这种方式在遇到卡顿，报错时不太好处理，又要重新打包构建，很耗时间。
+
+补充：20240520笔者最近项目都使用XCode直接上传，开梯子后，基本很顺利！！！
 
 - 使用Transporter可视化APP
 在mac中下载该免费可视化上传工具，通过XCode构建出ipa，拖到该工具界面中即可上传。
@@ -21,10 +23,10 @@ $ xcrun altool --upload-app -f file -t platform -u username [-p password] [—ou
 参考文档：[谈一谈 IPA 上传到 App Store Connect 的几种方法](https://www.jianshu.com/p/7b76466e4bed)
 
 ## 补充
-1，上传完成后appstoreconnect界面不显示上传的包
-一般需要等待个半个小时左右，估计上传后苹果还有一道审核机制，无论成功还是失败都会给你发送邮件的，关注邮件即可。
+1，上传完成后App Store Connect选择构建项目时，没有上传的包
+一般需要等待个半个小时左右，估计上传后苹果还有一道自动查验包体的审核机制，无论成功还是失败都会给你发送邮件的，关注邮件即可。
 成功后的邮件内容如：
 ![](https://raw.githubusercontent.com/iningwei/SelfPictureHost/master/Blog/20220609111634.png)
-2，appstoreconnect如何构建 
+2，App Store Connect如何构建 
 ![](https://raw.githubusercontent.com/iningwei/SelfPictureHost/master/Blog/20220609111741.png)
 如图在包体上传成功后这里会有个+号，点击后即可选择目标版本进行构建
