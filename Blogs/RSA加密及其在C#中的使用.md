@@ -10,7 +10,7 @@ C#使用公钥对上行byte[]类型数据进行加密，服务端Java使用私�
 ## 过程
 1，Java服务端开发人员给到客户端这边公、私钥（之所以给了私钥是方便客户端这边自己来测试）
 
-2，C#客户端这边发现Java给到的公私钥，客户端这边并不能直接用。C#支持的公私钥格式有点类似XML格式。
+2，C#客户端这边发现Java给到的公私钥，客户端这边并不能直接用。笔者Unity开发，当前的.NET库只支持XML格式类型的公私钥。
 
 比如Java公钥，其在C#中对应的格式如下：
 ```csharp
@@ -217,3 +217,34 @@ Console.ReadLine();
 [RSA非对称加密算法实现：C#](https://www.cnblogs.com/shanfeng1000/p/14840055.html)
 [密码学基础1：RSA算法原理全面解析](https://www.jianshu.com/p/6aa7b59be872)
 [密码学基础3：密钥文件格式完全解析](https://www.jianshu.com/p/ce7ab5f3f33a)
+
+
+
+## 补充
+```csharp
+ //密钥长度2048，密钥格式PKCS8 的RSA公钥，转换为DotNet直接支持的XML密钥格式
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pkcs8PublicKey">头尾标记需要完整带上</param>
+        /// <returns></returns>
+        public static string RSAPublicKeyPKCS8ToDotNetXML(string pkcs8PublicKey)
+        {
+            PemReader pemReader = new PemReader(new StringReader(pkcs8PublicKey));
+            AsymmetricKeyParameter keyParameter = (AsymmetricKeyParameter)pemReader.ReadObject();
+            RSAParameters rsaParameters = DotNetUtilities.ToRSAParameters((RsaKeyParameters)keyParameter);
+
+            using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider())
+            {
+                rsa.ImportParameters(rsaParameters);
+                return rsa.ToXmlString(false);  // false to get public key only
+            }
+        }
+```
+
+使用：
+```csharp
+string pkcs8 = "-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAro2oR1m4XuHiGswl9B+hFhLyph5JDBMRbShcYI8uoyzWTK1yVxbAnBGNw+RLIRgVbRZSvFSwFLhc4iUV9o5sg1hhQ04NaQ9pZn7Jen/Go1PFfp9FS6a6J+e/Hbi4ZBSY3Eu7dLPQo43C7Lv57I/vHHW+Qkvw8Y9PfBCZxjGrJhStv+iCPywCttblydpg9qXcRSbRTD/orBkpjx+VF6M/XOGg/K8264EUTI2l8W/HvgaEeWo1lf++eFl9Dj+EmjkM1zxn/s+Cnh63zgbmWVI8vdLdRvkVtjBUZD6gpn36bRHiYo1pShc4LzvTFvf9PgYAcdM4sa6xj8SFdGYlU1cX5wIDAQAB-----END PUBLIC KEY-----";
+string xml = RSAKeyConvert.RSAPublicKeyPKCS8ToDotNetXML(pkcs8);
+Console.WriteLine("donet support xml-format key:" + xml);
+```
