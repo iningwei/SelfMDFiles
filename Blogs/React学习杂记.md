@@ -1,7 +1,7 @@
 官方教程：[React Tutorial](https://react-tutorial.app/)
 
 github上一个30天教程：[30-days-of-react](https://github.com/fullstackreact/30-days-of-react)
-
+中文翻译版本：https://segmentfault.com/a/1190000010465254
 
 
 
