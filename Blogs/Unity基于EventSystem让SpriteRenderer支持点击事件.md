@@ -3,7 +3,7 @@
 场景主相机添加``Physics2DRaycaster``组件，并妥善设置其EventMask属性。
 
 
-为SpriteRenderer物体添加``BoxCollider2D``碰撞体组件，否则其接受不到射线检测。
+为SpriteRenderer物体添加诸如``BoxCollider2D``等碰撞体组件，否则其接受不到射线检测。
 
 下面扩展一个SpriteRendererButton组件，并添加到SpriteRenderer物体上：
 ```csharp
